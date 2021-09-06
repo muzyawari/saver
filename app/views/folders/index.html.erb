@@ -1,0 +1,13 @@
+<h1>TEST</h1>
+
+<div id = "folder-container" class = "col-3">
+<h1><%= link_to "Add a Folder", new_folder_path() %><br></h1>
+
+ <% @folders.each do |folder| %>
+  <div id = "folder-card" class="card">
+      <% if (folder.user_id == current_user.id) %>
+        <h2><%= "Folder: #{folder.name}" %></h2>
+      <% end %>
+  </div>
+<% end %>
+</div>
