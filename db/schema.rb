@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_09_06_040512) do
     t.string "title"
     t.text "description"
     t.datetime "date"
-    t.integer "completee"
+    t.integer "completed"
     t.boolean "is_event"
     t.integer "position"
     t.datetime "created_at", precision: 6, null: false
@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2021_09_06_040512) do
     t.datetime "dob"
     t.integer "phone"
     t.string "gender"
-    t.integer "user_type"
     t.string "user_img"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
