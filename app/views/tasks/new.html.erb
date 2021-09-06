@@ -1,0 +1,11 @@
+
+<div id = "task" class = "card">
+<%= simple_form_for [@section, @task] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :date %>
+  <%= f.input :is_event %>
+  <%= f.input :completed, collection: Task.completeds.keys %>
+  <%= f.submit %>
+<% end %>
+</div>
