@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.datetime :date
-      t.integer :completee
+      t.integer :completed
       t.boolean :is_event
       t.integer :position
 

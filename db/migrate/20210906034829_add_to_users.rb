@@ -5,7 +5,6 @@ class AddToUsers < ActiveRecord::Migration[6.1]
     add_column :users, :dob, :datetime
     add_column :users, :phone, :integer
     add_column :users, :gender, :string
-    add_column :users, :user_type, :integer
     add_column :users, :user_img, :string
   end
 end
