@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:update, :destroy]
+  before_action :find_task, only: [:create, :destroy]
 
   def new
     @task = Task.new
     @section = Section.find(params[:section_id])
+
   end
 
   def create
@@ -15,6 +16,7 @@ class TasksController < ApplicationController
     else
       render :new
     end
+
   end
 
   def destroy
@@ -30,5 +32,6 @@ class TasksController < ApplicationController
 
   def find_task
     @task = Task.find(params[:id])
+    @section = Section.find(params[:section_id])
   end
 end
