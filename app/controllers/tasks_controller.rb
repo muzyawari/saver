@@ -3,14 +3,20 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    @task.section = Section.find(params[:section_id])
+    @section = Section.find(params[:section_id])
+
   end
 
   def create
+    @section = Section.find(params[:section_id])
     @task = Task.new(task_params)
-    @task.save
     @task.section = @section
-    redirect_to task_path(@task)
+    if @task.save
+      redirect_to folders_path(@task)
+    else
+      render :new
+    end
+
   end
 
   def destroy
