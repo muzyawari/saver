@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :sections, only: [:create, :new]
   end
   resources :sections, only: [:destroy, :update] do
-    resources :tasks, only: [:create, :new]
+    resources :tasks, only: [:index, :create, :new]
     resources :timers, only: [:create, :new]
     resources :bookmarks, only: [:create, :new]
   end

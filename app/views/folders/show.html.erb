@@ -9,17 +9,12 @@
   <%= link_to "Delete",
                     section_path(section),
                     method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
-  <% case section.section_type %>
-  <% when "todo"%>
-    <%= Task.where(section_id: section.id).first.title %>
-    <%= Task.where(section_id: section.id).first.description %>
-    <%= Task.where(section_id: section.id).first.date.strftime("%d %B") %>
-   <h3><%= link_to "Add a task", new_section_task_path(section)%><br></h3>
-   <% when "bookmark"%>
-
-   <h3><%= link_to "Add a bookmark!!!", new_section_bookmark_path(section)%><br></h3>
-   <% when "timer"%>
-   <h3><%= link_to "Add a timer", new_section_timer_path(section)%><br></h3>
-   <% end %></div>
-  <% end %>
+                    data: { confirm: "Are you sure?" } %></p>  
+      <%# <%=@tasks.title %>
+      <%#<%= @tasks.description %>
+      <%#<%= @tasks.date.strftime("%d %B") %> 
+  <h3><%= link_to "Add a task", new_section_task_path(section)%><br></h3> 
+  <h3><%= link_to "Add a bookmark!!!", new_section_bookmark_path(section)%><br></h3>
+  <h3><%= link_to "Add a timer", new_section_timer_path(section)%><br></h3>
+</div>
+<% end %>
