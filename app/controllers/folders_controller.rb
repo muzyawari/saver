@@ -7,20 +7,28 @@ class FoldersController < ApplicationController
 
   def show
     @folder = Folder.find(params[:id])
-    @sections = Section.all
+    @sections = Section.where(folder: @folder)
+    # @tasks = Task.all
+    # @tasks_hash = {}
+    # @sections.each do |section|
+    #   @tasks.each do |task|
+    #     if task.section_id == section.id
+    #       @tasks_hash[:section] == []
+    #     end
+    #   end
+    # end
+    # raise
+    # @bookmarks = Bookmark.all
+    # @timers = Timer.all
     @tasks = {}
     @bookmarks = {}
     @timers = {}
     @sections.each do |section|
-      @tasks[:id] = section.id
-      @tasks[:section] = section.section_type
-      @tasks[:task] = Task.where(section: section)
-      @bookmarks[:id] = section.id
-      @bookmarks[:section] = section.section_type
-      @bookmarks[:bookmarks] = Bookmark.where(section: section)
-      @timers[:id] = section.id
-      @timers[:section] = section.section_type
-      @timers[:timers] = Timer.where(section: section)
+      # @tasks[:id] = section.id
+      # @tasks[:section] = section.section_type
+      @tasks[section.id] = Task.where(section: section)
+      @bookmarks[section.id] = Bookmark.where(section: section)
+      @timers[section.id] = Timer.where(section: section)
     end
   end
 

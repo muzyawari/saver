@@ -1,31 +1,32 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:create, :destroy]
-
   def index
     @section = Section.find(params[:section_id])
     @tasks = Task.where(section: @section)
   end
 
   def new
-    @task = Task.new
     @section = Section.find(params[:section_id])
+    @task = Task.new
   end
 
   def create
     @section = Section.find(params[:section_id])
+    @folder = Folder.find(@section.folder_id)
     @task = Task.new(task_params)
     @task.section = @section
     if @task.save
-      redirect_to folders_path(@task)
+      redirect_to @folder
     else
       render :new
     end
-
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    @section = Section.find(@task.section_id)
+    @folder = Folder.find(@section.folder_id)
     @task.destroy
-    redirect_to root_path(@task)
+    redirect_to @folder
   end
 
   private
