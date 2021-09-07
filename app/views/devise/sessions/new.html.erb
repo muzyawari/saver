@@ -3,7 +3,11 @@
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <br>
-        <h1>SAVER</h1>
+        <div class="home-banner">
+          <h1 id="dynamic-text">
+            <span id="banner-typed-text"></span>
+          </h1>
+        </div>
         <div class = "logo">
           <%= image_tag("saver.png") %>
         </div>
