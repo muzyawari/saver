@@ -1,0 +1,25 @@
+<div>
+  <% @sections.each do |section| %>
+    <div class = "card">
+      <h1><%= section.section_type %></h1>
+      <% if section.section_type = "todo" %>
+        <% @tasks[section.id].each do |task| %>
+          <h3><%= task.title %></h3>
+          <p><%= task.description %></p>
+          <p><%= task.date %></p>
+          <p><%= task.completed %></p>
+          <%= link_to "Delete",
+                    task_path(task.id),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+        <br>
+      <% end %>
+      <p><%= link_to "Add a task", new_section_task_path(section)%><br>
+        <%= link_to "Delete",
+                    section_path(section),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+    <% end %>
+  </div>
+<% end %>
+</div>
