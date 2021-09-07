@@ -6,20 +6,10 @@ class FoldersController < ApplicationController
   end
 
   def show
+    @folders = Folder.all
     @folder = Folder.find(params[:id])
     @sections = Section.where(folder: @folder)
-    # @tasks = Task.all
-    # @tasks_hash = {}
-    # @sections.each do |section|
-    #   @tasks.each do |task|
-    #     if task.section_id == section.id
-    #       @tasks_hash[:section] == []
-    #     end
-    #   end
-    # end
-    # raise
-    # @bookmarks = Bookmark.all
-    # @timers = Timer.all
+
     @tasks = {}
     @bookmarks = {}
     @timers = {}
