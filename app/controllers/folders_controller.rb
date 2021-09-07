@@ -9,13 +9,10 @@ class FoldersController < ApplicationController
     @folders = Folder.all
     @folder = Folder.find(params[:id])
     @sections = Section.where(folder: @folder)
-
     @tasks = {}
     @bookmarks = {}
     @timers = {}
     @sections.each do |section|
-      # @tasks[:id] = section.id
-      # @tasks[:section] = section.section_type
       @tasks[section.id] = Task.where(section: section)
       @bookmarks[section.id] = Bookmark.where(section: section)
       @timers[section.id] = Timer.where(section: section)
