@@ -24,8 +24,9 @@ class SectionsController < ApplicationController
   end
 
   def destroy
+    @folder = Folder.find(@section.folder_id)
     @section.destroy
-    redirect_to root_path
+    redirect_to @folder
   end
 
   private
