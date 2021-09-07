@@ -3,7 +3,10 @@
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <br>
-        <h2>Login</h2>
+        <h1>SAVER</h1>
+        <div class = "logo">
+          <%= image_tag("saver.png") %>
+        </div>
         <br>
         <%= f.input :email,
                 required: false,

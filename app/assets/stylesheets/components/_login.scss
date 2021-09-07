@@ -5,9 +5,10 @@
 // }
 #main {
   height: 100vh;
-  background: url("https://wallpapercave.com/download/wallpaper-gif-wp2757852")
+  background: url("https://i.redd.it/ltkuau5stxl71.png")
     fixed no-repeat;
   background-size: cover;
+  object-fit: cover;
 }
 #container {
   width: 350px;
@@ -31,13 +32,11 @@
   bottom: 0;
   right: 0;
   background: inherit;
-  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 200px #3637405d;
   filter: blur(10px);
 }
 #main form img {
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
+  height: 30px;
 }
 #main form {
   text-align: center;
@@ -46,6 +45,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
 #main input {
   background: 0;
   width: 200px;
@@ -71,6 +71,15 @@
 #main input[type="submit"]:hover {
   background: #c0392b;
 }
+
+#main {
+  color: white
+}
+
+#main a{
+  color: white
+}
+
 span a {
   color: rgba(255, 255, 255, 0.8);
 }
