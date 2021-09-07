@@ -3,13 +3,13 @@
   <h3><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %><br></h3>
   <h3><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %><br></h3>
 </div>
-<%# Tasks Sections %>
 <div class="container section">
   <% @sections.each do |section| %>
+    <%# Task Section Cards %>
     <div class = "card">
       <% if section.section_type == "todo" %>
         <br>
-        <h1><%= section.section_type %></h1>
+        <h1><%= section.section_type.capitalize %></h1>
         <br>
         <% @tasks[section.id].each do |task| %>
           <h3><%= task.title %></h3>
@@ -29,9 +29,11 @@
                     data: { confirm: "Are you sure?" } %></p>
       <% end %>
     </div>
+    
+    <%# Bookmark Section Cards %>
     <div class = "card">
       <% if section.section_type == "bookmark" %>
-        <h1><%= section.section_type %></h1>
+        <h1><%= section.section_type.capitalize %></h1>
         <% @bookmarks[section.id].each do |bookmark| %>
           <h3><%= bookmark.name %></h3>
           <p><%= bookmark.url %></p>
@@ -48,35 +50,34 @@
                       data: { confirm: "Are you sure?" } %></p>
         <% end %>
     </div>
+
+    <%# Timer Section Card %>
+    <%# Ideally there should be just one Timer per section unlike TODOs and Bookmarks %>
     <div class = "card">
       <% if section.section_type == "timer" %>
-        <h1><%= section.section_type %></h1>
+        <h1><%= section.section_type.capitalize %></h1>
         <% @timers[section.id].each do |timer| %>
           <h3><%= timer.name %></h3>
           <div class="timer">
             <div class="timer__controls">
-              <button data-time="20" class="timer__button">20 Secs</button>
-              <button data-time="300" class="timer__button">Work 5</button>
-              <button data-time="900" class="timer__button">Quick 15</button>
-              <button data-time="1200" class="timer__button">Snack 20</button>
-              <button data-time="3600" class="timer__button">Lunch Break</button>
+              <button data-time="0" class="timer__button">Reset</button>
+              <button data-time="60" class="timer__button">60 Secs</button>
+              <button data-time="300" class="timer__button">5 Mins</button>
+              <button data-time="900" class="timer__button">15 Mins</button>
               <form name="customForm" id="customForm">
-                <input type="text" name="minutes" placeholder="Enter Minutes">
+                <input type="text" name="minutes" placeholder="Enter Minutes" class="timer__button">
               </form>
             </div>
+            <br>
             <div class="display">
               <h1 class="display__time-left"></h1>
               <p class="display__end-time"></p>
             </div>
           </div>
-          <%= link_to "Delete",
-                      timer_path(timer.id),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } %></p>
           <br>
         <% end %>
-        <% if section.timer.exists? %>
-          <p><%= link_to "Add a timer", section_timers_path(section), method: :post<br> %>
+        <% if section.timers.length == 0  %>
+          <%= link_to "Add a timer", section_timers_path(section), method: :post %>
         <% end %>
         <%= link_to "Delete This Section",
                         section_path(section),

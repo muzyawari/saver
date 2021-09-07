@@ -1,0 +1,44 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer__controls {
+  display: flex;
+}
+
+.timer__controls > * {
+  flex: 1;
+}
+
+.timer__controls form {
+  flex: 1;
+  display: flex;
+}
+
+.timer__controls input {
+  flex: 1;
+}
+
+.timer__button {
+  background-color: #605D5D;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  border-right: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.timer__button:hover,
+.timer__button:focus {
+  background: rgba(0,0,0,0.2);
+}
+.card {
+  background-color: #605D5D;
+}
+.card a {
+  color: white;
+}

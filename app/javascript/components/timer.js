@@ -2,7 +2,7 @@ let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 
-function timer(seconds) {
+const timer = (seconds) => {
   // clear any existing timers
   clearInterval(countdown);
 
@@ -23,7 +23,7 @@ function timer(seconds) {
   }, 1000);
 }
 
-function displayTimeLeft(seconds) {
+const displayTimeLeft = (seconds) => {
   const minutes = Math.floor(seconds / 60);
   const remainderSeconds = seconds % 60;
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
@@ -31,7 +31,7 @@ function displayTimeLeft(seconds) {
   timerDisplay.textContent = display;
 }
 
-function displayEndTime(timestamp) {
+const displayEndTime = (timestamp) => {
   const end = new Date(timestamp);
   const hour = end.getHours();
   const adjustedHour = hour > 12 ? hour - 12 : hour;
