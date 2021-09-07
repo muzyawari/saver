@@ -1,0 +1,6 @@
+<div class="card-container">
+  <h4><%= @task.folder.name %></h4>
+  <% @tasks.each do |task| %>
+  <%= task.completed %><%= task.title %>
+  <% end %>
+</div>
