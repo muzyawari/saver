@@ -1,4 +1,3 @@
-
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
     <a id="logo" href="<%= root_path %>">SAVER | HOME</a>
@@ -118,17 +117,15 @@
                       </ul>
                       <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>
                     </div>
-                    <div>
-                      <%= link_to "Delete This Section",
+                    <%= link_to "Delete This Section",
                     section_path(section),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
-                  </div>
                 <% end %>
               </div>
             </div>
-            <div class = "card">
-              <% if section.section_type == "bookmark" %>
+            <% if section.section_type == "bookmark" %>
+              <div class = "card">
                 <h1><%= section.section_type %></h1>
                 <% @bookmarks[section.id].each do |bookmark| %>
                   <h3><%= bookmark.name %></h3>
@@ -144,10 +141,10 @@
                     section_path(section),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
-            <% end %>
-          </div>
-          <div class = "card" >
-            <% if section.section_type == "timer" %>
+            </div>
+          <% end %>
+          <% if section.section_type == "timer" %>
+            <div class = "card" >
               <h1><%= section.section_type %></h1>
               <% @timers[section.id].each do |timer| %>
                 <h3><%= timer.name %></h3>
@@ -162,10 +159,9 @@
                     section_path(section),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
-
 </div>
