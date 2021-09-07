@@ -3,6 +3,15 @@ class FoldersController < ApplicationController
 
   def index
     @folders = Folder.all
+    @sections = Section.where(folder: @folder)
+    @tasks = {}
+    @bookmarks = {}
+    @timers = {}
+    @sections.each do |section|
+      @tasks[section.id] = Task.where(section: section)
+      @bookmarks[section.id] = Bookmark.where(section: section)
+      @timers[section.id] = Timer.where(section: section)
+    end
   end
 
   def show
