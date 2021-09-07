@@ -30,4 +30,11 @@ document.addEventListener('turbolinks:load', () => {
   buttons.forEach(button => button.addEventListener('click', (event) => {
     startTimer(event);
   }));
+  const check = document.querySelectorAll('.myCheck');
+  check.forEach(c => {
+    if (c.checked == true){
+      task.completed = "completed";
+    } else {
+      task.completed = "todo";
+    }});
 });

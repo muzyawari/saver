@@ -34,9 +34,9 @@
                         <% if (folder.user_id == current_user.id) %>
                           <h2><%= link_to "#{folder.name}", folder %></h2>
                           <%= link_to "Delete",
-                    folder_path(folder),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
+                                      folder_path(folder),
+                                      method: :delete,
+                                      data: { confirm: "Are you sure?" } %>
                         <% end %>
                       </div>
                     <% end %>
