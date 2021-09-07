@@ -1,13 +1,12 @@
 <% if user_signed_in? %>
   <h1>SAVER DASHBOARD</h1>
   <div id = "folder-container" class = "col-3">
-    <h1><%= link_to "Add a Folder", new_folder_path() %><br>
-    </h1>
+    <h2><%= link_to "+", new_folder_path() %><br>
+    </h2>
     <% @folders.each do |folder| %>
       <div id = "folder-card" class="card">
         <% if (folder.user_id == current_user.id) %>
-          <h2><%= "Folder: #{folder.name}" %></h2>
-          <%= link_to "Show", folder %>
+          <h2><%= link_to "#{folder.name}", folder %></h2>
           <%= link_to "Delete",
                     folder_path(folder),
                     method: :delete,
