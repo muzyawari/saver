@@ -1,9 +1,33 @@
-<div class ="section-container">
-          <h3><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %><br></h3>
-          <h3><%= link_to "Add a bookmark", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %><br></h3>
-          <h3><%= link_to "Add a timer", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %><br></h3>
-        </div>
-<% @folder.sections.each do |section| %>
-  <p><%= section.section_type %></p>
-
+<% if user_signed_in? %>
+  <div class ="section-container">
+    <h3><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %><br>
+    </h3>
+    <h3><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %><br>
+    </h3>
+    <h3><%= link_to "Add a timer container", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %><br>
+    </h3>
+  </div>
+  <% @folder.sections.each do |section| %>
+    <div class = "card">
+      <p><%= section.section_type %>
+        <%= link_to "Delete",
+                    section_path(section),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+      <% case section.section_type %>
+      <% when "todo"%>
+      <%= Task.where(section_id: section.id).first.title %>
+      <%= Task.where(section_id: section.id).first.description %>
+      <%= Task.where(section_id: section.id).first.date.strftime("%d %B") %>
+      <h3><%= link_to "Add a task", new_section_task_path(section)%><br>
+      </h3>
+      <% when "bookmark"%>
+      <h3><%= link_to "Add a bookmark!!!", new_section_bookmark_path(section)%><br>
+      </h3>
+      <% when "timer"%>
+      <h3><%= link_to "Add a timer", new_section_timer_path(section)%><br>
+      </h3>
+    </div>
   <% end %>
+<% end %>
+<% end %>
