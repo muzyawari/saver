@@ -22,11 +22,14 @@ ActiveStorage.start()
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { startTimer } from '../components/timer.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  const buttons = document.querySelectorAll('[data-time]');
+  buttons.forEach(button => button.addEventListener('click', (event) => {
+    startTimer(event);
+  }));
 });
 
 import { loadDynamicBannerText } from "../components/banner";

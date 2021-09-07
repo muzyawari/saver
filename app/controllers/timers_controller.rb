@@ -10,7 +10,7 @@ class TimersController < ApplicationController
     @timer = Timer.new(timer_params)
     @timer.section = @section
     if @timer.save
-      redirect_to @folder
+      redirect_to folder_path(@folder)
     else
       render :new
     end
@@ -27,6 +27,6 @@ class TimersController < ApplicationController
   private
 
   def timer_params
-    params.require(:timer).permit(:name)
+    params.permit(:name)
   end
 end
