@@ -8,12 +8,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -49,42 +43,42 @@
         <div class="tab-pane fade show active pt-3 pb-2" id="menu" role="tabpanel" aria-labelledby="menu-tab">
           <ul>
             <li>
-              <a href="#" class="d-flex align-items-center ml-4">
-                <i class="fas fa-tachometer-alt "></i>
-                <span class="menu-text flex-fill">Dashboard</span>
-              </a>
+              <a href="#" class="d-flex align-items-center ml-4"></a>
             </li>
             <li>
-              <a href="#" class="d-flex align-items-center ml-4">
-                <i class="far fa-gem"></i>
-                <% if user_signed_in? %>
-                  <div id = "folder-container" class = "menu-text flex-fill">
-                    <h2><%= link_to "+", new_folder_path() %><br>
-                    </h2>
-                    <% @folders.each do |folder| %>
-                      <div id = "folder-card" class="card">
-                        <% if (folder.user_id == current_user.id) %>
-                          <h2><%= link_to "#{folder.name}", folder %></h2>
-                          <%= link_to "Delete",
+              <a href="#dropdown-lvl1" class="d-flex align-items-center ml-4">
+                <i class="fas fa-tachometer-alt "></i>
+                <span class="menu-text flex-fill toggle-visibility">Dashboard</span>
+                <a href="#dropdown-lvl1" class="menu-text flex-fill toggle-visibility" data-toggle="collapse">Folders</a>
+              </a>
+            </li>
+            <li class="panel panel-default" id="dropdown">
+              <!-- Dropdown level 1 -->
+              <div id="dropdown-lvl1" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul class="nav navbar-nav">
+                    <li>
+                      <% if user_signed_in? %>
+                        <div id = "folder-container" class = "menu-text flex-fill">
+                          <h2><%= link_to "+", new_folder_path() %><br>
+                          </h2>
+                          <% @folders.each do |folder| %>
+                            <div id = "folder-card" class="card">
+                              <% if (folder.user_id == current_user.id) %>
+                                <h2><%= link_to "#{folder.name}", folder %></h2>
+                                <%= link_to "Delete",
                     folder_path(folder),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %>
-                        <% end %>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="d-flex align-items-center ml-4">
-                <i class="fa fa-globe"></i>
-                <span class="menu-text flex-fill">Bookmarks</span>
-              </a>
-            </li>
+                              <% end %>
+                            </div>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </ul>
-        </div>
-      </div>
-    </div>
-  </aside>
-</div>
+        </aside>

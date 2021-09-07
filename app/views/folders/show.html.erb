@@ -43,16 +43,11 @@
         <div class="tab-pane fade show active pt-3 pb-2" id="menu" role="tabpanel" aria-labelledby="menu-tab">
           <ul>
             <li>
-              <a href="#" class="d-flex align-items-center ml-4">
-                <i class="fas fa-tachometer-alt "></i>
-                <span class="menu-text flex-fill">Dashboard</span>
-              </a>
-            </li>
-            <li>
               <a href="#" class="d-flex align-items-center ml-4"></a>
             </li>
             <li>
               <a href="#dropdown-lvl1" class="d-flex align-items-center ml-4">
+                <i class="fas fa-tachometer-alt "></i>
                 <span class="menu-text flex-fill toggle-visibility">Dashboard</span>
                 <a href="#dropdown-lvl1" class="menu-text flex-fill toggle-visibility" data-toggle="collapse">Folders</a>
               </a>
@@ -82,86 +77,95 @@
                       <% end %>
                     </li>
                   </ul>
+                  <br>
+                  <li>
+                    <p><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %>
+                    </p>
+                    <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %>
+                    </p>
+                    <p><%= link_to "Add a timer container", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
+                    </p>
+                  </li>
                 </div>
               </div>
             </div>
-          </aside>
-          <div class ="section-container ml-5 mt-5">
-            <h3><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %><br>
-            </h3>
-            <h3><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %><br>
-            </h3>
-            <h3><%= link_to "Add a timer container", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %><br>
-            </h3>
-            <%# Tasks Sections %>
-            <div class="section-container">
-              <div class = "todo-container">
-                <% @sections.each do |section| %>
+          </ul>
+        </aside>
+        <div class ="section-container ml-5">
+          <%# Tasks Sections %>
+          <div class="section-container">
+            <% @sections.each do |section| %>
+              <% if section.section_type == "todo" %>
+                <div class = "todo-container">
                   <div class="page-header">
                     <h1>My Tasks</h1>
                     <%= image_tag("bar.png") %>
                     <div class = "todo-card">
                       <ul class = "hide">
                         <li>
-                          <% if section.section_type == "todo" %>
-                            <% @tasks[section.id].each do |task| %>
-                              <%= "#{task.title} - " %>
-                              <%= link_to "Delete",
+                          <% @tasks[section.id].each do |task| %>
+                            <% if task.completed == "completed" %>
+                              <a class = "add" href="<%= %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
+                            <% else %>
+                              <a class = "add" href="<%= %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
+                            <% end %>
+                            <%= "#{task.title} - " %>
+                            <%= link_to "Delete",
                     task_path(task.id),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
-                            <% if task.completed == "completed" %>
-                            <% end %>
-                          </li>
-                        <% end %>
-                      </ul>
-                      <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>
-                    </div>
-                    <%= link_to "Delete This Section",
+                          <% if task.completed == "completed" %>
+                          <% end %>
+                        </li>
+                      <% end %>
+                    </ul>
+                    <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>
+                  </div>
+                  <%= link_to "Delete This Section",
                     section_path(section),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
-                <% end %>
               </div>
             </div>
-            <% if section.section_type == "bookmark" %>
-              <div class = "card">
-                <h1><%= section.section_type %></h1>
-                <% @bookmarks[section.id].each do |bookmark| %>
-                  <h3><%= bookmark.name %></h3>
-                  <p><%= bookmark.url %></p>
-                  <%= link_to "Delete",
-                    bookmark_path(bookmark.id),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
-                <br>
-              <% end %>
-              <p><%= link_to "Add a bookmark", new_section_bookmark_path(section)%><br>
-                <%= link_to "Delete This Section",
-                    section_path(section),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
-            </div>
           <% end %>
-          <% if section.section_type == "timer" %>
-            <div class = "card" >
+          <% if section.section_type == "bookmark" %>
+            <div class = "card">
               <h1><%= section.section_type %></h1>
-              <% @timers[section.id].each do |timer| %>
-                <h3><%= timer.name %></h3>
+              <% @bookmarks[section.id].each do |bookmark| %>
+                <h3><%= bookmark.name %></h3>
+                <p><%= bookmark.url %></p>
                 <%= link_to "Delete",
-                    timer_path(timer.id),
+                    bookmark_path(bookmark.id),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
               <br>
             <% end %>
-            <p><%= link_to "Add a timer", new_section_timer_path(section)%><br>
+            <p><%= link_to "Add a bookmark", new_section_bookmark_path(section)%><br>
               <%= link_to "Delete This Section",
                     section_path(section),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
           </div>
         <% end %>
+        <% if section.section_type == "timer" %>
+          <div class = "card" >
+            <h1><%= section.section_type %></h1>
+            <% @timers[section.id].each do |timer| %>
+              <h3><%= timer.name %></h3>
+              <%= link_to "Delete",
+                    timer_path(timer.id),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+            <br>
+          <% end %>
+          <p><%= link_to "Add a timer", new_section_timer_path(section)%><br>
+            <%= link_to "Delete This Section",
+                    section_path(section),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
 </div>
