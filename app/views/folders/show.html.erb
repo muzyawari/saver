@@ -67,9 +67,9 @@
                               <% if (folder.user_id == current_user.id) %>
                                 <h2><%= link_to "#{folder.name}", folder %></h2>
                                 <%= link_to "Delete",
-                    folder_path(folder),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
+                                            folder_path(folder),
+                                            method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
                               <% end %>
                             </div>
                           <% end %>
@@ -83,7 +83,8 @@
                     </p>
                     <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %>
                     </p>
-                    <p><%= link_to "Add a timer container", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
+                    <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
+                    </p>
                     </p>
                   </li>
                 </div>
@@ -153,13 +154,27 @@
             <h1><%= section.section_type %></h1>
             <% @timers[section.id].each do |timer| %>
               <h3><%= timer.name %></h3>
-              <%= link_to "Delete",
-                    timer_path(timer.id),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
+              <div class="timer">
+              <div class="timer__controls">
+                <button data-time="0" class="timer__button">Reset</button>
+                <button data-time="60" class="timer__button">60 Secs</button>
+                <button data-time="300" class="timer__button">5 Mins</button>
+                <button data-time="900" class="timer__button">15 Mins</button>
+                <form name="customForm" id="customForm">
+                  <input type="text" name="minutes" placeholder="Enter Minutes">
+                </form>
+              </div>
+              <br>
+              <div class="display">
+                <h1 class="display__time-left"></h1>
+                <p class="display__end-time"></p>
+              </div>
+            </div>
             <br>
           <% end %>
-          <p><%= link_to "Add a timer", new_section_timer_path(section)%><br>
+          <% if section.timers.length == 0 %>
+            <p><%= link_to "Add a timer", new_section_timer_path(section) %><br>
+          <% end %>
             <%= link_to "Delete This Section",
                     section_path(section),
                     method: :delete,
