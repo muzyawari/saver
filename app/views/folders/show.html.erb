@@ -158,9 +158,6 @@
               <div class="timer">
               <div class="timer__controls">
                 <button data-time="0" class="timer__button">Reset</button>
-                <button data-time="60" class="timer__button">60 Secs</button>
-                <button data-time="300" class="timer__button">5 Mins</button>
-                <button data-time="900" class="timer__button">15 Mins</button>
                 <form name="customForm" id="customForm">
                   <input type="text" name="minutes" placeholder="Enter Minutes">
                 </form>
@@ -170,16 +167,20 @@
                 <h1 class="display__time-left"></h1>
                 <p class="display__end-time"></p>
               </div>
+              <div class="timer__controls">
+                <button data-time="60" class="timer__button">1 Min</button>
+                <button data-time="300" class="timer__button">5 Mins</button>
+                <button data-time="900" class="timer__button">15 Mins</button>
+              </div>
             </div>
-            <br>
           <% end %>
           <% if section.timers.length == 0 %>
-            <p><%= link_to "Add a timer", new_section_timer_path(section) %><br>
+            <p><%= link_to "Add a timer", new_section_timer_path(section) %></p><br>
           <% end %>
-            <%= link_to "Delete This Section",
-                    section_path(section),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
+          <%= link_to "Delete This Section",
+                      section_path(section),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
         </div>
       <% end %>
     <% end %>
