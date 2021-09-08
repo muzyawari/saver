@@ -23,6 +23,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { startTimer } from '../components/timer.js';
+import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -30,4 +31,20 @@ document.addEventListener('turbolinks:load', () => {
   buttons.forEach(button => button.addEventListener('click', (event) => {
     startTimer(event);
   }));
+  // const check = document.querySelectorAll('.myCheck');
+  // check.forEach(c => {
+  //   if (c.checked == true){
+  //     task.completed = "completed";
+  //   } else {
+  //     task.completed = "todo";
+  //   }});
+  initFlatpickr();
 });
+import { loadDynamicBannerText } from "../components/banner";
+
+document.addEventListener("turbolinks:load", () => {
+  // Call your JS functions here
+  // [...]
+  loadDynamicBannerText();
+});
+
