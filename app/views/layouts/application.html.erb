@@ -12,8 +12,8 @@
   </head>
   <body>
     <% unless current_page?(new_user_session_path) %>
-      <%= render "shared/navbar" %>
-      <%= render "shared/flashes" %>
+      <%= render 'shared/sidebar' %>
+      <%= render 'shared/flashes' %>
       <%= yield %>
     <% end %>
     <% if current_page?(new_user_session_path) %>
