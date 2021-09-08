@@ -1,29 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <a id="logo" href="<%= root_path %>">SAVER | HOME</a>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+
 <div class="wrapper d-flex h-100">
   <aside class="sidebar h-100">
     <div class="sidebar-section sidebar-header">
@@ -92,7 +67,7 @@
           </ul>
         </aside>
         <div class ="wrapper w-100 ml-5 mr-5" >
-          <%# Tasks Sections %>
+          <% # Tasks Sections %>
           <div id="section-container-left" class="mr-5">
             <% @sections.each do |section| %>
               <% if section.section_type == "todo" %>
@@ -106,85 +81,95 @@
                           <li>
                             <i class="fas fa-grip-lines mr-2"></i>
                             <% if task.completed == "completed" %>
-                              <a class = "add" href="<%= %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
+                              <a class = "add" href="<%=  %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
                             <% else %>
-                              <a class = "add" href="<%= %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
+                              <a class = "add" href="<%=  %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
                             <% end %>
                             <%= link_to task.title, edit_task_path(task) %>
-                            <%= link_to "Delete",
-                                        task_path(task.id),
-                                        method: :delete,
-                                        data: { confirm: "Are you sure?" } %></p>
+                              <div id = "task" class = "card">
+                               <%= simple_form_for task, html: { class: "d-none", data: { edit_movie_target: "form" } } do |f| %>
+                                  <%= f.input :title %>
+                                  <%= f.input :description %>
+                                  <%= f.input :date, as: :date, html5: true %>
+                                  <%= f.input :is_event %>
+                                  <%= f.input :completed, collection: Task.completeds.keys %>
+                                  <%= f.submit %>
+                                <% end %>
+                              </div>
+                              <%= link_to "Delete",
+                                          task_path(task.id),
+                                          method: :delete,
+                                          data: { confirm: "Are you sure?" } %></p>
+                            <% if task.completed == "completed" %>
+                            <% end %>
+                          </li>
                           <% if task.completed == "completed" %>
                           <% end %>
-                        </li>
-                        <% if task.completed == "completed" %>
                         <% end %>
-                      <% end %>
-                    </ul>
-                    <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>
-                  </div>
-                  <%= link_to "Delete This Section",
-                    section_path(section),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
+                      </ul>
+                      <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>
+                    </div>
+                    <%= link_to "Delete This Section",
+                                section_path(section),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" } %></p>
+                </div>
               </div>
-            </div>
-          <% end %>
-          <% if section.section_type == "bookmark" %>
-            <div class = "card">
-              <h1><%= section.section_type %></h1>
-              <% @bookmarks[section.id].each do |bookmark| %>
-                <h3><%= bookmark.name %></h3>
-                <p><%= bookmark.url %></p>
-                <%= link_to "Delete",
-                    bookmark_path(bookmark.id),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
-              <br>
             <% end %>
-            <p><%= link_to "Add a bookmark", new_section_bookmark_path(section)%><br>
-              <%= link_to "Delete This Section",
-                    section_path(section),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
-          </div>
-        <% end %>
-        <% if section.section_type == "timer" %>
-          <div class = "card" >
-            <h1><%= section.section_type %></h1>
-            <% @timers[section.id].each do |timer| %>
-              <h3 class="text-center"><%= timer.name %></h3>
-              <div class="timer">
-
-              <div class="timer__controls">
-                <button data-time="0" class="timer__button">Reset</button>
-                <form name="customForm" id="customForm">
-                  <input type="text" name="minutes" placeholder="Enter Minutes">
-                </form>
-              </div>
-              <br>
-              <div class="display">
-                <h1 class="display__time-left"></h1>
-                <p class="display__end-time"></p>
-              </div>
-              <div class="timer__controls">
-                <button data-time="60" class="timer__button">1 Min</button>
-                <button data-time="300" class="timer__button">5 Mins</button>
-                <button data-time="900" class="timer__button">15 Mins</button>
-              </div>
+            <% if section.section_type == "bookmark" %>
+              <div class = "card">
+                <h1><%= section.section_type %></h1>
+                <% @bookmarks[section.id].each do |bookmark| %>
+                  <h3><%= bookmark.name %></h3>
+                  <p><%= bookmark.url %></p>
+                  <%= link_to "Delete",
+                              bookmark_path(bookmark.id),
+                              method: :delete,
+                              data: { confirm: "Are you sure?" } %></p>
+                <br>
+              <% end %>
+              <p><%= link_to "Add a bookmark", new_section_bookmark_path(section) %><br>
+                <%= link_to "Delete This Section",
+                            section_path(section),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %></p>
             </div>
           <% end %>
-          <% if section.timers.length == 0 %>
-            <p><%= link_to "Add a timer", new_section_timer_path(section) %></p><br>
+          <% if section.section_type == "timer" %>
+            <div class = "card" >
+              <h1><%= section.section_type %></h1>
+              <% @timers[section.id].each do |timer| %>
+                <h3 class="text-center"><%= timer.name %></h3>
+                <div class="timer">
+                  <div class="timer__controls">
+                    <button data-time="0" class="timer__button">Reset</button>
+                    <form name="customForm" id="customForm">
+                      <input type="text" name="minutes" placeholder="Enter Minutes">
+                    </form>
+                  </div>
+                  <br>
+                  <div class="display">
+                    <h1 class="display__time-left"></h1>
+                    <p class="display__end-time"></p>
+                  </div>
+                  <div class="timer__controls">
+                    <button data-time="60" class="timer__button">1 Min</button>
+                    <button data-time="300" class="timer__button">5 Mins</button>
+                    <button data-time="900" class="timer__button">15 Mins</button>
+                  </div>
+                </div>
+              <% end %>
+              <% if section.timers.length == 0 %>
+                <p><%= link_to "Add a timer", new_section_timer_path(section) %></p>
+                <br>
+              <% end %>
+              <%= link_to "Delete This Section",
+                          section_path(section),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } %>
+            </div>
           <% end %>
-          <%= link_to "Delete This Section",
-                      section_path(section),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } %>
-        </div>
-
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
