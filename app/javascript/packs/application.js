@@ -23,22 +23,19 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { startTimer } from '../components/timer.js';
-import { timer } from '../components/timer.js';
+import { timer, startTimer } from '../components/timer.js';
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  loadDynamicBannerText();
+  
   initFlatpickr();
   const buttons = document.querySelectorAll('[data-time]');
-  // buttons.forEach(button => button.addEventListener('click', (event) => {
-  //   startTimer(event);
-  // }));
   buttons.forEach(button => button.addEventListener('click', (event) => {
-    const seconds = parseInt(event.currentTarget.dataset.time);
-    timer(seconds);
-  }
+    startTimer(event);
+  }));
+  loadDynamicBannerText();
 });
 
 document.customForm.addEventListener('submit', function(e) {

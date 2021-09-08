@@ -85,7 +85,6 @@
                     </p>
                     <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
                     </p>
-                    </p>
                   </li>
                 </div>
               </div>
@@ -152,7 +151,7 @@
           <div class = "card" >
             <h1><%= section.section_type %></h1>
             <% @timers[section.id].each do |timer| %>
-              <h3><%= timer.name %></h3>
+              <h3 class="text-center"><%= timer.name %></h3>
               <div class="timer">
               <div class="timer__controls">
                 <button data-time="0" class="timer__button">Reset</button>
