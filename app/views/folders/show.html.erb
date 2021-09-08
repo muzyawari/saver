@@ -91,9 +91,9 @@
             </div>
           </ul>
         </aside>
-        <div class ="section-container ml-5">
+        <div class ="wrapper w-100 ml-5 mr-5" >
           <%# Tasks Sections %>
-          <div class="section-container">
+          <div id="section-container-left" class="mr-5">
             <% @sections.each do |section| %>
               <% if section.section_type == "todo" %>
                 <div class = "todo-container">
@@ -101,9 +101,10 @@
                     <h1>My Tasks</h1>
                     <%= image_tag("bar.png") %>
                     <div class = "todo-card">
-                      <ul class = "hide">
-                        <li>
-                          <% @tasks[section.id].each do |task| %>
+                      <ul id="tasks-list">
+                        <% @tasks[section.id].each do |task| %>
+                          <li>
+                            <i class="fas fa-grip-lines mr-2"></i>
                             <% if task.completed == "completed" %>
                               <a class = "add" href="<%= %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
                             <% else %>
@@ -111,12 +112,12 @@
                             <% end %>
                             <%= "#{task.title} - " %>
                             <%= link_to "Delete",
-                    task_path(task.id),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
-                          <% if task.completed == "completed" %>
-                          <% end %>
+                                task_path(task.id),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" } %></p>
                         </li>
+                        <% if task.completed == "completed" %>
+                        <% end %>
                       <% end %>
                     </ul>
                     <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>

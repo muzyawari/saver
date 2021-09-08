@@ -1,14 +1,13 @@
-
 .todo-container {
   margin: 0 auto;
   margin-top: 40px;
+  flex-grow: 0;
   background-color: rgba(54, 55, 64, 255);
   color: white;
-  height: 100%;
   border-bottom-right-radius: 18px;
-      border-top-left-radius: 18px;
-        border-bottom-left-radius: 18px;
-      border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-top-right-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -22,7 +21,7 @@
   font-size: 3rem;
 }
 
-.hide a {
+#tasks-list a {
   color: rgb(255, 255, 255);
   font-size: 0.9375rem;
 }
@@ -42,12 +41,11 @@
   text-align: center;
 }
 
-.hide {
+#tasks-list {
   list-style: none;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-content: left;
+  li {
+    cursor: pointer;
+  }
 }
 
 .todo-card {
@@ -62,4 +60,17 @@
 #delete {
   color: rgb(166, 166, 166);
   font-style: italic;
+}
+
+#tasks-list li {
+  cursor: grab;
+}
+
+#tasks-list li:active {
+  cursor: grabbing;
+}
+
+#tasks-list li.ghost {
+  filter: grayscale(1);
+  opacity: 0.5;
 }

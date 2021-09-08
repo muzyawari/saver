@@ -20,3 +20,10 @@
 //   display : flex;
 //   flex-wrap: wrap;
 // }
+#section-container-left {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-gap: 10px;
+      background-color: #fff;
+      color: #444;
+}
