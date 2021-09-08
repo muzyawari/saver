@@ -110,7 +110,7 @@
                             <% else %>
                               <a class = "add" href="<%= %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
                             <% end %>
-                            <%= "#{task.title} - " %>
+                            <%= link_to task.title, edit_task_path(task) %>
                             <%= link_to "Delete",
                                         task_path(task.id),
                                         method: :delete,
@@ -156,6 +156,7 @@
             <% @timers[section.id].each do |timer| %>
               <h3 class="text-center"><%= timer.name %></h3>
               <div class="timer">
+
               <div class="timer__controls">
                 <button data-time="0" class="timer__button">Reset</button>
                 <form name="customForm" id="customForm">
@@ -182,8 +183,8 @@
                       method: :delete,
                       data: { confirm: "Are you sure?" } %>
         </div>
+
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
 </div>

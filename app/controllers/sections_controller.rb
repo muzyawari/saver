@@ -17,9 +17,13 @@ class SectionsController < ApplicationController
     end
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
   def update
-    @section = Section.find(params[:id])
-    @section.update(section_params)
+    @task = Task.find(params[:id])
+    @task.update(task_params)
     redirect_to root_path
   end
 
