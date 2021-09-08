@@ -1,1 +1,64 @@
 
+
+
+<div class="wrapper d-flex h-100">
+  <aside class="sidebar h-100">
+    <div class="sidebar-section sidebar-header">
+      <div class="d-flex  sidebar-logo text-center">
+        <a id="logo" href="<%= root_path %>">SAVER</a>
+        <div class = "logo ml-3">
+          <%= link_to image_tag("saver.png", height: "20"), root_path %>
+        </div>
+        <img src="" alt="">
+      </div>
+    </div>
+    <div class="searchbar mt-3 m-2">
+      <input class="search_input" type="text" name="" placeholder="Search Widgets...">
+    </div>
+    <div class="sidebar-section sidebar-menu p-0">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active pt-3 pb-2" id="menu" role="tabpanel" aria-labelledby="menu-tab">
+          <ul>
+            <li>
+              <a href="#" class="d-flex align-items-center ml-4"></a>
+            </li>
+            <li>
+              <a href="#dropdown-lvl1" class="d-flex align-items-center ml-4">
+                <i class="fas fa-tachometer-alt "></i>
+                <span class="menu-text flex-fill toggle-visibility">Dashboard</span>
+                <a href="#dropdown-lvl1" class="menu-text flex-fill toggle-visibility" data-toggle="collapse">Folders</a>
+              </a>
+            </li>
+            <li class="panel panel-default" id="dropdown">
+              <!-- Dropdown level 1 -->
+              <div id="dropdown-lvl1" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul class="nav navbar-nav">
+                    <li>
+                      <% if user_signed_in? %>
+                        <div id = "folder-container" class = "menu-text flex-fill">
+                          <h2><%= link_to "+", new_folder_path() %><br>
+                          </h2>
+                          <% @folders.each do |folder| %>
+                            <div id = "folder-card" class="card">
+                              <% if (folder.user_id == current_user.id) %>
+                                <h2><%= link_to "#{folder.name}", folder %></h2>
+                                <%= link_to "Delete",
+                                            folder_path(folder),
+                                            method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
+                              <% end %>
+                            </div>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </li>
+                  </ul>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </aside>
+  </div>
+s
