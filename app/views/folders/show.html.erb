@@ -110,7 +110,7 @@
                             <% else %>
                               <a class = "add" href="<%= %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
                             <% end %>
-                            <%= "#{task.title} - " %>
+                            <%= link_to task.title, edit_task_path(task) %>
                             <%= link_to "Delete",
                                         task_path(task.id),
                                         method: :delete,
@@ -156,33 +156,33 @@
             <% @timers[section.id].each do |timer| %>
               <h3 class="text-center"><%= timer.name %></h3>
               <div class="timer">
-              <div class="timer__controls">
-                <button data-time="0" class="timer__button">Reset</button>
-                <button data-time="60" class="timer__button">60 Secs</button>
-                <button data-time="300" class="timer__button">5 Mins</button>
-                <button data-time="900" class="timer__button">15 Mins</button>
-                <form name="customForm" id="customForm">
-                  <input type="text" name="minutes" placeholder="Enter Minutes">
-                </form>
+                <div class="timer__controls">
+                  <button data-time="0" class="timer__button">Reset</button>
+                  <button data-time="60" class="timer__button">60 Secs</button>
+                  <button data-time="300" class="timer__button">5 Mins</button>
+                  <button data-time="900" class="timer__button">15 Mins</button>
+                  <form name="customForm" id="customForm">
+                    <input type="text" name="minutes" placeholder="Enter Minutes">
+                  </form>
+                </div>
+                <br>
+                <div class="display">
+                  <h1 class="display__time-left"></h1>
+                  <p class="display__end-time"></p>
+                </div>
               </div>
               <br>
-              <div class="display">
-                <h1 class="display__time-left"></h1>
-                <p class="display__end-time"></p>
-              </div>
-            </div>
-            <br>
-          <% end %>
-          <% if section.timers.length == 0 %>
-            <p><%= link_to "Add a timer", new_section_timer_path(section) %><br>
-          <% end %>
-            <%= link_to "Delete This Section",
+            <% end %>
+            <% if section.timers.length == 0 %>
+              <p><%= link_to "Add a timer", new_section_timer_path(section) %><br>
+              <% end %>
+              <%= link_to "Delete This Section",
                     section_path(section),
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
-        </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
 </div>
