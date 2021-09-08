@@ -112,9 +112,9 @@
                             <% end %>
                             <%= "#{task.title} - " %>
                             <%= link_to "Delete",
-                    task_path(task.id),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
+                                        task_path(task.id),
+                                        method: :delete,
+                                        data: { confirm: "Are you sure?" } %></p>
                           <% if task.completed == "completed" %>
                           <% end %>
                         </li>
