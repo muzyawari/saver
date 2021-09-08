@@ -1,0 +1,55 @@
+<% if section.section_type == "todo" %>
+  <div class = "todo-container">
+    <div class="page-header">
+      <h1>My Tasks</h1>
+      <%= image_tag("bar.png") %>
+      <div class = "todo-card">
+        <ul class = "hide">
+          <% @tasks[section.id].each do |task| %>
+            <li>
+              <% if task.completed == "completed" %>
+                <a class = "add" href="<%=  %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
+              <% else %>
+                <a class = "add" href="<%=  %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
+              <% end %>
+              <%= "#{task.title} - " %>
+              <%= link_to "Delete",
+                          task_path(task.id),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } %></p>
+            <% if task.completed == "completed" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>
+    </div>
+    <%= link_to "Delete This Section",
+                  section_path(section),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></p>
+</div>
+</div>
+<% end %>
+<% if section.section_type == "bookmark" %>
+  <div class = "card">
+    <h1><%= section.section_type %></h1>
+    <% @bookmarks[section.id].each do |bookmark| %>
+      <h3><%= bookmark.name %></h3>
+      <p><%= bookmark.url %></p>
+      <%= link_to "Delete",
+                      bookmark_path(bookmark.id),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %></p>
+    <br>
+  <% end %>
+  <p><%= link_to "Add a bookmark", new_section_bookmark_path(section) %><br>
+    <%= link_to "Delete This Section",
+                    section_path(section),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+</div>
+<% end %>
+<% if section.section_type == "timer" %>
+  <%= render 'timers/widget', section: section, timers: @timers %>
+<% end %>

@@ -3,6 +3,7 @@ class FoldersController < ApplicationController
 
   def index
     @folders = Folder.all
+    @folder = Folder.new
     @sections = Section.where(folder: @folder)
     @tasks = {}
     @bookmarks = {}
@@ -29,10 +30,12 @@ class FoldersController < ApplicationController
   end
 
   def new
+    @folders = Folder.all
     @folder = Folder.new
   end
 
   def create
+
     @folder = Folder.new(folder_params)
     @user = current_user
     @folder.user = @user

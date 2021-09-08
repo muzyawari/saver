@@ -1,26 +1,37 @@
+// Navbar
+
+#nav {
+  flex-grow: 1;
+}
 .navbar-lewagon {
   justify-content: space-between;
-  background: #292e38;
+  background: white;
 }
 
 .navbar a {
-  color: white;
+  color: black;
 }
-
 .nav-item {
   color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+  flex-grow: 1;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 50px;
 }
-// #logo {
-//   margin-right: auto;
-// }
+
+.text-container {
+  width: 100%;
+}
+
+// Sidebar
+.sidebar-logo #logo {
+  color: white;
+  font-weight: 100;
+}
 #screen-name {
   margin: 0 auto;
   margin-right: 20px;
