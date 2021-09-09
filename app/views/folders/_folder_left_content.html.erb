@@ -1,4 +1,4 @@
-<div class ="wrapper w-100 ml-5 mr-5" >
+<div class ="wrapper w-100 mx-5" >
   <% # Tasks Sections %>
   <div id="section-container-left" class="mr-5">
     <% @sections.each do |section| %>
@@ -14,7 +14,7 @@
                 <% end %>
               </div>
             </div>
-            <div id = "task" class = "ml-5 mr-5 mb-4 mt-4">
+            <div id = "task" class = "mx-5 my-4">
               <%= simple_form_for([ section, @task ], remote: true) do |f| %>
                 <%= f.input :title ,placeholder: 'Add a task...', label:false %>
                 <%= f.submit %>
@@ -61,28 +61,27 @@
                           method: :delete,
                           data: { confirm: "Are you sure?" } %>
             </span>
-            <span class="text-center"><%= timer.name %></span>
-            <br>
+            <span class="text-center mb-3"><%= timer.name %></span>
             <div class="timer">
-              <div class="timer__controls">
-                <button data-time="60" class="timer__button mx-3">1 Min</button>
-                <button data-time="300" class="timer__button mx-3">5 Mins</button>
-                <button data-time="900" class="timer__button mx-3">15 Mins</button>
+              <div class="timer__controls mb-3">
+                <button data-time="60" class="timer__button mx-5">1 Min</button>
+                <button data-time="300" class="timer__button mr-5">5 Mins</button>
+                <button data-time="900" class="timer__button mr-5">15 Mins</button>
               </div>
               <br>
-              <div class="display">
-                <h1 class="display__time-left mt-2"></h1>
-                <p class="display__end-time mb-2"></p>
-              </div>
               <div class="timer__controls">
                 <form name="customForm" id="customForm" class="mx-5">
                   <input type="text" name="minutes" placeholder="Enter Minutes">
                 </form>
-                <button data-time="0" class="timer__button mx-5"><i class="fas fa-undo"></i></button>
+                <button data-time="0" class="timer__button mr-5"><i class="fas fa-undo"></i></button>
+              </div>
+              <div class="display">
+                <h1 class="display__time-left mt-2"></h1>
+                <p class="display__end-time mb-2"></p>
               </div>
             </div>
           <% end %>
-          <div id = "timer" class = "mt-5 mx-5 text-center">
+          <div id = "timer" class = "mt-3 mx-5 text-center">
             <%= simple_form_for([ section, @timer ], remote: true) do |f| %>
               <%= f.input :name ,placeholder: 'Add a timer...', label:false %>
               <%= f.submit %>

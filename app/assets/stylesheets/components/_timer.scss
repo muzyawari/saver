@@ -14,11 +14,11 @@
 .timer__controls form {
   flex: 1;
   display: flex;
+  justify-content:space-evenly;
 }
 
 .timer__controls input {
   flex: 1;
-  font-size: 0.8rem;
 }
 
 .timer__button {
@@ -41,7 +41,7 @@
 
 .card a {
   color: white;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 .display__time-left {
@@ -49,10 +49,9 @@
   padding-right: 5px;
   font-weight: 100;
   font-size: 5rem;
-  margin: 0;
   color: white;
   text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
-  font-family: 'Old Standard TT', serif;
+  font-family: "Nunito", "Helvetica", "sans-serif";
 }
 
 .display {
@@ -61,7 +60,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 .display__end-time {
@@ -69,19 +67,15 @@
   padding-right: 3px;
   font-size: 1rem;
   color: white;
-  font-family: 'Old Standard TT', serif;
-  font-weight: 400 italic;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  font-weight: 400;
 }
 .card {
-  margin: 0 auto;
   background-color: rgba(54, 55, 64, 255);
   color: white;
   width: 450px;
   min-height: 300px;
-  border-bottom-right-radius: 18px;
-  border-top-left-radius: 18px;
-  border-bottom-left-radius: 18px;
-  border-top-right-radius: 18px;
+  border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
