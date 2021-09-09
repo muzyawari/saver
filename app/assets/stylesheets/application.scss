@@ -14,6 +14,7 @@
 @import "pages/index";
 @import "components/login";
 @import "components/todo";
+@import "components/form";
 
 // body { background-color: #363740;}
 // .section-container {
@@ -21,9 +22,9 @@
 //   flex-wrap: wrap;
 // }
 #section-container-left {
-      display: grid;
-      grid-template-columns: 50% 50%;
-      grid-gap: 10px;
-      background-color: #fff;
-      color: #444;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
 }
