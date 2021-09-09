@@ -1,0 +1,18 @@
+<div class="right-sidebar">
+  <aside id="sidebar">
+    <div class="sidebar-section sidebar-header">
+      <div class="sidebar-logo text-center d-flex">
+        <h4 id = "text" class=" p-4 ml-4">Widgets</h4>
+      </div>
+      <div>
+        <div class="card" style="width: 12rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>

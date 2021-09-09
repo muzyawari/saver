@@ -1,34 +1,5 @@
-// Navbar
-
-#nav {
-  flex-grow: 1;
-}
-.navbar-lewagon {
-  background: white;
-}
-
-.navbar a {
-  color: black;
-}
-.nav-item {
-  color: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 1;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 50px;
-}
-
-.text-container {
-  width: 100%;
-}
-.nav .padding {
-  padding-left: 65px !important;
-}
-// Sidebar
+// --------------------------------
+// Sidebar ------------------
 .sidebar-logo #logo {
   color: white;
   font-weight: 100;
@@ -46,6 +17,10 @@ body {
 
 $sidebar-width: 280px;
 $sidebar-bg-color: #292e38;
+
+// Sidebar right ---------------------
+
+// Sidebar right ---------------------
 
 .wrapper {
   aside.sidebar {
@@ -220,6 +195,7 @@ $sidebar-bg-color: #292e38;
   }
 }
 
+// ------------------------------
 .searchbar {
   margin-bottom: auto;
   margin-top: auto;
