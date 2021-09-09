@@ -14,9 +14,11 @@
   </head>
   <body>
     <% unless current_page?(new_user_session_path) %>
-      <%= render 'shared/sidebar' %>
-      <%= render 'shared/flashes' %>
-      <%= yield %>
+      <div class="wrapper d-flex h-100">
+        <%= render 'shared/sidebar' %>
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+      </div>
     <% end %>
     <% if current_page?(new_user_session_path) %>
       <%= render "shared/flashes" %>
