@@ -95,7 +95,8 @@
             <% end %>
             <% if section.section_type == "bookmark" %>
               <div class = "card">
-                <h1><%= section.section_type %></h1>
+                  <h1>Bookmarks</h1>
+                  <%= image_tag("bar.png") %>
                 <% @bookmarks[section.id].each do |bookmark| %>
                   <h3><%= bookmark.name %></h3>
                   <p><%= bookmark.url %></p>
@@ -113,9 +114,9 @@
           <% end %>
           <% if section.section_type == "timer" %>
             <div class = "card" >
-              <h1><%= section.section_type %></h1>
+              <h1>Timer</h1>
               <% @timers[section.id].each do |timer| %>
-                <h3 class="text-center"><%= timer.name %></h3>
+                <h1 class="text-center"><%= timer.name %></h1>
                 <div class="timer">
                   <div class="timer__controls">
                     <button data-time="0" class="timer__button">Reset</button>
@@ -139,7 +140,7 @@
                 <p><%= link_to "Add a timer", new_section_timer_path(section) %></p>
                 <br>
               <% end %>
-              <%= link_to "Delete This Section",
+              <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
                         section_path(section),
                         method: :delete,
                         data: { confirm: "Are you sure?" } %>
@@ -149,4 +150,3 @@
       </div>
     </div>
   </div>
-

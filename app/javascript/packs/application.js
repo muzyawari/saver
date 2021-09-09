@@ -24,7 +24,6 @@ import "bootstrap";
 
 // Internal imports, e.g:
 
-// import { startTimer } from '../components/timer.js';
 import { timer, startTimer } from '../components/timer.js';
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
@@ -36,6 +35,7 @@ document.addEventListener("turbolinks:load", () => {
   buttons.forEach(button => button.addEventListener('click', (event) => {
     startTimer(event);
   }));
+
   loadDynamicBannerText();
 });
 
@@ -85,4 +85,3 @@ document.customForm.addEventListener('submit', function(e) {
   timer(mins * 60);
   this.reset();
 });
-
