@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ["infos", "form", "card"];
+  static targets = ["infos", "form"];
 
   connect() {
     console.log(this.infosTarget);
@@ -13,5 +13,6 @@ export default class extends Controller {
     this.infosTarget.classList.add("d-none");
     this.formTarget.classList.remove("d-none");
   }
+
 
 }

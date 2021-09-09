@@ -27,6 +27,6 @@ class TimersController < ApplicationController
   private
 
   def timer_params
-    params.permit(:name)
+    params.require(:timer).permit(:name)
   end
 end
