@@ -1,12 +1,11 @@
 <div class="wrapper d-flex h-100">
   <aside class="sidebar h-100">
     <div class="sidebar-section sidebar-header">
-      <div class="d-flex  sidebar-logo text-center">
-        <a id="logo" href="<%= root_path %>">SAVER</a>
-        <div class = "logo ml-3">
+      <div class="sidebar-logo text-center d-flex mt-2">
+        <h2 class="text-light pl-4">SAVER</h2>
+        <div class = "pl-3 pt-1" >
           <%= link_to image_tag("saver.png", height: "20"), root_path %>
         </div>
-        <img src="" alt="">
       </div>
     </div>
     <div class="searchbar mt-3 m-2">
@@ -17,15 +16,12 @@
         <div class="tab-pane fade show active pt-3 pb-2" id="menu" role="tabpanel" aria-labelledby="menu-tab">
           <ul>
             <li>
-              <a href="#" class="d-flex align-items-center ml-4"></a>
-            </li>
-            <li>
-              <a href="#dropdown-lvl1" class="d-flex align-items-center ml-4">
-                <i class="fas fa-tachometer-alt "></i>
-                <span class="menu-text flex-fill toggle-visibility">Dashboard</span>
-                <a href="#dropdown-lvl1" class="menu-text flex-fill toggle-visibility" data-toggle="collapse">Folders</a>
+              <a href="#" class="d-flex align-items-center">
+                <i class="fas fa-tachometer-alt"></i>
+                <span class="menu-text flex-fill">Dashboard</span>
               </a>
             </li>
+
             <li class="panel panel-default" id="dropdown">
               <!-- Dropdown level 1 -->
               <div id="dropdown-lvl1" class="panel-collapse collapse">
@@ -60,10 +56,20 @@
                     <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
                     </p>
                   </li>
+
                 </div>
-              </div>
-            </div>
+                <%= link_to "#", new_folder_path %>
+              </a>
+            </li>
+            <li>
+              <ul class="nav nav-list collapse" id="submenu1">
+                <a href="#" class = "flex-fill pl-5" title="Title">Sub Sub Menu Link</a>              </ul>
+            </li>
+            <%# ---------------------------------------------------------------- %>
+            <%# ---------------------------- %>
           </ul>
+
+
         </aside>
         <div class ="wrapper w-100 ml-5 mr-5" >
           <% # Tasks Sections %>
@@ -143,3 +149,4 @@
       </div>
     </div>
   </div>
+
