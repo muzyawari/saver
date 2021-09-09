@@ -2,8 +2,8 @@
   <div class="sidebar-section sidebar-header">
     <div class="sidebar-logo text-center d-flex mt-2">
       <h2 class="text-light pl-4">SAVER</h2>
-      <div class = "pl-3 pt-1" >
-        <%= link_to image_tag("saver.png", height: "20"), root_path %>
+      <div class = "logo pl-3 pt-1 rounded" >
+        <%= link_to image_tag("saver.png", height: "22"), root_path %>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
                   <div class = "form">
                     <%= simple_form_for (@folder) do |f| %>
                       <%= f.input :name %>
-                      <%= f.submit%>
+                      <%= f.submit %>
                     <% end %>
                   </div>
                 </div>
@@ -37,7 +37,7 @@
                 <% if (folder.user_id == current_user.id) %>
                   <li >
                     <ul class="nav nav-list collapse " id="submenu1" >
-                      <%= link_to "#{folder.name}", folder, class:"flex-fill padding", id:"tab", type:"button", title:"Title"%>
+                      <%= link_to "#{folder.name}", folder, class: "flex-fill padding", id: "tab", type: "button", title: "Title" %>
                     </ul>
                   </li>
                 <% end %>
@@ -46,19 +46,19 @@
           </ul>
           <% if @folder.id %>
             <div class>
-              <p><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %>
+              <p><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST" %>
               </p>
-              <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %>
+              <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark", name: "My Bookmarks" }), method: "POST" %>
               </p>
-              <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
+              <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST" %>
               </p>
             </div>
           <% end %>
         </div>
       </div>
     </aside>
-    <%# ---------------------------------------------------------------- %>
-    <%# Navbar %>
-    <%# Navbar %>
-    <%# Widgets Spacebar %>
-    <%# Widgets Spacebar  %>
+    <% # ---------------------------------------------------------------- %>
+    <% # Navbar %>
+    <% # Navbar %>
+    <% # Widgets Spacebar %>
+    <% # Widgets Spacebar %>
