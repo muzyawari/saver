@@ -20,11 +20,12 @@
                 <%= f.submit %>
               <% end %>
             </div>
-            <%= link_to "Delete This Section",
+            <span class="text-right mr-3 mb-3">
+              <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
                         section_path(section),
                         method: :delete,
-                        remote: true,
-                        data: { confirm: "Are you sure?" } %></p>
+                        data: { confirm: "Are you sure?" } %>
+            </span>
           </div>
         </div>
       <% end %>
@@ -41,10 +42,12 @@
                             data: { confirm: "Are you sure?" } %></p>
           <% end %>
           <p><%= link_to "Add a bookmark", new_section_bookmark_path(section) %></p><br>
-          <p><%= link_to "Delete This Section",
-                          section_path(section),
-                          method: :delete,
-                          data: { confirm: "Are you sure?" } %></p>
+          <span class="text-right mr-3 mb-3">
+            <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+                      section_path(section),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+          </span>
         </div>
       <% end %>
       <% if section.section_type == "timer" %>
@@ -79,16 +82,13 @@
               </div>
             </div>
           <% end %>
-          <% if section.timers.length == 0 %>
-            <br>
-          <% end %>
-          <div id = "timer" class = "mt-5">
+          <div id = "timer" class = "mt-5 mx-5 text-center">
             <%= simple_form_for([ section, @timer ], remote: true) do |f| %>
               <%= f.input :name ,placeholder: 'Add a timer...', label:false %>
               <%= f.submit %>
             <% end %>
           </div>
-          <span class="text-center">
+          <span class="text-right mr-3 mb-3">
             <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
                       section_path(section),
                       method: :delete,
