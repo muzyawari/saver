@@ -1,11 +1,5 @@
 <%= render 'shared/sidebar', folder: @folder %>
 <div class="folder-wrapper d-flex">
-  <p><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %>
-  </p>
-  <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %>
-  </p>
-  <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
-  </p>
   <div class="folder-left">
     <%= render "folder_left_content", folder: @folder %>
   </div>

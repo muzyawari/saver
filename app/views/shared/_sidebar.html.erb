@@ -44,6 +44,16 @@
               <% end %>
             <% end %>
           </ul>
+          <% if @folder.id %>
+            <div class>
+              <p><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %>
+              </p>
+              <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %>
+              </p>
+              <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
+              </p>
+            </div>
+          <% end %>
         </div>
       </div>
     </aside>
