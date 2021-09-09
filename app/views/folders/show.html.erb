@@ -115,6 +115,7 @@
           <% if section.section_type == "timer" %>
             <div class = "card" >
               <h1>Timer</h1>
+              <%= image_tag("bar.png") %>
               <% @timers[section.id].each do |timer| %>
                 <h1 class="text-center"><%= timer.name %></h1>
                 <div class="timer">
