@@ -130,11 +130,9 @@
               <br>
               <div class="timer">
                 <div class="timer__controls">
-                  <button data-time="0" class="timer__button">Reset</button>
-                  <form name="customForm" id="customForm">
-                    <input type="text" name="minutes" placeholder="Enter Minutes">
-                  </form>
-
+                  <button data-time="60" class="timer__button">1 Min</button>
+                  <button data-time="300" class="timer__button">5 Mins</button>
+                  <button data-time="900" class="timer__button">15 Mins</button>
                 </div>
                 <br>
                 <div class="display">
@@ -142,9 +140,10 @@
                   <p class="display__end-time"></p>
                 </div>
                 <div class="timer__controls">
-                  <button data-time="60" class="timer__button">1 Min</button>
-                  <button data-time="300" class="timer__button">5 Mins</button>
-                  <button data-time="900" class="timer__button">15 Mins</button>
+                  <button data-time="0" class="timer__button">Reset</button>
+                  <form name="customForm" id="customForm">
+                    <input type="text" name="minutes" placeholder="Enter Minutes">
+                  </form>
                 </div>
               </div>
             <% end %>
@@ -169,4 +168,3 @@
     </div>
   </div>
 </div>
-
