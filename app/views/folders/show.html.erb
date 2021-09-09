@@ -1,4 +1,174 @@
 
+<div class="wrapper d-flex h-100">
+  <aside class="sidebar h-100">
+    <div class="sidebar-section sidebar-header">
+      <div class="sidebar-logo text-center d-flex mt-2">
+        <h2 class="text-light pl-4">SAVER</h2>
+        <div class = "pl-3 pt-1" >
+          <%= link_to image_tag("saver.png", height: "20"), root_path %>
+        </div>
+      </div>
+    </div>
+    <div class="searchbar mt-3 m-2">
+      <input class="search_input" type="text" name="" placeholder="Search Widgets...">
+    </div>
+    <div class="sidebar-section sidebar-menu p-0">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active pt-3 pb-2" id="menu" role="tabpanel" aria-labelledby="menu-tab">
+          <ul>
+            <li>
+              <a href="#" class="d-flex align-items-center">
+                <i class="fas fa-tachometer-alt"></i>
+                <span class="menu-text flex-fill">Dashboard</span>
+              </a>
+            </li>
+            <li class="panel panel-default" id="dropdown">
+              <!-- Dropdown level 1 -->
+              <div id="dropdown-lvl1" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul class="nav navbar-nav">
+                    <li>
+                      <% if user_signed_in? %>
+                        <div id = "folder-container" class = "menu-text flex-fill">
+                          <h2><%= link_to "+", new_folder_path() %><br>
+                          </h2>
+                          <% @folders.each do |folder| %>
+                            <div id = "folder-card" class="card">
+                              <% if (folder.user_id == current_user.id) %>
+                                <h2><%= link_to "#{folder.name}", folder %></h2>
+                                <%= link_to "Delete",
+                                            folder_path(folder),
+                                            method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
+                              <% end %>
+                            </div>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </li>
+                  </ul>
+                  <br>
+                  <li>
+                    <p><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo" }), method: "POST" %>
+                    </p>
+                    <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark" }), method: "POST" %>
+                    </p>
+                    <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer" }), method: "POST" %>
+                    </p>
+                  </li>
+                </div>
+                <%= link_to "#", new_folder_path %>
+              </a>
+            </li>
+            <li>
+              <ul class="nav nav-list collapse" id="submenu1">
+                <a href="#" class = "flex-fill pl-5" title="Title">Sub Sub Menu Link</a>              </ul>
+            </li>
+            <%# ---------------------------------------------------------------- %>
+            <%# ---------------------------- %>
+          </ul>
+        </aside>
+        <div class ="wrapper w-100 ml-5 mr-5" >
+          <% # Tasks Sections %>
+          <div id="section-container-left" class="mr-5">
+            <% @sections.each do |section| %>
+              <% if section.section_type == "todo" %>
+                <div class = "todo-container">
+                  <div class="page-header">
+                    <h1>My Tasks</h1>
+                    <div data-controller="tasks">
+                      <%= image_tag("bar.png") %>
+                      <div class="container" id="tasks-list" data-action="drop->tasks#sort">
+                        <% @tasks[section.id].order(position: :asc).each do |task| %>
+                          <%= render 'task_infos', task: task %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div id = "task" class = "ml-5 mr-5 mb-4 mt-4">
+                      <%= simple_form_for([ section, @task ], remote: true) do |f| %>
+                        <%= f.input :title ,placeholder: 'Add a task...', label:false %>
+                        <%= f.submit %>
+                      <% end %>
+                    </div>
+                    <%= link_to "Delete This Section",
+                              section_path(section),
+                              method: :delete,
+                               remote: true,
+                              data: { confirm: "Are you sure?" } %></p>
+                </div>
+              </div>
+            <% end %>
+            <% if section.section_type == "bookmark" %>
+              <div class = "card">
+                <h1>Bookmarks</h1>
+                <%= image_tag("bar.png") %>
+                <% @bookmarks[section.id].each do |bookmark| %>
+                  <h3><%= bookmark.name %></h3>
+                  <p><%= bookmark.url %></p>
+                  <%= link_to "Delete",
+                            bookmark_path(bookmark.id),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %></p>
+              <% end %>
+              <p><%= link_to "Add a bookmark", new_section_bookmark_path(section) %><br>
+                <%= link_to "Delete This Section",
+                          section_path(section),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } %></p>
+            </div>
+          <% end %>
+          <% if section.section_type == "timer" %>
+            <div class = "card" >
+              <h1>Timer</h1>
+              <%= image_tag("bar.png") %>
+              <% @timers[section.id].each do |timer| %>
+                <span class="text-center"><%= timer.name %>   <%= link_to image_tag("remove.png", height: "15", width: "15"),
+                                          timer_path(timer),
+                                          method: :delete,
+                                          data: { confirm: "Are you sure?" } %></span>
+              </span>
+              <br>
+              <div class="timer">
+                <div class="timer__controls">
+                  <button data-time="0" class="timer__button">Reset</button>
+                  <form name="customForm" id="customForm">
+                    <input type="text" name="minutes" placeholder="Enter Minutes">
+                  </form>
+                </div>
+                <br>
+                <div class="display">
+                  <h1 class="display__time-left"></h1>
+                  <p class="display__end-time"></p>
+                </div>
+                <div class="timer__controls">
+                  <button data-time="60" class="timer__button">1 Min</button>
+                  <button data-time="300" class="timer__button">5 Mins</button>
+                  <button data-time="900" class="timer__button">15 Mins</button>
+                </div>
+              </div>
+            <% end %>
+            <% if section.timers.length == 0 %>
+              <br>
+            <% end %>
+            <div id = "timer" class = "ml-5 mr-5 mb-5 mt-5">
+              <%= simple_form_for([ section, @timer ], remote: true) do |f| %>
+                <%= f.input :name ,placeholder: 'Add a timer...', label:false %>
+                <%= f.submit %>
+              <% end %>
+            </div>
+            <span class="text-center"><%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+
+                        section_path(section),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %></span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 <div class="folder-wrapper d-flex">
   <div class="folder-left">
     <%= render "folder_left_content" %>
