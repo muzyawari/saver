@@ -75,7 +75,8 @@ document.addEventListener("turbolinks:load", () => {
 import "controllers";
 // Timer Entry
 const el = document.getElementsByClassName("timer");
-if (el) {
+if (el && document.customForm) {
+
   document.customForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const mins = this.minutes.value;
@@ -85,3 +86,5 @@ if (el) {
   });
 }
 
+
+import "controllers"
