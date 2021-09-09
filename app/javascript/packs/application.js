@@ -22,10 +22,13 @@ import "bootstrap";
 
 // Internal imports, e.g:
 
+
 // import { startTimer } from '../components/timer.js';
 import { timer, startTimer } from "../components/timer.js";
+
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
+
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
@@ -70,7 +73,7 @@ document.addEventListener("turbolinks:load", () => {
 });
 
 import "controllers";
-
+// Timer Entry
 const el = document.getElementsByClassName("timer");
 if (el) {
   document.customForm.addEventListener("submit", function (e) {
@@ -82,4 +85,3 @@ if (el) {
   });
 }
 
-import "controllers"
