@@ -16,19 +16,13 @@
         <div class="tab-pane fade show active pt-3 pb-2" id="menu" role="tabpanel" aria-labelledby="menu-tab">
           <ul>
             <li>
-              <a href="#" class="d-flex align-items-center">
-                <i class="fas fa-tachometer-alt"></i>
-                <span class="menu-text flex-fill">Dashboard</span>
-              </a>
-            </li>
-            <li>
-              <a class="d-flex align-items-center accordion-heading"  data-toggle="collapse" data-target="#submenu1" role="button" aria-expanded="false" aria-controls="collapseExample">
+              <div class="d-flex align-items-center accordion-heading" id= "tab" data-toggle="collapse" data-target="#submenu1" role="button" aria-expanded="false" aria-controls="collapseExample">
                 <i class="fas fa-tachometer-alt"></i>
                 <span class="menu-text flex-fill">Folders</span>
                 <div class="btn-group">
-                  <i class="fa fa-plus" aria-hidden="true" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                  <i class="fa fa-plus" aria-hidden="true" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <div>
+                    <div class = "form">
                       <%= simple_form_for (@folder) do |f| %>
                         <%= f.input :name %>
                         <%= f.submit%>
@@ -36,49 +30,50 @@
                     </div>
                   </div>
                 </div>
-              </a>
-              <div class="dropdown">
-                <% if user_signed_in? %>
-                  <% @folders.each do |folder| %>
-                    <% if (folder.user_id == current_user.id) %>
-                      <li >
-                        <ul class="nav nav-list collapse " id="submenu1" >
-                          <%= link_to "#{folder.name}", folder, class:"flex-fill", type:"button", title:"Title"%>
-                        </ul>
-                      </li>
-                    <% end %>
+              </div>
+            </li>
+            <div class="dropdown">
+              <% if user_signed_in? %>
+                <% @folders.each do |folder| %>
+                  <% if (folder.user_id == current_user.id) %>
+                    <li >
+                      <ul class="nav nav-list collapse " id="submenu1" >
+                        <%= link_to "#{folder.name}", folder, class:"flex-fill padding", id:"tab", type:"button", title:"Title"%>
+                      </ul>
+                    </li>
                   <% end %>
                 <% end %>
-              </ul>
-            </div>
-          </div>
-        </aside>
-        <%# ---------------------------------------------------------------- %>
-        <%# Navbar %>
-        <div id = "nav">
-          <div class="navbar navbar-default navbar-expand navbar-light navbar-lewagon">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto ">
-                <% if user_signed_in? %>
-                  <li class="nav-item dropdown">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <%= link_to "Action", "#", class: "dropdown-item" %>
-                      <%= link_to "Another action", "#", class: "dropdown-item" %>
-                      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-                    </div>
-                  </li>
-                <% else %>
-                  <li class="nav-item">
-                    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
+              <% end %>
+            </ul>
           </div>
         </div>
-        <%# Navbar %>
+      </aside>
+      <%# ---------------------------------------------------------------- %>
+      <%# Navbar %>
+      <div id = "nav">
+        <div class="navbar navbar-default navbar-expand navbar-light navbar-lewagon">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ">
+              <% if user_signed_in? %>
+                <li class="nav-item dropdown">
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <%= link_to "Action", "#", class: "dropdown-item" %>
+                    <%= link_to "Another action", "#", class: "dropdown-item" %>
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                  </div>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
+      <%# Navbar %>
+    </div>

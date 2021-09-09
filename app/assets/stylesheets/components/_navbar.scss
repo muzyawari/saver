@@ -4,7 +4,6 @@
   flex-grow: 1;
 }
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
 }
 
@@ -26,7 +25,9 @@
 .text-container {
   width: 100%;
 }
-
+.nav .padding {
+  padding-left: 65px !important;
+}
 // Sidebar
 .sidebar-logo #logo {
   color: white;
@@ -85,7 +86,7 @@ $sidebar-bg-color: #292e38;
           &:last-child {
             border-right: none;
           }
-          a {
+          #tab {
             color: lighten($sidebar-bg-color, 20%);
             border: none;
             position: relative;
@@ -136,7 +137,7 @@ $sidebar-bg-color: #292e38;
         ul {
           list-style-type: none;
           padding: 0;
-          li a {
+          li #tab {
             padding: 0.5rem 0.6rem;
             text-decoration: none;
             color: lighten($sidebar-bg-color, 50%);
@@ -166,40 +167,7 @@ $sidebar-bg-color: #292e38;
           }
         }
       }
-      #messages {
-        ul {
-          list-style-type: none;
-          padding: 0;
-          a {
-            .pic {
-              width: 45px;
-              min-width: 45px;
-              height: 45px;
-              overflow: hidden;
-              margin-right: 1rem;
-              img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-              }
-            }
-            .message-content {
-              text-decoration: none;
-              .message-title {
-                color: lighten($sidebar-bg-color, 50%);
-              }
-              .message-detail {
-                color: lighten($sidebar-bg-color, 20%);
-                font-size: 0.9rem;
-              }
-            }
-            &:hover {
-              background: lighten($sidebar-bg-color, 3%);
-            }
-          }
-        }
-      }
+
       #notifications {
         ul {
           list-style-type: none;
