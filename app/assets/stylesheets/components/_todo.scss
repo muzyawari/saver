@@ -11,7 +11,7 @@
   min-height: 300px;
 }
 
-.todo-container h1 {
+.card h1 {
   color: white;
   text-align: center;
   margin-top: 10px;
@@ -23,7 +23,7 @@
   font-size: 0.9375rem;
 }
 
-.todo-container li {
+.card li {
   text-align: left;
   text-decoration: none;
   color: white;
@@ -77,6 +77,23 @@
   filter: grayscale(1);
   opacity: 0.5;
 }
+
+
+.card {
+  cursor: grab;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.card.ghost {
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.tasks-list {
+  list-style: none;
 
 .bin {
   position: absolute;

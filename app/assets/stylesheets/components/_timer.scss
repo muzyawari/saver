@@ -71,6 +71,8 @@
   font-weight: 400;
 }
 .card {
+  margin: 0 auto;
+  margin-top: 40px;
   background-color: rgba(54, 55, 64, 255);
   color: white;
   width: 450px;
@@ -85,7 +87,10 @@
 .card  h1 {
   margin-top: 10px;
   text-align: center;
+  margin-bottom: 10px;
+  margin-top: 40px;
   font-size: 3rem;
+
 }
 .bin {
   position: absolute;

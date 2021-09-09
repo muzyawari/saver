@@ -21,8 +21,30 @@
 //   display : flex;
 //   flex-wrap: wrap;
 // }
-#section-container-left {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 5px;
+#sections-list {
+display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.section-item{
+  margin: 30px;
+}
+
+
+.logo {
+  opacity: 0.9;
+  border-radius: 1px;
+  // border-bottom-right-radius: 18px;
+  // border-top-left-radius: 18px;
+  // border-bottom-left-radius: 18px;
+  // border-top-right-radius: 18px;
+}
+
+.logo img{
+  border-radius:8px;
+  // border-bottom-right-radius: 8px;
+  // border-top-left-radius: 8px;
+  // border-bottom-left-radius: 8px;
+  // border-top-right-radius: 8px;
 }
