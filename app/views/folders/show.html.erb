@@ -78,7 +78,7 @@
                     <div data-controller="tasks">
                       <%= image_tag("bar.png") %>
                       <div class="container" id="tasks-list" data-action="drop->tasks#sort">
-                        <% @tasks[section.id].each do |task| %>
+                        <% @tasks[section.id].order(position: :asc).each do |task| %>
                           <%= render 'task_infos', task: task %>
                         <% end %>
                       </div>
@@ -99,8 +99,8 @@
             <% end %>
             <% if section.section_type == "bookmark" %>
               <div class = "card">
-                  <h1>Bookmarks</h1>
-                  <%= image_tag("bar.png") %>
+                <h1>Bookmarks</h1>
+                <%= image_tag("bar.png") %>
                 <% @bookmarks[section.id].each do |bookmark| %>
                   <h3><%= bookmark.name %></h3>
                   <p><%= bookmark.url %></p>
@@ -121,7 +121,6 @@
               <h1>Timer</h1>
               <%= image_tag("bar.png") %>
               <% @timers[section.id].each do |timer| %>
-
                 <span class="text-center"><%= timer.name %>   <%= link_to image_tag("remove.png", height: "15", width: "15"),
                                           timer_path(timer),
                                           method: :delete,
@@ -134,7 +133,6 @@
                   <form name="customForm" id="customForm">
                     <input type="text" name="minutes" placeholder="Enter Minutes">
                   </form>
-
                 </div>
                 <br>
                 <div class="display">
@@ -156,9 +154,8 @@
                 <%= f.input :name ,placeholder: 'Add a timer...', label:false %>
                 <%= f.submit %>
               <% end %>
-</div>
-
-             <span class="text-center"><%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+            </div>
+            <span class="text-center"><%= link_to ('<i class="fas fa-trash"></i>').html_safe,
 
                         section_path(section),
                         method: :delete,
@@ -169,4 +166,3 @@
     </div>
   </div>
 </div>
-
