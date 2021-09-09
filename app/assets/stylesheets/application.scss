@@ -8,6 +8,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
 
 // Your CSS partials
 @import "components/index";
@@ -24,7 +25,5 @@
 #section-container-left {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
+  grid-gap: 5px;
 }

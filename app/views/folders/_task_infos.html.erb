@@ -1,0 +1,25 @@
+<div data-controller="edit-task" data-edit-task-target="li">
+  <li class = "li" data-edit-task-target="infos">
+    <i class="fas fa-grip-lines mr-2"></i>
+    <% if task.completed == "completed" %>
+      <a class = "add" href="<%=  %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
+    <% else %>
+      <a class = "add" href="<%=  %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
+    <% end %>
+    <a id = "task<%= task.id %>" data-action="click->edit-task#displayForm"><%= task.title %></a>
+    <%= link_to image_tag("remove.png", height: "15", width: "15"),
+                                          task_path(task.id),
+                                          method: :delete,
+                                          data: { confirm: "Are you sure?" } %>
+    <br>
+  </li>
+  <br>
+  <%= simple_form_for task, html: { class: "d-none mb-5", data: { edit_task_target: "form", action: "submit->edit_task#update" } } do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :date, as: :date, html5: true %>
+    <%= f.input :is_event %>
+    <%= f.input :completed, collection: Task.completeds.keys %>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -8,8 +8,6 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import Sortable from "sortablejs";
-const dragula = require("dragula");
-
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
@@ -24,47 +22,46 @@ import "bootstrap";
 
 // Internal imports, e.g:
 
+
 // import { startTimer } from '../components/timer.js';
-import { timer, startTimer } from '../components/timer.js';
+import { timer, startTimer } from "../components/timer.js";
+
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
+
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   initFlatpickr();
-  const buttons = document.querySelectorAll('[data-time]');
-  buttons.forEach(button => button.addEventListener('click', (event) => {
-    startTimer(event);
-  }));
-  loadDynamicBannerText();
+  const buttons = document.querySelectorAll("[data-time]");
+  buttons.forEach((button) =>
+    button.addEventListener("click", (event) => {
+      startTimer(event);
+    })
+  );
 });
 
+// Dynamic Text
 document.addEventListener("turbolinks:load", () => {
-  // Call your JS functions here
-  // [...]
-  const homePageText = document.getElementById("dynamic-text");
-  if  (homePageText) {
-  loadDynamicBannerText();
+  const homePageText = document.getElementById("banner-typed-text");
+  if (homePageText) {
+    loadDynamicBannerText();
   }
 });
 
-
+// Sortable for Tasks
 document.addEventListener("turbolinks:load", () => {
-  // Call your JS functions here
-  // [...]
   var el = document.getElementById("tasks-list");
   if (el) {
     var sortable = Sortable.create(el, {
-    animation:150,
-    ghostClass: 'ghost'
-  });
-}
+      animation: 150,
+      ghostClass: "ghost",
+    });
+  }
 });
 
+// Sortable for Widgets
 document.addEventListener("turbolinks:load", () => {
-  // Call your JS functions here
-  // [...]
-
   var el = document.getElementById("section-container-left");
   if (el) {
     var sortable = Sortable.create(el, {
@@ -75,14 +72,18 @@ document.addEventListener("turbolinks:load", () => {
   }
 });
 
-
 import "controllers";
+// Timer Entry
+const el = document.getElementsByClassName("timer");
+if (el) {
+  document.customForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const mins = this.minutes.value;
+    console.log(mins);
+    timer(mins * 60);
+    this.reset();
+  });
+}
 
-document.customForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const mins = this.minutes.value;
-  console.log(mins);
-  timer(mins * 60);
-  this.reset();
-});
 
+import "controllers"

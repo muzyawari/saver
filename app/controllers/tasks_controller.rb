@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.section = @section
     if @task.save
-      redirect_to @folder
+      redirect_to folder_path(@folder, anchor: "task-#{@task.id}")
     else
       render :new
     end
@@ -36,7 +36,9 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to root_path
+    @section = Section.find(@task.section_id)
+    @folder = Folder.find(@section.folder_id)
+    redirect_to @folder
   end
 
   private

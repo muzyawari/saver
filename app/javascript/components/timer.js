@@ -39,7 +39,7 @@ const displayEndTime = (timestamp) => {
   endTime.textContent = `Be Back At ${adjustedHour}:${minutes < 10 ? '0' : ''}${minutes}`;
 }
 
-function startTimer(event) {
+const startTimer = (event) => {
   const button = event.currentTarget
   const time = button.dataset.time
   const seconds = parseInt(time);
