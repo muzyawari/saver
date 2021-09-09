@@ -36,7 +36,9 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to root_path
+    @section = Section.find(@task.section_id)
+    @folder = Folder.find(@section.folder_id)
+    redirect_to @folder
   end
 
   private
