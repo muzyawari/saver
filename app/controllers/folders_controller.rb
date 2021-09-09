@@ -20,6 +20,8 @@ class FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
     @sections = Section.where(folder: @folder)
     @tasks = {}
+    @task = Task.new
+    @timer = Timer.new
     @bookmarks = {}
     @timers = {}
     @sections.each do |section|
@@ -35,7 +37,6 @@ class FoldersController < ApplicationController
   end
 
   def create
-
     @folder = Folder.new(folder_params)
     @user = current_user
     @folder.user = @user

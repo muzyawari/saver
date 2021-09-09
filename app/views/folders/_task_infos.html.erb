@@ -6,19 +6,20 @@
     <% else %>
       <a class = "add" href="<%=  %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
     <% end %>
-    <a data-action="click->edit-task#displayForm"><%= task.title %></a>
+    <a id = "task<%= task.id %>" data-action="click->edit-task#displayForm"><%= task.title %></a>
     <%= link_to image_tag("remove.png", height: "15", width: "15"),
                                           task_path(task.id),
                                           method: :delete,
-                                          data: { confirm: "Are you sure?" } %></p>
+                                          data: { confirm: "Are you sure?" } %>
+    <br>
+  </li>
   <br>
-</li>
-<%= simple_form_for task, html: { class: "d-none", data: { edit_task_target: "form", action: "submit->edit_task#update" } } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :date, as: :date, html5: true %>
-  <%= f.input :is_event %>
-  <%= f.input :completed, collection: Task.completeds.keys %>
-  <%= f.submit %>
-</div>
+  <%= simple_form_for task, html: { class: "d-none mb-5", data: { edit_task_target: "form", action: "submit->edit_task#update" } } do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :date, as: :date, html5: true %>
+    <%= f.input :is_event %>
+    <%= f.input :completed, collection: Task.completeds.keys %>
+    <%= f.submit %>
+  </div>
 <% end %>
