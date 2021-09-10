@@ -1,10 +1,6 @@
 .right-sidebar {
   width: 230px;
-  background-color: #282c35;
   height: 100vh;
-  &#text {
-    color: white;
-  }
 }
 
 .folder-wrapper {
@@ -13,8 +9,8 @@
 }
 
 .folder-left {
-  width: 100%;
   flex-grow: 1;
+  height: 100vh;
 }
 
 // Right Sidebar

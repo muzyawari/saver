@@ -21,18 +21,9 @@ body {
   color: #ccc8db;
 }
 
-.cont {
-  background-color: $bg-color;
-  display: flex;
-  max-width: 1600px;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0 auto;
-  width: 30%;
-}
-
 .left-side {
   width: 260px;
+  height: 100vh;
   border-right: 1px solid $border-color;
   display: flex;
   flex-direction: column;
