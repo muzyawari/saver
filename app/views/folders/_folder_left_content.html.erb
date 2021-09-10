@@ -71,7 +71,7 @@
                               method: :delete,
                               data: { confirm: "Are you sure?" } %>
                 </span>
-                <span class="text-cente"><%= timer.name %></span>
+                <span class="text-center mb-2"><%= timer.name %></span>
                 <div class="timer">
                   <div class="timer__controls mb-3">
                     <button data-time="60" class="timer__button mx-5">1 Min</button>
@@ -84,18 +84,20 @@
                     <input type="text" name="minutes" placeholder="Enter Minutes"class="mx-3">
                     <button type="submit" class="timer__button" name="start" value="start"><i class="fas fa-play"></i></button>
                   </form>
-                  <div class="display mx-5 my-1">
+                  <div class="display mx-5 mb-5">
                     <h1 class="display__time-left mt-2">0:00</h1>
                     <p class="display__end-time mb-2">Be Back Right Now</p>
                   </div>
                 </div>
               <% end %>
-              <div id = "timer" class = "my-3 mx-5 text-center">
-                <%= simple_form_for([section, @timer], remote: true) do |f| %>
-                  <%= f.input :name, placeholder: "Add a timer...", label: false %>
-                  <%= f.submit %>
-                <% end %>
-              </div>
+              <% if section.timers.length == 0 %>
+                <div id = "timer" class = "my-3 mx-5 text-center">
+                  <%= simple_form_for([section, @timer], remote: true) do |f| %>
+                    <%= f.input :name, placeholder: "Add a timer...", label: false %>
+                    <%= f.submit %>
+                  <% end %>
+                </div>
+              <% end %>
               <span class="bin mr-3 mb-3">
                 <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
                             section_path(section),
