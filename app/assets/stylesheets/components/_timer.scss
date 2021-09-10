@@ -60,7 +60,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 8rem;
 }
 
 .display__end-time {
@@ -96,4 +95,8 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+#customForm {
+  justify-content: space-evenly;
 }
