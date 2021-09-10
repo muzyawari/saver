@@ -22,7 +22,6 @@ import "bootstrap";
 
 // Internal imports, e.g:
 
-
 // import { startTimer } from '../components/timer.js';
 import { timer, startTimer } from "../components/timer.js";
 
@@ -39,6 +38,8 @@ document.addEventListener("turbolinks:load", () => {
       startTimer(event);
     })
   );
+
+
 });
 
 // Dynamic Text
@@ -51,7 +52,7 @@ document.addEventListener("turbolinks:load", () => {
 
 // Sortable for Tasks
 document.addEventListener("turbolinks:load", () => {
-  var el = document.getElementById("tasks-list");
+  var el = document.querySelector(".tasks-list");
   if (el) {
     var sortable = Sortable.create(el, {
       animation: 150,
@@ -62,7 +63,7 @@ document.addEventListener("turbolinks:load", () => {
 
 // Sortable for Widgets
 document.addEventListener("turbolinks:load", () => {
-  var el = document.getElementById("section-container-left");
+  var el = document.getElementById("sections-list");
   if (el) {
     var sortable = Sortable.create(el, {
       ghostClass: "ghost",
@@ -85,6 +86,5 @@ if (el && document.customForm) {
     this.reset();
   });
 }
-
 
 import "controllers"

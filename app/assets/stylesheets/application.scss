@@ -8,7 +8,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
-@import url("https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap");
 
 // Your CSS partials
 @import "components/index";
@@ -22,8 +21,22 @@
 //   display : flex;
 //   flex-wrap: wrap;
 // }
-#section-container-left {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5px;
+
+#sections-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.section-item {
+  margin: 5px;
+}
+
+.logo {
+  opacity: 0.9;
+  border-radius: 1px;
+}
+
+.logo img {
+  border-radius: 8px;
 }

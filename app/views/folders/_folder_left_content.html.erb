@@ -1,48 +1,114 @@
-<div class="main">
-  <div class="main-container">
-    <h2><%= @folder.name.capitalize %></h2>
-    <%# ---------------------------------------------- %>
-    <div id="section-container-left" >
-      <% @sections.each do |section| %>
-        <% if section.section_type == "todo" %>
-          <div class = "todo-container">
-            <div class="page-header">
-              <h1>My Tasks</h1>
-              <%= image_tag("bar.png") %>
-              <div class = "todo-card">
-                <ul id="tasks-list">
-                  <% @tasks[section.id].each do |task| %>
-                    <li>
-                      <i class="fas fa-grip-lines mr-2"></i>
-                      <% if task.completed == "completed" %>
-                        <a class = "add" href="<%=  %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
-                      <% else %>
-                        <a class = "add" href="<%=  %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
-                      <% end %>
-                      <%= link_to task.title, edit_task_path(task) %>
-                      <div id = "task" class = "card">
-                        <%= simple_form_for task, html: { class: "d-none", data: { edit_movie_target: "form" } } do |f| %>
-                          <%= f.input :title %>
-                          <%= f.input :description %>
-                          <%= f.input :date, as: :date, html5: true %>
-                          <%= f.input :is_event %>
-                          <%= f.input :completed, collection: Task.completeds.keys %>
-                          <%= f.submit %>
-                        <% end %>
-                      </div>
-                      <%= link_to "Delete", task_path(task.id),method: :delete,  data: { confirm: "Are you sure?" } %>
-                      <% if task.completed == "completed" %>
-                      <% end %>
-                    </li>
+
+<div class ="wrapper w-100 mx-5" >
+  <div data-controller="sections">
+    <div id="sections-list" data-action="drop->sections#sort">
+      <% @sections.order(position: :asc).each do |section| %>
+        <div class = "section-item" data-section-type="<%= section.section_type %>" data-section-id="<%= section.id %>">
+          <% if section.section_type == "todo" %>
+            <div class = "card" >
+              <div class="page-header">
+                <div data-controller="edit-section" data-edit-section-target="section">
+                  <div class = "section" data-edit-section-target="infos" ></div>
+                  <h1 class = "heading" data-action="click->edit-section#displayForm"><%= section.name %></h1>
+                  <%= simple_form_for section, html: { class: "d-none mb-5", data: { edit_section_target: "form", action: "submit->edit_section#update" } } do |f| %>
+                    <%= f.input :name %>
+                    <%= f.submit %>
+                  </div>
+                <% end %>
+                <div data-controller="tasks">
+                  <h1>Tasks</h1>
+                  <%= image_tag("bar.png") %>
+                  <div class="tasks-list container" data-action="drop->tasks#sort">
+                    <% @tasks[section.id].order(position: :asc).each do |task| %>
+                      <%= render "task_infos", task: task %>
+                    <% end %>
+                  </div>
+                </div>
+                <div id = "task" class = "mx-3 my-4">
+                  <%= simple_form_for([section, @task], remote: true) do |f| %>
+                    <%= f.input :title, placeholder: "Add a task...", label: false %>
+                    <%= f.submit %>
                   <% end %>
                 </div>
-              </ul>
-              <a class = "add" href="<%= new_section_task_path(section) %>"><%= image_tag("add.png") %></a>
+                <span class="bin text-right mr-3 mb-3">
+                  <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+                              section_path(section),
+                              method: :delete,
+                              data: { confirm: "Are you sure?" } %>
+                </span>
+              </div>
             </div>
-            <%= link_to "Delete This Section", section_path(section), method: :delete,  data: { confirm: "Are you sure?" } %>
           <% end %>
-        <% end %>
-      </div>
+          <% if section.section_type == "bookmark" %>
+            <div class = "card" class="my-5">
+              <h1>Bookmarks</h1>
+              <%= image_tag("bar.png") %>
+              <div class = "container">
+                <% @bookmarks[section.id].each do |bookmark| %>
+                  <h3><%= bookmark.name %></h3>
+                  <p><%= bookmark.url %></p>
+                  <%= link_to "Delete",
+                              bookmark_path(bookmark.id),
+                              method: :delete,
+                              data: { confirm: "Are you sure?" } %></p>
+              <% end %>
+              <p><%= link_to "Add a bookmark", new_section_bookmark_path(section) %><br>
+                <span class="bin text-right mr-3 mb-3">
+                  <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+                              section_path(section),
+                              method: :delete,
+                              data: { confirm: "Are you sure?" } %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+          <% if section.section_type == "timer" %>
+            <div class = "card" class ="my-5">
+              <h1>Timer</h1>
+              <%= image_tag("bar.png") %>
+              <% @timers[section.id].each do |timer| %>
+                <span class="text-right">
+                  <%= link_to image_tag("remove.png", height: "15", width: "15"),
+                              timer_path(timer),
+                              method: :delete,
+                              data: { confirm: "Are you sure?" } %>
+                </span>
+                <span class="text-center mb-3"><%= timer.name %></span>
+                <div class="timer">
+                  <div class="timer__controls mb-3">
+                    <button data-time="60" class="timer__button mx-5">1 Min</button>
+                    <button data-time="300" class="timer__button mr-5">5 Mins</button>
+                    <button data-time="900" class="timer__button mr-5">15 Mins</button>
+                  </div>
+                  <br>
+                  <div class="timer__controls">
+                    <form name="customForm" id="customForm" class="mx-5">
+                      <input type="text" name="minutes" placeholder="Enter Minutes">
+                    </form>
+                    <button data-time="0" class="timer__button mr-5"><i class="fas fa-undo"></i></button>
+                  </div>
+                  <div class="display m-5">
+                    <h1 class="display__time-left mt-2"></h1>
+                    <p class="display__end-time mb-2"></p>
+                  </div>
+                </div>
+              <% end %>
+              <div id = "timer" class = "my-3 mx-5 text-center">
+                <%= simple_form_for([section, @timer], remote: true) do |f| %>
+                  <%= f.input :name, placeholder: "Add a timer...", label: false %>
+                  <%= f.submit %>
+                <% end %>
+              </div>
+              <span class="bin mr-3 mb-3">
+                <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+                            section_path(section),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

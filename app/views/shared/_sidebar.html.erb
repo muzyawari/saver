@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="cont" x-data="{ rightSide: false, leftSide: false }">
   <div class="left-side" :class="{'active' : leftSide}">
     <div class="left-side-button" @click="leftSide = !leftSide">
@@ -11,6 +12,15 @@
         viewBox="0 0 24 24">
         <path d="M19 12H5M12 19l-7-7 7-7" />
       </svg>
+=======
+<aside class="sidebar h-100">
+  <div class="sidebar-section sidebar-header">
+    <div class="sidebar-logo text-center d-flex mt-2">
+      <h2 class="text-light pl-4">SAVER</h2>
+      <div class = "logo pl-3 pt-1 rounded" >
+        <%= link_to image_tag("saver.png", height: "22"), root_path %>
+      </div>
+>>>>>>> master
     </div>
     <div class="logo pr-5">SAVER</div>
     <div class="side-wrapper">
@@ -41,12 +51,13 @@
                   <div class = "form">
                     <%= simple_form_for (@folder) do |f| %>
                       <%= f.input :name %>
-                      <%= f.submit%>
+                      <%= f.submit %>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             <%# ---------------------------------------------------------------- %>
             <div class="dropdown ml-4">
               <% if user_signed_in? %>
@@ -69,3 +80,37 @@
   </div>
 </div>
 </div>
+=======
+          </li>
+          <div class="dropdown">
+            <% if user_signed_in? %>
+              <% @folders.each do |folder| %>
+                <% if (folder.user_id == current_user.id) %>
+                  <li >
+                    <ul class="nav nav-list collapse " id="submenu1" >
+                      <%= link_to "#{folder.name}", folder, class: "flex-fill padding", id: "tab", type: "button", title: "Title" %>
+                    </ul>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+          </ul>
+          <% if @folder.id %>
+            <div class>
+              <p><%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST" %>
+              </p>
+              <p><%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark", name: "My Bookmarks" }), method: "POST" %>
+              </p>
+              <p><%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST" %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </aside>
+    <% # ---------------------------------------------------------------- %>
+    <% # Navbar %>
+    <% # Navbar %>
+    <% # Widgets Spacebar %>
+    <% # Widgets Spacebar %>
+>>>>>>> master

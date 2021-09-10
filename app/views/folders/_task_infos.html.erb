@@ -1,5 +1,5 @@
-<div data-controller="edit-task" data-edit-task-target="li">
-  <li class = "li" data-edit-task-target="infos">
+<div data-controller="edit-task" data-edit-task-target="task-item">
+  <li class = "task-item" data-edit-task-target="infos" data-task-id="<%= task.id %>">
     <i class="fas fa-grip-lines mr-2"></i>
     <% if task.completed == "completed" %>
       <a class = "add" href="<%=  %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
@@ -8,9 +8,9 @@
     <% end %>
     <a id = "task<%= task.id %>" data-action="click->edit-task#displayForm"><%= task.title %></a>
     <%= link_to image_tag("remove.png", height: "15", width: "15"),
-                                          task_path(task.id),
-                                          method: :delete,
-                                          data: { confirm: "Are you sure?" } %>
+                task_path(task.id),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
     <br>
   </li>
   <br>

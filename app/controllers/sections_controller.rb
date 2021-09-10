@@ -19,8 +19,13 @@ class SectionsController < ApplicationController
 
   def update
     @section = Section.find(params[:id])
+    @folder = Folder.find(@section.folder_id)
     @section.update(section_params)
-    redirect_to root_path
+    if @section.save
+      redirect_to @folder
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -36,6 +41,6 @@ class SectionsController < ApplicationController
   end
 
   def section_params
-    params.require(:section).permit(:section_type, :position, :visible)
+    params.require(:section).permit(:section_type, :position, :visible, :name)
   end
 end
