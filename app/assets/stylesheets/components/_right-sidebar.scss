@@ -11,6 +11,7 @@
 .folder-left {
   flex-grow: 1;
   height: 100vh;
+  overflow: scroll;
 }
 
 // Right Sidebar
@@ -61,7 +62,7 @@
 .account-button {
   border: 0;
   background: 0;
-  color: #64677a;
+  color: #a3a5b6;
   padding: 0;
   cursor: pointer;
   position: relative;
@@ -93,7 +94,7 @@
 #folder-link {
   text-decoration: none;
   font-size: 15px;
-  color: #595c6c;
+  color: #a3a5b6;
   &:hover {
     color: #1b86f8;
   }

@@ -2,7 +2,7 @@ $bg-color: #151728;
 $border-color: #272a3a;
 $title-font: "DM Sans", sans-serif;
 $body-font: "Source Sans Pro", sans-serif;
-$side-title: #5c5e6e;
+$side-title: #a1a1a1;
 $button: #8f98a9;
 
 * {
@@ -10,6 +10,9 @@ $button: #8f98a9;
   box-sizing: border-box;
 }
 
+#user {
+  margin-left: 88px;
+}
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -17,8 +20,8 @@ html {
 
 body {
   font-family: $body-font;
-  background-color: #373e57;
-  color: #ccc8db;
+  background-color: #f4f4f4;
+  color: #d3d1d8;
 }
 
 .left-side {
@@ -98,7 +101,7 @@ body {
 
 .logo {
   font-family: $title-font;
-  font-size: 15px;
+  font-size: 25px;
   color: #fff;
   font-weight: 600;
   text-align: center;
@@ -118,7 +121,7 @@ body {
 .side-title {
   font-family: $title-font;
   color: $side-title;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -130,7 +133,7 @@ body {
 .side-menu {
   display: flex;
   flex-direction: column;
-  font-size: 15px;
+  font-size: px;
   white-space: nowrap;
   svg {
     margin-right: 16px;
@@ -138,7 +141,7 @@ body {
   }
   a {
     text-decoration: none;
-    color: #9c9cab;
+    color: #cccccc;
     display: flex;
     align-items: center;
     &:hover {
@@ -150,7 +153,7 @@ body {
   }
   #tabs {
     text-decoration: none;
-    color: #9c9cab;
+    color: #cccccc;
     display: flex;
     align-items: center;
     &:hover {
@@ -253,17 +256,21 @@ body {
 #nav {
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
+    brightness(140%);
 }
 
-@supports (-webkit-backdrop-filter: blur(30px) saturate(160%) contrast(45%) brightness(140%)) or
-  (backdrop-filter: blur(30px) saturate(160%) contrast(45%) brightness(140%)) {
+@supports (
+    -webkit-backdrop-filter: blur(30px) saturate(160%) contrast(45%) brightness(140%)
+  )
+  or (backdrop-filter: blur(30px) saturate(160%) contrast(45%) brightness(140%)) {
   #nav-b#nav-reduce {
     transition: all 0.5s ease-in-out;
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
+      brightness(140%);
   }
 }

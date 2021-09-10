@@ -13,23 +13,6 @@
         <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
       </svg>
     </button>
-    <ul class="navbar-nav">
-      <span class="account-user pt-3 pr-2 p-2"> <%= current_user.first_name %>
-        <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle ml-3", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </span>
-    </ul>
   </div>
   <%# ---------------------------------------------- %>
   <div class="side-wrapper underline">
@@ -39,7 +22,7 @@
       <div class="username">Todo List
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add a todo list/calendar", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST" %>
+            <%= link_to "Add Todo List", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST", id:"folder-link" %>
           <% end %>
         </div>
       </div>
@@ -52,7 +35,7 @@
       <div class="username"> Timer
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add a timer section", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST" %>
+            <%= link_to "Add Timer", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST", id:"folder-link" %>
           <% end %>
         </div>
       </div>
@@ -64,7 +47,7 @@
       <div class="username"> Bookmark
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add a bookmark manager", folder_sections_path(@folder, section: { section_type: "bookmark", name: "My Bookmarks" }), method: "POST" %>
+            <%= link_to "Add Bookmark Manager", folder_sections_path(@folder, section: { section_type: "bookmark", name: "My Bookmarks" }), method: "POST", id:"folder-link" %>
           <% end %>
         </div>
       </div>

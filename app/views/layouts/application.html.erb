@@ -14,7 +14,6 @@
   </head>
   <body>
     <% unless current_page?(new_user_session_path) %>
-      <%= render 'shared/navbar' %>
       <div class="wrapper d-flex h-100">
         <%= render 'shared/flashes' %>
         <%= yield %>
