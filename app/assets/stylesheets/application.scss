@@ -16,11 +16,6 @@
 @import "components/todo";
 @import "components/form";
 
-// body { background-color: #363740;}
-// .section-container {
-//   display : flex;
-//   flex-wrap: wrap;
-// }
 #sections-list {
 display: flex;
   flex-wrap: wrap;
@@ -28,23 +23,15 @@ display: flex;
 }
 
 .section-item{
-  margin: 30px;
+  margin: 5px;
 }
 
 
 .logo {
   opacity: 0.9;
   border-radius: 1px;
-  // border-bottom-right-radius: 18px;
-  // border-top-left-radius: 18px;
-  // border-bottom-left-radius: 18px;
-  // border-top-right-radius: 18px;
 }
 
 .logo img{
   border-radius:8px;
-  // border-bottom-right-radius: 8px;
-  // border-top-left-radius: 8px;
-  // border-bottom-left-radius: 8px;
-  // border-top-right-radius: 8px;
 }

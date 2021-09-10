@@ -15,6 +15,7 @@
                   </div>
                 <% end %>
                 <div data-controller="tasks">
+                  <h1>Tasks</h1>
                   <%= image_tag("bar.png") %>
                   <div class="tasks-list container" data-action="drop->tasks#sort">
                     <% @tasks[section.id].order(position: :asc).each do |task| %>
@@ -85,13 +86,13 @@
                     </form>
                     <button data-time="0" class="timer__button mr-5"><i class="fas fa-undo"></i></button>
                   </div>
-                  <div class="display">
+                  <div class="display m-5">
                     <h1 class="display__time-left mt-2"></h1>
                     <p class="display__end-time mb-2"></p>
                   </div>
                 </div>
               <% end %>
-              <div id = "timer" class = "mt-3 mx-5 text-center">
+              <div id = "timer" class = "my-3 mx-5 text-center">
                 <%= simple_form_for([section, @timer], remote: true) do |f| %>
                   <%= f.input :name, placeholder: "Add a timer...", label: false %>
                   <%= f.submit %>
