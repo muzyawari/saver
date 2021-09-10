@@ -15,7 +15,6 @@
                   </div>
                 <% end %>
                 <div data-controller="tasks">
-                  <h1>Tasks</h1>
                   <%= image_tag("bar.png") %>
                   <div class="tasks-list container" data-action="drop->tasks#sort">
                     <% @tasks[section.id].order(position: :asc).each do |task| %>
