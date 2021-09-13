@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
     @section = Section.find(params[:section_id])
+    @folder = Folder.find(@section.folder_id)
     # @tasks = Task.where(section: @section)
     @q = Task.ransack(params[:q])
     @tasks = @q.result(distinct: true)
