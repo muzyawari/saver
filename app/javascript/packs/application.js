@@ -32,7 +32,52 @@ import "chartkick/chart.js";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
+
+  // Date Picker for the Forms
   initFlatpickr();
+
+  // Toggle Calender Views - Monthly & Weekly Calender
+  const checkbox = document.querySelector('#toggle');
+  const monthly = document.querySelector('.monthly');
+  const weekly = document.querySelector('.weekly');
+  weekly.style.display = 'none';
+
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      monthly.style.display = 'none';
+      weekly.style.display = 'block';
+    } else {
+      weekly.style.display = 'none';
+      monthly.style.display = 'block';
+    }
+  });
+
+  // Dynamic Text
+  const homePageText = document.getElementById("banner-typed-text");
+  if (homePageText) {
+    loadDynamicBannerText();
+  }
+
+  // Sortable for Tasks
+  var el = document.querySelector(".tasks-list");
+  if (el) {
+    var sortable = Sortable.create(el, {
+      animation: 150,
+      ghostClass: "ghost",
+    });
+  }
+
+
+  // Sortable for Widgets
+  var el = document.getElementById("sections-list");
+    var sortable = Sortable.create(el, {
+      ghostClass: "ghost",
+      swapThreshold: 0.87,
+      animation: 150,
+    });
+  }
+
+  // Timer Default Buttons - 1 Min, 5 Mins, 15 Mins
   const buttons = document.querySelectorAll("[data-time]");
   buttons.forEach((button) =>
     button.addEventListener("click", (event) => {
@@ -40,40 +85,8 @@ document.addEventListener("turbolinks:load", () => {
     })
   );
 
-
 });
 
-// Dynamic Text
-document.addEventListener("turbolinks:load", () => {
-  const homePageText = document.getElementById("banner-typed-text");
-  if (homePageText) {
-    loadDynamicBannerText();
-  }
-});
-
-// Sortable for Tasks
-document.addEventListener("turbolinks:load", () => {
-  var el = document.querySelectorAll(".tasks-list");
-  el.forEach((list) => {
-      var sortable = Sortable.create(list, {
-      animation: 150,
-      ghostClass: "ghost",
-    });
-  });
-
-});
-
-// Sortable for Widgets
-document.addEventListener("turbolinks:load", () => {
-  var el = document.getElementById("sections-list");
-    var sortable = Sortable.create(el, {
-      ghostClass: "ghost",
-      swapThreshold: 0.87,
-      animation: 150,
-    });
-});
-
-import "controllers";
 // Timer Entry
 const el = document.getElementsByClassName("timer");
 if (el && document.customForm) {
@@ -87,4 +100,4 @@ if (el && document.customForm) {
   });
 }
 
-import "controllers"
+import "controllers";

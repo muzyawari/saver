@@ -1,0 +1,27 @@
+.simple-calendar {
+  .today {
+    background-color: #FAF3DD;
+  }
+}
+
+.meeting {
+  color: white;
+  padding: 4px 15px;
+  margin: 10px 0px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+.meeting:hover {
+  background: #1BCB7F;
+  color: white;
+}
+.next-month, .prev-month {
+  background-color:  #ddd;
+  color: white;
+}
+
+#daily-task {
+  height: 70vh;
+}

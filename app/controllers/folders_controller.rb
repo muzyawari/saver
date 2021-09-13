@@ -2,17 +2,19 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
-    @folders = Folder.all
+    # @folder for the sidebars
     @folder = Folder.new
-    @sections = Section.where(folder: @folder)
-    @tasks = {}
-    @bookmarks = {}
-    @timers = {}
-    @sections.each do |section|
-      @tasks[section.id] = Task.where(section: section)
-      @bookmarks[section.id] = Bookmark.where(section: section)
-      @timers[section.id] = Timer.where(section: section)
-    end
+
+    # Selects all the folder for the current_user
+    @folders = Folder.where(user: current_user)
+
+    # Set the current month for the calender if there is a param -> take that value if there is no params take today's date
+    @date = params[:start_date].present? ? Date.parse(params["start_date"]) : Date.today
+    current_month = @date.beginning_of_month..@date.end_of_month
+
+    # Selects all the tasks for the current month
+    @tasks = current_user.tasks.where(date: current_month)
+
     @all_tasks = Task.all
     @data = Task.group(:completed).count
     @chatroom = Chatroom.find(1)
