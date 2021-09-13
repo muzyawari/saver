@@ -52,25 +52,24 @@ document.addEventListener("turbolinks:load", () => {
 
 // Sortable for Tasks
 document.addEventListener("turbolinks:load", () => {
-  var el = document.querySelector(".tasks-list");
-  if (el) {
-    var sortable = Sortable.create(el, {
+  var el = document.querySelectorAll(".tasks-list");
+  el.forEach((list) => {
+      var sortable = Sortable.create(list, {
       animation: 150,
       ghostClass: "ghost",
     });
-  }
+  });
+
 });
 
 // Sortable for Widgets
 document.addEventListener("turbolinks:load", () => {
   var el = document.getElementById("sections-list");
-  if (el) {
     var sortable = Sortable.create(el, {
       ghostClass: "ghost",
       swapThreshold: 0.87,
       animation: 150,
     });
-  }
 });
 
 import "controllers";
