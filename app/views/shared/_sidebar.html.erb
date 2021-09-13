@@ -88,7 +88,9 @@
         </div>
       </a>
     </div>
-    <%= link_to "General Chat", chatroom_path(@chatroom), class: "nav-link" %>
+    <% if (!@chatroom.nil?) %>
+      <%= link_to "General Chat", chatroom_path(@chatroom), class: "nav-link" %>
+    <% end %>
     <%# ---------------------------------------------------------------- %>
   </div>
 </div>

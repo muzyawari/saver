@@ -8,16 +8,19 @@ class FoldersController < ApplicationController
     # Selects all the folder for the current_user
     @folders = Folder.where(user: current_user)
 
-    # Set the current month for the calender if there is a param -> take that value if there is no params take today's date
+    # Set the current month for the calender if there is a param -> take that value
+    # if there is no params take today's date
     @date = params[:start_date].present? ? Date.parse(params["start_date"]) : Date.today
     current_month = @date.beginning_of_month..@date.end_of_month
 
     # Selects all the tasks for the current month
     @tasks = current_user.tasks.where(date: current_month)
 
-    @all_tasks = Task.all
-    @data = Task.group(:completed).count
-    @chatroom = Chatroom.find(1)
+    # @all_tasks = Task.all
+    # @data = Task.group(:completed).count
+    if Chatroom.all.count > 0
+      @chatroom = Chatroom.find(1)
+    end
   end
 
   def show

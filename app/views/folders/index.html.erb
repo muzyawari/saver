@@ -3,16 +3,16 @@
 
 <div class="container m-2">
   <%# Simple Calender gem uses start_date and end_date, as their default date params,
-  to use custom field name say date use 'attribute: :date', as 'date' is the field name in your model%>
+  to use custom field name say date use 'attribute: :date', 'date' is the field name in your model%>
 
   <div class="d-flex align-items-end justify-content-end">
-  <p class="mr-3">Toggle Views</p>
+    <p class="mr-3">Toggle Views</p>
     <label class="switch">
       <input type="checkbox" name="calender" value ="checked" id="toggle">
       <span class="slider"></span>
     </label>
   </div>
-  
+
   <div class="monthly">
     <%# Monthly View ---------------------------------------------------%>
     <%= month_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
@@ -42,4 +42,3 @@
 </div>
 
 <% pie_chart @data %>
-
