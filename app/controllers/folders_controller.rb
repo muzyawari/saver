@@ -2,18 +2,17 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
-    @folders = Folder.all
+    # @folder for the sidebars
     @folder = Folder.new
-    @sections = Section.where(folder: @folder)
-    @tasks = {}
-    @bookmarks = {}
-    @timers = {}
-    @sections.each do |section|
-      start_date = params.fetch(:start_date, Date.today).to_date
-      @tasks[section.id] = Task.where(section: section, date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-      @bookmarks[section.id] = Bookmark.where(section: section)
-      @timers[section.id] = Timer.where(section: section)
-    end
+
+    # Selects all the folder for the current_user
+    @folders = Folder.where(user: current_user)
+
+    # Set the current month for the calender
+    current_month = (Date.today.beginning_of_month..Date.today.end_of_month)
+
+    # Selects all the tasks for the current month
+    @tasks = current_user.tasks.where(date: current_month)
   end
 
   def show

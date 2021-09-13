@@ -1,11 +1,16 @@
 <%= render 'shared/sidebar', folder: @folder %>
 <%= render 'shared/user', folder: @folder %>
 
-  <%= month_calendar(events: @tasks, end_attribute: :date) do |date, tasks| %>
-    <%= date %>
-    <% tasks.each do |task| %>
-      <div class="meeting">  <-- We will add some style to the meeting class later so let's add it now -->
-        <p><%= task.name %></p>
-      </div>
-    <% end %>
+<%# Simple Calender gem uses start_date and end_date, as their default date params,
+to use custom field name say date use 'attribute: :date', as 'date' is the field name in your model%>
+<%= month_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
+  <%# To display just the day use "date.day", if you would like the whole date use "date" %>
+  <%= date.day %>
+
+  <%# Iterate through all the tasks for the month and show the tasks with the relavant date %>
+  <% tasks.each do |task| %>
+    <div class="meeting">
+      <p><%= task.title %></p>
+    </div>
   <% end %>
+<% end %>
