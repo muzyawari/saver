@@ -18,9 +18,9 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+              <%= link_to "Dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "Profile", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
@@ -34,7 +34,7 @@
     <div class="side-wrapper">
       <div class="side-title">MENU</div>
       <div class="side-menu">
-        <a href="#">
+        <a href="<%=  %>">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
@@ -45,7 +45,7 @@
         <%# Dropdown ---------------------------------------------------------------- %>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active " id="menu" role="tabpanel" aria-labelledby="menu-tab">
-            <div class="d-flex align-items-center accordion-heading" id= "tabs" data-toggle="collapse" data-target="#submenu1" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <div class="d-flex align-items-center accordion-heading" id= "tabs" data-toggle="collapse" data-target="#submenu1" role="button" aria-expanded="true" aria-controls="collapseExample">
               <svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
               viewBox="0 0 24 24">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
@@ -59,7 +59,7 @@
                   <div class = "form">
                     <%= simple_form_for (@folder) do |f| %>
                       <%= f.input :name %>
-                      <%= f.submit %>
+                      <%= f.button :submit, 'Create Folder' %>
                     <% end %>
                   </div>
                 </div>
@@ -71,8 +71,8 @@
                 <% @folders.each do |folder| %>
                   <% if (folder.user_id == current_user.id) %>
                     <li style = "list-style-type: none" >
-                      <ul class="nav nav-list collapse" id="submenu1" >
-                        <%= link_to "#{folder.name}", folder, class:"flex-fill p-2", id:"tab", type:"button", title:"Title"%>
+                      <ul class="nav nav-list collapse " id="submenu1" >
+                        <%= link_to "#{folder.name}", folder, class:"flex-fill p-2 #{'hover-color' if  (folder.id == params[:id].to_i)}", id:"tab", type:"button", title:"Title"%>
                       </ul>
                     </li>
                   <% end %>
