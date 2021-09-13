@@ -13,12 +13,19 @@ class FoldersController < ApplicationController
       @bookmarks[section.id] = Bookmark.where(section: section)
       @timers[section.id] = Timer.where(section: section)
     end
+    @all_tasks = Task.all
+    @data = Task.group(:completed).count
+    @chatroom = Chatroom.find(1)
   end
 
   def show
+    @chatroom = Chatroom.find(1)
+    @q = Task.ransack(params[:q])
+    @results = @q.result(distinct: true)
     @folders = Folder.all
     @folder = Folder.find(params[:id])
     @sections = Section.where(folder: @folder)
+    @section = @sections.first
     @tasks = {}
     @task = Task.new
     @timer = Timer.new

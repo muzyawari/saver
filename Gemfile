@@ -68,3 +68,5 @@ gem "turbolinks_render"
 gem "stimulus_reflex", "~> 3.4"
 
 gem "ransack", github: "activerecord-hackery/ransack"
+gem "chartkick"
+gem "rails_admin", "~> 2.0"
