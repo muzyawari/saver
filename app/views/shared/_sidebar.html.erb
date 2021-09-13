@@ -62,7 +62,7 @@
                 <i class="fa fa-plus ml-5" id= "icon" aria-hidden="true" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                   <div class = "form">
-                    <%= simple_form_for (@folder) do |f| %>
+                    <%= simple_form_for (@create) do |f| %>
                       <%= f.input :name %>
                       <%= f.button :submit, 'Create Folder' %>
                     <% end %>
@@ -88,9 +88,12 @@
         </div>
       </a>
     </div>
+
+
     <% if (!@chatroom.nil?) %>
       <%= link_to "General Chat", chatroom_path(@chatroom), class: "nav-link" %>
     <% end %>
+
     <%# ---------------------------------------------------------------- %>
   </div>
 </div>

@@ -2,6 +2,22 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
+# 
+#     @folders = Folder.all
+#     @create = Folder.new
+#     @sections = Section.where(folder: @folder)
+#     @tasks = {}
+#     @bookmarks = {}
+#     @timers = {}
+#     @sections.each do |section|
+#       @tasks[section.id] = Task.where(section: section)
+#       @bookmarks[section.id] = Bookmark.where(section: section)
+#       @timers[section.id] = Timer.where(section: section)
+#     end
+#     @all_tasks = Task.all
+#     @data = Task.group(:completed).count
+#     # @chatroom = Chatroom.find(1)
+# 
     # @folder for the sidebars
     @folder = Folder.new
 
@@ -21,14 +37,15 @@ class FoldersController < ApplicationController
     if Chatroom.all.count > 0
       @chatroom = Chatroom.find(1)
     end
+
   end
 
   def show
-    @chatroom = Chatroom.find(1)
+    # @chatroom = Chatroom.find(1)
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
     @folders = Folder.all
-    @folder = Folder.find(params[:id])
+    @create= Folder.find(params[:id])
     @sections = Section.where(folder: @folder)
     @section = @sections.first
     @tasks = {}
@@ -49,10 +66,10 @@ class FoldersController < ApplicationController
   end
 
   def create
-    @folder = Folder.new(folder_params)
+    @create = Folder.new(folder_params)
     @user = current_user
-    @folder.user = @user
-    if @folder.save
+    @create.user = @user
+    if @create.save
       redirect_to root_path
     else
       render :new
