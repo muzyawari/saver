@@ -3,7 +3,7 @@ class FoldersController < ApplicationController
 
   def index
     @folders = Folder.all
-    @folder = Folder.new
+    @create = Folder.new
     @sections = Section.where(folder: @folder)
     @tasks = {}
     @bookmarks = {}
@@ -15,15 +15,15 @@ class FoldersController < ApplicationController
     end
     @all_tasks = Task.all
     @data = Task.group(:completed).count
-    @chatroom = Chatroom.find(1)
+    # @chatroom = Chatroom.find(1)
   end
 
   def show
-    @chatroom = Chatroom.find(1)
+    # @chatroom = Chatroom.find(1)
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
     @folders = Folder.all
-    @folder = Folder.find(params[:id])
+    @create= Folder.find(params[:id])
     @sections = Section.where(folder: @folder)
     @section = @sections.first
     @tasks = {}
@@ -44,10 +44,10 @@ class FoldersController < ApplicationController
   end
 
   def create
-    @folder = Folder.new(folder_params)
+    @create = Folder.new(folder_params)
     @user = current_user
-    @folder.user = @user
-    if @folder.save
+    @create.user = @user
+    if @create.save
       redirect_to root_path
     else
       render :new
