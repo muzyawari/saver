@@ -66,3 +66,5 @@ gem "dragula-rails"
 gem "turbolinks_render"
 
 gem "stimulus_reflex", "~> 3.4"
+
+gem "ransack", github: "activerecord-hackery/ransack"

@@ -16,9 +16,9 @@
                 <% end %>
                 <div data-controller="tasks">
                   <%= image_tag("bar.png") %>
-                  <div class="tasks-list container" data-action="drop->tasks#sort">
+                  <div class="tasks-list container" data-controller="edit-task" data-tasks-target="list" data-action="drop->tasks#sort">
                     <% @tasks[section.id].order(position: :asc).each do |task| %>
-                      <%= render "task_infos", task: task %>
+                      <%= render "task_infos", task: task, section: section %>
                     <% end %>
                   </div>
                 </div>
@@ -28,6 +28,7 @@
                     <%= f.submit %>
                   <% end %>
                 </div>
+                <%= link_to "Search", section_tasks_path(section) %>
                 <span class="bin text-right mr-3 mb-3">
                   <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
                               section_path(section),
@@ -111,4 +112,4 @@
     </div>
   </div>
 </div>
-<%# ---------------------------------------------- %>
+<% # ---------------------------------------------- %>
