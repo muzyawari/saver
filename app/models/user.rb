@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :folders, dependent: :destroy
   has_many :sections, through: :folders
   has_one_attached :photo
-  validates :first_name, :last_name, :email, :phone, :gender, presence: true
+  # validates :first_name, :last_name, :email, :phone, :gender, presence: true
   validates :email, format: { with: /\A.*@.*\.com\z/ }
   enum gender: %i[male female]
 end
