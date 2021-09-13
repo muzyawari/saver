@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import Sortable from "sortablejs";
+
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
@@ -27,7 +28,7 @@ import { timer, startTimer } from "../components/timer.js";
 
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
-
+import "chartkick/chart.js";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
@@ -66,9 +67,9 @@ document.addEventListener("turbolinks:load", () => {
     });
   }
 
+
   // Sortable for Widgets
   var el = document.getElementById("sections-list");
-  if (el) {
     var sortable = Sortable.create(el, {
       ghostClass: "ghost",
       swapThreshold: 0.87,
@@ -83,6 +84,7 @@ document.addEventListener("turbolinks:load", () => {
       startTimer(event);
     })
   );
+
 });
 
 // Timer Entry

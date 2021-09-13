@@ -1,5 +1,6 @@
 <%= render 'shared/sidebar', folder: @folder %>
 <%= render 'shared/user', folder: @folder %>
+
 <div class="container m-2">
   <%# Simple Calender gem uses start_date and end_date, as their default date params,
   to use custom field name say date use 'attribute: :date', as 'date' is the field name in your model%>
@@ -11,6 +12,7 @@
       <span class="slider"></span>
     </label>
   </div>
+  
   <div class="monthly">
     <%# Monthly View ---------------------------------------------------%>
     <%= month_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
@@ -38,3 +40,6 @@
     <% end %>
   </div>
 </div>
+
+<% pie_chart @data %>
+

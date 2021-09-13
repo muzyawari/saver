@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   devise_for :users
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
   resources :folders do
     resources :sections, only: [:create, :new]
   end

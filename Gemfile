@@ -61,9 +61,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem "dragula-rails"
 gem "turbolinks_render"
-
 gem "stimulus_reflex", "~> 3.4"
 gem "simple_calendar", "~> 2.4"
+gem "ransack", github: "activerecord-hackery/ransack"
+gem "chartkick"
+gem "rails_admin", "~> 2.0"
+

@@ -14,12 +14,20 @@ class FoldersController < ApplicationController
 
     # Selects all the tasks for the current month
     @tasks = current_user.tasks.where(date: current_month)
+
+    @all_tasks = Task.all
+    @data = Task.group(:completed).count
+    @chatroom = Chatroom.find(1)
   end
 
   def show
+    @chatroom = Chatroom.find(1)
+    @q = Task.ransack(params[:q])
+    @results = @q.result(distinct: true)
     @folders = Folder.all
     @folder = Folder.find(params[:id])
     @sections = Section.where(folder: @folder)
+    @section = @sections.first
     @tasks = {}
     @task = Task.new
     @timer = Timer.new

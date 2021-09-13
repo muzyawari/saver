@@ -3,12 +3,12 @@
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <br>
-        <div class="home-banner">
+        <div class="home-banner mb-2">
           <h1 id="dynamic-text">
             <span id="banner-typed-text"></span>
           </h1>
         </div>
-        <div class = "logo">
+        <div class = "color-logo">
           <%= image_tag("saver.png") %>
         </div>
         <br>
@@ -22,7 +22,7 @@
       </div>
       <%= render "devise/shared/links" %>
       <div class="form-actions">
-        <%= f.button :submit, "Log in" %>
+        <%= f.button :submit, "Login" %>
       </div>
     <% end %>
   </div>

@@ -1,6 +1,26 @@
-<div class="card-container">
-  <h4><%= @task.folder.name %></h4>
-  <% @tasks.each do |task| %>
-  <%= task.completed %><%= task.title %>
-  <% end %>
+<div class ="wrapper w-100" >
+  <div class = "card p-5 ">
+    <h1>Search</h1>
+    <br>
+    <div class = "container">
+      <%= search_form_for [@section, @q] do |f| %>
+        <%= f.label :title_cont %>
+        <%= f.search_field :title_cont %>
+        <%= f.label :description_cont %>
+        <%= f.search_field :description_cont %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="card-container">
+      <br>
+      <h2>Search Results:</h2>
+      <% @tasks.each do |task| %>
+        <li>
+          <%= task.title %>
+          <%= link_to " | Edit", edit_task_path(task) %>
+          <%= link_to " | Back", folder_path(@folder) %>
+        </li>
+      <% end %>
+    </div>
+  </div>
 </div>
