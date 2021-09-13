@@ -87,4 +87,19 @@ if (el && document.customForm) {
   });
 }
 
-import "controllers"
+import "controllers";
+
+const Checkbox = document.querySelector('input[value="checked"]');
+const monthly = document.querySelector('.monthly');
+const weekly = document.querySelector('.weekly');
+weekly.style.display = 'none';
+
+Checkbox.addEventListener('change', () => {
+  if (Checkbox.checked) {
+    monthly.style.display = 'none';
+    weekly.style.display = 'block';
+  } else {
+    weekly.style.display = 'none';
+    monthly.style.display = 'block';
+  }
+});
