@@ -29,6 +29,7 @@ import { timer, startTimer } from "../components/timer.js";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
+import Chart from 'chart.js';
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
@@ -41,7 +42,6 @@ document.addEventListener("turbolinks:load", () => {
   const monthly = document.querySelector('.monthly');
   const weekly = document.querySelector('.weekly');
   weekly.style.display = 'none';
-
   checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
       monthly.style.display = 'none';
@@ -59,9 +59,9 @@ document.addEventListener("turbolinks:load", () => {
   }
 
   // Sortable for Tasks
-  var el = document.querySelector(".tasks-list");
+  const el = document.querySelector(".tasks-list");
   if (el) {
-    var sortable = Sortable.create(el, {
+    const tasksortable = Sortable.create(el, {
       animation: 150,
       ghostClass: "ghost",
     });
@@ -69,28 +69,25 @@ document.addEventListener("turbolinks:load", () => {
 
 
   // Sortable for Widgets
-  var el = document.getElementById("sections-list");
-    var sortable = Sortable.create(el, {
-      ghostClass: "ghost",
-      swapThreshold: 0.87,
-      animation: 150,
-    });
-  }
+  const sec = document.getElementById("sections-list");
+  const sortable = Sortable.create(sec, {
+    ghostClass: "ghost",
+    swapThreshold: 0.87,
+    animation: 150,
+  });
 
   // Timer Default Buttons - 1 Min, 5 Mins, 15 Mins
   const buttons = document.querySelectorAll("[data-time]");
-  buttons.forEach((button) =>
+  buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
       startTimer(event);
     })
-  );
-
+  });
 });
 
 // Timer Entry
-const el = document.getElementsByClassName("timer");
-if (el && document.customForm) {
-
+const timerentry = document.getElementsByClassName("timer");
+if (timerentry && document.customForm) {
   document.customForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const mins = this.minutes.value;
