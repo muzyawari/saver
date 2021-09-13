@@ -31,20 +31,16 @@ import { loadDynamicBannerText } from "../components/banner";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
-  console.log("hi")
-  initFlatpickr();
-  const buttons = document.querySelectorAll("[data-time]");
-  buttons.forEach((button) =>
-    button.addEventListener("click", (event) => {
-      startTimer(event);
-    })
-  );
 
-  // toggle calender views
+  // Date Picker for the Forms
+  initFlatpickr();
+
+  // Toggle Calender Views - Monthly & Weekly Calender
   const checkbox = document.querySelector('#toggle');
   const monthly = document.querySelector('.monthly');
   const weekly = document.querySelector('.weekly');
   weekly.style.display = 'none';
+
   checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
       monthly.style.display = 'none';
@@ -54,18 +50,14 @@ document.addEventListener("turbolinks:load", () => {
       monthly.style.display = 'block';
     }
   });
-});
 
-// Dynamic Text
-document.addEventListener("turbolinks:load", () => {
+  // Dynamic Text
   const homePageText = document.getElementById("banner-typed-text");
   if (homePageText) {
     loadDynamicBannerText();
   }
-});
 
-// Sortable for Tasks
-document.addEventListener("turbolinks:load", () => {
+  // Sortable for Tasks
   var el = document.querySelector(".tasks-list");
   if (el) {
     var sortable = Sortable.create(el, {
@@ -73,10 +65,8 @@ document.addEventListener("turbolinks:load", () => {
       ghostClass: "ghost",
     });
   }
-});
 
-// Sortable for Widgets
-document.addEventListener("turbolinks:load", () => {
+  // Sortable for Widgets
   var el = document.getElementById("sections-list");
   if (el) {
     var sortable = Sortable.create(el, {
@@ -85,9 +75,16 @@ document.addEventListener("turbolinks:load", () => {
       animation: 150,
     });
   }
+
+  // Timer Default Buttons - 1 Min, 5 Mins, 15 Mins
+  const buttons = document.querySelectorAll("[data-time]");
+  buttons.forEach((button) =>
+    button.addEventListener("click", (event) => {
+      startTimer(event);
+    })
+  );
 });
 
-import "controllers";
 // Timer Entry
 const el = document.getElementsByClassName("timer");
 if (el && document.customForm) {
