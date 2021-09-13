@@ -9,7 +9,8 @@ class FoldersController < ApplicationController
     @bookmarks = {}
     @timers = {}
     @sections.each do |section|
-      @tasks[section.id] = Task.where(section: section)
+      start_date = params.fetch(:start_date, Date.today).to_date
+      @tasks[section.id] = Task.where(section: section, date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
       @bookmarks[section.id] = Bookmark.where(section: section)
       @timers[section.id] = Timer.where(section: section)
     end

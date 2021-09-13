@@ -15,12 +15,8 @@
 @import "components/login";
 @import "components/todo";
 @import "components/form";
-
-// body { background-color: #363740;}
-// .section-container {
-//   display : flex;
-//   flex-wrap: wrap;
-// }
+@import "components/calender";
+@import "simple_calendar";
 
 #sections-list {
   display: flex;
@@ -28,15 +24,16 @@
   justify-content: space-evenly;
 }
 
-.section-item {
+.section-item{
   margin: 5px;
 }
+
 
 .logo {
   opacity: 0.9;
   border-radius: 1px;
 }
 
-.logo img {
+.logo img{
   border-radius: 8px;
 }

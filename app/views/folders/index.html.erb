@@ -1,2 +1,11 @@
 <%= render 'shared/sidebar', folder: @folder %>
 <%= render 'shared/user', folder: @folder %>
+
+  <%= month_calendar(events: @tasks, end_attribute: :date) do |date, tasks| %>
+    <%= date %>
+    <% tasks.each do |task| %>
+      <div class="meeting">  <-- We will add some style to the meeting class later so let's add it now -->
+        <p><%= task.name %></p>
+      </div>
+    <% end %>
+  <% end %>
