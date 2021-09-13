@@ -12,7 +12,8 @@
     <thead class="thead-dark">
       <tr style="height: 1px;">
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <%# Try using date.day_names for the weekday, date.abbr_day_names for abbreviated weekday %>
+          <th><%= t('date.day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>

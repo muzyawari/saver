@@ -31,6 +31,7 @@ import { loadDynamicBannerText } from "../components/banner";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
+  console.log("hi")
   initFlatpickr();
   const buttons = document.querySelectorAll("[data-time]");
   buttons.forEach((button) =>
@@ -39,7 +40,20 @@ document.addEventListener("turbolinks:load", () => {
     })
   );
 
-
+  // toggle calender views
+  const checkbox = document.querySelector('#toggle');
+  const monthly = document.querySelector('.monthly');
+  const weekly = document.querySelector('.weekly');
+  weekly.style.display = 'none';
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      monthly.style.display = 'none';
+      weekly.style.display = 'block';
+    } else {
+      weekly.style.display = 'none';
+      monthly.style.display = 'block';
+    }
+  });
 });
 
 // Dynamic Text
@@ -88,18 +102,3 @@ if (el && document.customForm) {
 }
 
 import "controllers";
-
-const Checkbox = document.querySelector('input[value="checked"]');
-const monthly = document.querySelector('.monthly');
-const weekly = document.querySelector('.weekly');
-weekly.style.display = 'none';
-
-Checkbox.addEventListener('change', () => {
-  if (Checkbox.checked) {
-    monthly.style.display = 'none';
-    weekly.style.display = 'block';
-  } else {
-    weekly.style.display = 'none';
-    monthly.style.display = 'block';
-  }
-});

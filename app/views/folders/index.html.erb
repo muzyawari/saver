@@ -7,7 +7,7 @@
   <div class="d-flex align-items-end justify-content-end">
   <p class="mr-3">Toggle Views</p>
     <label class="switch">
-      <input type="checkbox" name="calender" value ="checked">
+      <input type="checkbox" name="calender" value ="checked" id="toggle">
       <span class="slider"></span>
     </label>
   </div>
@@ -20,7 +20,7 @@
       <%# Iterate through all the tasks for the month and show the tasks with the relavant date %>
       <% tasks.each do |task| %>
         <div class="meeting">
-          <p><%= task.title %></p>
+          <p class="m-0"><%= task.title %></p>
         </div>
       <% end %>
     <% end %>
@@ -31,7 +31,7 @@
       <%= date.day %>
       <% tasks.each do |task| %>
         <div class="meeting">
-          <p><%= task.title %></p>
+          <p  class="m-0"><%= task.title %></p>
         </div>
       <% end %>
     <% end %>
