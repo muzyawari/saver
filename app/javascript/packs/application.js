@@ -29,55 +29,65 @@ import { timer, startTimer } from "../components/timer.js";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
+import Chart from 'chart.js';
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
+
+  // Date Picker for the Forms
   initFlatpickr();
-  const buttons = document.querySelectorAll("[data-time]");
-  buttons.forEach((button) =>
-    button.addEventListener("click", (event) => {
-      startTimer(event);
-    })
-  );
 
+  // Toggle Calender Views - Monthly & Weekly Calender
+  const checkbox = document.querySelector('#toggle');
+  const monthly = document.querySelector('.monthly');
+  const weekly = document.querySelector('.weekly');
+  weekly.style.display = 'none';
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      monthly.style.display = 'none';
+      weekly.style.display = 'block';
+    } else {
+      weekly.style.display = 'none';
+      monthly.style.display = 'block';
+    }
+  });
 
-});
-
-// Dynamic Text
-document.addEventListener("turbolinks:load", () => {
+  // Dynamic Text
   const homePageText = document.getElementById("banner-typed-text");
   if (homePageText) {
     loadDynamicBannerText();
   }
-});
 
-// Sortable for Tasks
-document.addEventListener("turbolinks:load", () => {
-  var el = document.querySelectorAll(".tasks-list");
-  el.forEach((list) => {
-      var sortable = Sortable.create(list, {
+  // Sortable for Tasks
+  const el = document.querySelector(".tasks-list");
+  if (el) {
+    const tasksortable = Sortable.create(el, {
       animation: 150,
       ghostClass: "ghost",
     });
+  }
+
+
+  // Sortable for Widgets
+  const sec = document.getElementById("sections-list");
+  const sortable = Sortable.create(sec, {
+    ghostClass: "ghost",
+    swapThreshold: 0.87,
+    animation: 150,
   });
 
+  // Timer Default Buttons - 1 Min, 5 Mins, 15 Mins
+  const buttons = document.querySelectorAll("[data-time]");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      startTimer(event);
+    })
+  });
 });
 
-// Sortable for Widgets
-document.addEventListener("turbolinks:load", () => {
-  var el = document.getElementById("sections-list");
-    var sortable = Sortable.create(el, {
-      ghostClass: "ghost",
-      swapThreshold: 0.87,
-      animation: 150,
-    });
-});
-
-import "controllers";
 // Timer Entry
-const el = document.getElementsByClassName("timer");
-if (el && document.customForm) {
-
+const timerentry = document.getElementsByClassName("timer");
+if (timerentry && document.customForm) {
   document.customForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const mins = this.minutes.value;
@@ -87,4 +97,4 @@ if (el && document.customForm) {
   });
 }
 
-import "controllers"
+import "controllers";
