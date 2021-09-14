@@ -69,3 +69,5 @@ gem "ransack", github: "activerecord-hackery/ransack"
 gem "chartkick"
 gem "rails_admin", "~> 2.0"
 
+
+gem "noticed", "~> 1.4"
