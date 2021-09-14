@@ -1,6 +1,6 @@
 # To deliver this notification:
 #
-CommentNotification.with(task: @task).deliver_later(current_user)
+# CommentNotification.with(task: @task).deliver_later(current_user)
 # CommentNotification.with(post: @post).deliver(current_user)
 
 class CommentNotification < Noticed::Base
@@ -28,17 +28,16 @@ class CommentNotification < Noticed::Base
   #   }
   # end
 
-  # Add required params
-  #
+  # Add required params  #
   param :task
 
   # Define helper methods to make rendering easier.
   #
   def message
-    t(".message")
+    "#{params[:task].title} was due on #{params[:task].date.strftime("%d %B")}"
   end
 
   def url
-    post_path(params[:task])
+    edit_task_path(params[:task])
   end
 end

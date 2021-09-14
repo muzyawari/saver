@@ -39,3 +39,17 @@
 .logo img{
   border-radius: 8px;
 }
+
+.chatroom {
+ width: 300px;
+ height: 400px;
+ overflow: hidden;
+ overflow-y: scroll;
+}
+
+.notifications {
+ width: 300px;
+ height: 400px;
+ overflow: hidden;
+ overflow-y: scroll;
+}

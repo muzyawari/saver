@@ -47,7 +47,7 @@
           </svg>
           Home
         </a>
-        <%# Dropdown ---------------------------------------------------------------- %>
+        <% # Dropdown ---------------------------------------------------------------- %>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active " id="menu" role="tabpanel" aria-labelledby="menu-tab">
             <div class="d-flex align-items-center accordion-heading" id= "tabs" data-toggle="collapse" data-target="#submenu1" role="button" aria-expanded="true" aria-controls="collapseExample">
@@ -57,27 +57,27 @@
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
               Folders
-              <%# ---------------------------------------------- %>
+              <% # ---------------------------------------------- %>
               <div class="btn-group">
                 <i class="fa fa-plus ml-5" id= "icon" aria-hidden="true" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                   <div class = "form">
                     <%= simple_form_for (@create) do |f| %>
                       <%= f.input :name %>
-                      <%= f.button :submit, 'Create Folder' %>
+                      <%= f.button :submit, "Create Folder" %>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
-            <%# ---------------------------------------------------------------- %>
+            <% # ---------------------------------------------------------------- %>
             <div class="dropdown ml-4">
               <% if user_signed_in? %>
                 <% @folders.each do |folder| %>
                   <% if (folder.user_id == current_user.id) %>
                     <li style = "list-style-type: none" >
                       <ul class="nav nav-list collapse " id="submenu1" >
-                        <%= link_to "#{folder.name}", folder, class:"flex-fill p-2 #{'hover-color' if  (folder.id == params[:id].to_i)}", id:"tab", type:"button", title:"Title"%>
+                        <%= link_to "#{folder.name}", folder, class: "flex-fill p-2 #{"hover-color" if (folder.id == params[:id].to_i)}", id: "tab", type: "button", title: "Title" %>
                       </ul>
                     </li>
                   <% end %>
@@ -88,13 +88,28 @@
         </div>
       </a>
     </div>
-
-
     <% if (!@chatroom.nil?) %>
       <%= link_to "General Chat", chatroom_path(@chatroom), class: "nav-link" %>
     <% end %>
-
-    <%# ---------------------------------------------------------------- %>
+    <div class = "chatroom pr-5">
+      <h1>#<%= @chatroom.name %></h1>
+      <br>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+          <div class="message-container" id="message-<%= message.id %>">
+            <i class="author">
+              <span><%= message.user.first_name %></span>
+              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </i>
+            <p><%= message.content %></p>
+          </div>
+        <% end %>
+      </div>
+      <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+      <% end %>
+    </div>
+    <% # ---------------------------------------------------------------- %>
   </div>
 </div>
 </div>

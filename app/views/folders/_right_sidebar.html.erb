@@ -14,28 +14,28 @@
       </svg>
     </button>
   </div>
-  <%# ---------------------------------------------- %>
+  <% # ---------------------------------------------- %>
   <div class="side-wrapper underline">
     <div class="side-title">Widgets</div>
     <div class="user">
-      <%= image_tag("todo.png", :class => "user-img")%>
+      <%= image_tag("todo.png", :class => "user-img") %>
       <div class="username">Todo List
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add Todo List", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST", id:"folder-link" %>
+            <%= link_to "Add Todo List", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST", id: "folder-link" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-  <%# ---------------------------------------------------------------- %>
+  <% # ---------------------------------------------------------------- %>
   <div class="side-wrapper underline">
     <div class="user">
-      <%= image_tag("timer.png", :class => "user-img")%>
+      <%= image_tag("timer.png", :class => "user-img") %>
       <div class="username"> Timer
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add Timer", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST", id:"folder-link" %>
+            <%= link_to "Add Timer", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST", id: "folder-link" %>
           <% end %>
         </div>
       </div>
@@ -43,15 +43,20 @@
   </div>
   <div class="side-wrapper underline">
     <div class="user">
-      <%= image_tag("bookmark.png", :class => "user-img")%>
+      <%= image_tag("bookmark.png", :class => "user-img") %>
       <div class="username"> Bookmark
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add Bookmark Manager", folder_sections_path(@folder, section: { section_type: "bookmark", name: "My Bookmarks" }), method: "POST", id:"folder-link" %>
+            <%= link_to "Add Bookmark Manager", folder_sections_path(@folder, section: { section_type: "bookmark", name: "My Bookmarks" }), method: "POST", id: "folder-link" %>
           <% end %>
         </div>
       </div>
     </div>
+  </div>
+  <div class = "side-title notifications" data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll" class = "side-wrapper underline">
+      <br>
+      <span class="ml-4">Notifications</span>
+      <%= render @notifications %>
   </div>
   <div class="overlay" @click="rightSide = false; leftSide = false" :class="{ 'active': rightSide || leftSide }"></div>
 </div>

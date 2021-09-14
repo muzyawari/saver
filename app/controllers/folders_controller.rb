@@ -3,6 +3,7 @@ class FoldersController < ApplicationController
 
   def index
     #
+    @notifications = current_user.notifications
     @create = Folder.new
     @sections = Section.where(folder: @folder)
     @tasks = {}
@@ -34,11 +35,16 @@ class FoldersController < ApplicationController
     # @data = Task.group(:completed).count
     if Chatroom.all.count > 0
       @chatroom = Chatroom.find(1)
+      @message = Message.new
     end
   end
 
   def show
-    # @chatroom = Chatroom.find(1)
+    if Chatroom.all.count > 0
+      @chatroom = Chatroom.find(1)
+      @message = Message.new
+    end
+    @notifications = current_user.notifications
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
     @folders = Folder.all
