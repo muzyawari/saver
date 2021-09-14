@@ -1,9 +1,9 @@
 <div class="simple-calendar">
   <div class="d-flex align-items-center justify-content-between">
     <div class="calendar-heading my-3">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view + "&week=false", class: 'btn btn-action' %>
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-action' %>
       <span class="calendar-title btn btn-fill"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view + "&week=false", class: 'btn btn-action' %>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-action' %>
     </div>
     <%# <%= link_to 'Create meeting', new_meeting_path, class: 'btn btn-outline-warning' %>
   </div>

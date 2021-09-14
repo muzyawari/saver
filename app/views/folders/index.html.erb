@@ -8,16 +8,16 @@
   <div class="d-flex align-items-end justify-content-end">
     <p class="mr-3">Toggle Views</p>
     <label class="switch">
-    <% if params[:week] == "true" %>
-      <input type="checkbox" name="calender" id="toggle">
-    <% elsif params[:week] == "false" %>
-      <input type="checkbox" name="calender" value ="checked" id="toggle">
-    <% end %>
+      <% if params[:week] == "true" %>
+        <input type="checkbox" name="calender" checked id="toggle">
+      <% else %>
+        <input type="checkbox" name="calender" id="toggle">
+      <% end %>
       <span class="slider round"></span>
     </label>
   </div>
 
-  <div class="monthly">
+  <div class="monthly" style="<%= params[:week] == "true" ? 'display: none' : '' %>">
     <%# Monthly View ---------------------------------------------------%>
     <%= month_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
       <%# To display just the day use "date.day", if you would like the whole date use "date" %>
@@ -32,7 +32,7 @@
     <% end %>
   </div>
 
-  <div class="weekly">
+  <div class="weekly" style="<%= params[:week] == "true" ? '' : 'display: none' %>">
     <%# Weekly View ---------------------------------------------------%>
     <%= week_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
       <%= date.day %>

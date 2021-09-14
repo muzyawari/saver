@@ -30,23 +30,29 @@ import "chartkick/chart.js";
 import Chart from "chart.js";
 
 
-const checkbox = document.querySelector("#toggle");
-const monthly = document.querySelector(".monthly");
-const weekly = document.querySelector(".weekly");
-const toggleCalender = () => {
-  if (checkbox.checked && params[:week] === "true") {
-    monthly.style.display = "none";
-    weekly.style.display = "block";
-  } else {
-    weekly.style.display = "none";
-    monthly.style.display = "block";
+
+// weekly.style.display = "none";
+const toggleCalender = (checkbox) => {
+  const monthly = document.querySelector(".monthly");
+  const weekly = document.querySelector(".weekly");
+  if (checkbox && monthly && weekly) {
+    const url = new URL(window.location.href);
+    if (checkbox.checked) {
+      monthly.style.display = "none";
+      weekly.style.display = "block";
+      url.searchParams.append('week', 'true');
+    } else {
+      weekly.style.display = "none";
+      monthly.style.display = "block";
+      url.searchParams.delete('week');
+    }
+    window.history.pushState("", "", `${url.pathname}${url.search}`);
   }
 }
 
 document.addEventListener("turbolinks:load", () => {
   // Date Picker for the Forms
   initFlatpickr();
-
   // Dynamic Text
   const homePageText = document.getElementById("banner-typed-text");
   if (homePageText) {
@@ -62,9 +68,10 @@ document.addEventListener("turbolinks:load", () => {
   });
 
   // Toggle Calender Views - Monthly & Weekly Calender
-
-    checkbox.addEventListener("change", () => {
-    toggleCalender();
+  const checkbox = document.querySelector("#toggle");
+  // toggleCalender(checkbox) // for the first run through
+  checkbox.addEventListener("change", () => {
+    toggleCalender(checkbox);
   });
 
   // Timer Entry

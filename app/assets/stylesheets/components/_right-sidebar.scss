@@ -19,7 +19,7 @@
   padding: 20px;
   flex-grow: 1;
   overflow: auto;
-  background-color: #24273b;
+  background-color: $main-color-bg;
 }
 
 .profile {
@@ -62,7 +62,7 @@
 .account-button {
   border: 0;
   background: 0;
-  color: #a3a5b6;
+  color: $main-color-txt;
   padding: 0;
   cursor: pointer;
   position: relative;
@@ -94,9 +94,9 @@
 #folder-link {
   text-decoration: none;
   font-size: 15px;
-  color: #a3a5b6;
+  color: $main-color-txt;
   &:hover {
-    color: #1b86f8;
+    color: $main-color-bg;
   }
 }
 
@@ -104,7 +104,7 @@
   position: absolute;
   right: 0px;
   top: -2px;
-  background-color: #1b86f8;
+  background-color: $main-color-bg;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -115,7 +115,7 @@
 .account-user {
   display: inline-flex;
   align-items: center;
-  color: #64677a;
+  color: $main-color-txt;
   font-weight: 600;
   span {
     font-size: 10px;
@@ -152,7 +152,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(#24273b, 0.8);
+  background-color: rgba($main-color-bg, 0.8);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -175,9 +175,9 @@
   height: 100%;
   border: 0;
   width: 52px;
-  background-color: #1e2031;
+  background-color: $main-color-bg;
   border-left: 1px solid $border-color;
-  color: #fff;
+  color: $main-color-txt;
   display: none;
   cursor: pointer;
 
@@ -187,8 +187,8 @@
     height: 10px;
     border-radius: 50%;
     position: absolute;
-    background-color: #1b86f8;
-    border: 2px solid #1e2031;
+    background-color: $main-color-bg;
+    border: 2px solid $main-color-bg;
     top: 13px;
     right: 12px;
   }
