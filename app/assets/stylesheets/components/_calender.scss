@@ -5,17 +5,17 @@
 }
 
 .meeting {
-  color: white;
+  color: $main-color-txt;
   padding: 4px 15px;
   margin: 10px 0px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: $main-color-bg;
   transition: background 0.3s ease;
 }
 
 .meeting:hover {
-  background: #1BCB7F;
-  color: white;
+  background: $main-color-bg;
+  color: $main-color-txt;
 }
 .next-month, .prev-month {
   background-color:  #ddd;
@@ -24,4 +24,13 @@
 
 #daily-task {
   height: 70vh;
+}
+
+.btn-action {
+  border: 2px solid $main-color-bg;
+}
+
+.btn-fill, thead {
+  background-color: $main-color-bg;
+  color: $main-color-txt;
 }

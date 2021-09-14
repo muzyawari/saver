@@ -21,7 +21,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #343A40;
+  background-color: $main-color-bg;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -33,21 +33,30 @@
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: $main-color-txt;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #343A40;
+  background-color: $main-color-bg;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #343A40;
+  box-shadow: 0 0 1px $main-color-bg;
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

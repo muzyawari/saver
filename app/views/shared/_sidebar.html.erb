@@ -88,8 +88,8 @@
         </div>
       </a>
     </div>
-
-
+    <p>Settings</p>
+    <% current_user.bg_color = 'black' %>
     <% if (!@chatroom.nil?) %>
       <%= link_to "General Chat", chatroom_path(@chatroom), class: "nav-link" %>
     <% end %>
