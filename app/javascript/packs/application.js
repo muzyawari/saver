@@ -25,7 +25,7 @@ import "bootstrap";
 
 // import { startTimer } from '../components/timer.js';
 import { timer, startTimer } from "../components/timer.js";
-
+import {bookmark} from "../components/bookmark.js"
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
@@ -36,6 +36,14 @@ document.addEventListener("turbolinks:load", () => {
 
   // Date Picker for the Forms
   initFlatpickr();
+
+  // Event listener for Bookmark
+  const button = document.querySelector('.button');
+  button.addEventListener('click', event => {
+    event.preventDefault();
+    const input = document.querySelector("#url").value;
+    bookmark(input);
+  })
 
   // Toggle Calender Views - Monthly & Weekly Calender
   const checkbox = document.querySelector('#toggle');
@@ -96,5 +104,16 @@ if (timerentry && document.customForm) {
     this.reset();
   });
 }
+
+
+
+// Click Event listener
+
+
+
+
+
+
+//
 
 import "controllers";

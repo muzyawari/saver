@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   resources :sections, only: [:destroy, :update] do
     resources :tasks, only: [:index, :create, :new]
     resources :timers, only: [:create, :new]
-    resources :bookmarks, only: [:create, :new]
+  end
+  resources :bookmark_lists, only: [:show, :create, :new, :destroy, :edit, :update] do
+    resources :bookmarks, only: [:create, :new ]
   end
   resources :tasks, only: [:destroy, :edit, :update]
   resources :timers, only: [:destroy, :edit, :update]
-  resources :bookmarks, only: [:destroy, :edit, :update]
+
   root to: "folders#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

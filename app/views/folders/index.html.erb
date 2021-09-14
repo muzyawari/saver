@@ -1,10 +1,8 @@
-<%= render 'shared/sidebar', folder: @create %>
+<%= render 'shared/sidebar', folder: @create, boookmark: @bookmark%>
 <%= render 'shared/user', folder: @folder %>
-
 <div class="container m-2">
   <%# Simple Calender gem uses start_date and end_date, as their default date params,
   to use custom field name say date use 'attribute: :date', 'date' is the field name in your model%>
-
   <div class="d-flex align-items-end justify-content-end">
     <p class="mr-3">Toggle Views</p>
     <label class="switch">
@@ -12,13 +10,11 @@
       <span class="slider"></span>
     </label>
   </div>
-
   <div class="monthly">
     <%# Monthly View ---------------------------------------------------%>
     <%= month_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
       <%# To display just the day use "date.day", if you would like the whole date use "date" %>
       <%= date.day %>
-
       <%# Iterate through all the tasks for the month and show the tasks with the relavant date %>
       <% tasks.each do |task| %>
         <div class="meeting">
@@ -27,7 +23,6 @@
       <% end %>
     <% end %>
   </div>
-
   <div class="weekly">
     <%# Weekly View ---------------------------------------------------%>
     <%= week_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
@@ -40,5 +35,4 @@
     <% end %>
   </div>
 </div>
-
 <% pie_chart @data %>

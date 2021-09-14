@@ -18,7 +18,7 @@
 @import "components/calender";
 @import "simple_calendar";
 @import "components/toggle";
-
+@import "components/bookmark";
 
 #sections-list {
   display: flex;
@@ -26,16 +26,15 @@
   justify-content: space-evenly;
 }
 
-.section-item{
+.section-item {
   margin: 5px;
 }
-
 
 .logo {
   opacity: 0.9;
   border-radius: 1px;
 }
 
-.logo img{
+.logo img {
   border-radius: 8px;
 }

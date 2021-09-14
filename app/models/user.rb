@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :folders, dependent: :destroy
   has_many :sections, through: :folders
   has_many :tasks, through: :sections
+  has_many :bookmark_lists, dependent: :destroy
+  has_many :bookmarks, through: :bookmark_lists
   has_one_attached :photo
   # validates :first_name, :last_name, :email, :phone, :gender, presence: true
   validates :email, format: { with: /\A.*@.*\.com\z/ }

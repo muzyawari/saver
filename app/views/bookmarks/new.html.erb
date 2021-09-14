@@ -1,7 +1,7 @@
-<div id = "boomark" class = "card">
-<%= simple_form_for [@section, @bookmark] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :url %>
-  <%= f.submit %>
-<% end %>
+<div id = "bookmark" class = "card">
+  <%= simple_form_for [@section, @bookmark] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :url %>
+    <%= f.submit %>
+  <% end %>
 </div>
