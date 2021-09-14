@@ -1,15 +1,15 @@
 <div class="simple-calendar">
   <div class="d-flex align-items-center justify-content-between">
-    <div class="calendar-heading my-3">
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-outline-dark' %>
-      <span class="calendar-title btn btn-dark"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-outline-dark'  %>
+    <div class="calendar-heading mb-3">
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'btn btn-action' %>
+      <span class="calendar-title btn btn-fill"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'btn btn-action' %>
     </div>
     <%# <%= link_to 'Create meeting', new_meeting_path, class: 'btn btn-outline-warning' %>
   </div>
 
   <table class="table table-striped">
-    <thead class="thead-dark">
+    <thead class="thead">
       <tr style="height: 1px;">
         <% date_range.slice(0, 7).each do |day| %>
           <%# Try using date.day_names for the weekday, date.abbr_day_names for abbreviated weekday %>

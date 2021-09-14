@@ -21,99 +21,90 @@ ActiveStorage.start();
 // External imports
 import "bootstrap";
 
-// Internal imports, e.g:
 
-// import { startTimer } from '../components/timer.js';
+// Internal imports, e.g:
 import { timer, startTimer } from "../components/timer.js";
-import {bookmark} from "../components/bookmark.js"
+
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
-import Chart from 'chart.js';
+import Chart from "chart.js";
+
+// weekly.style.display = "none";
+const toggleCalender = (checkbox) => {
+  const monthly = document.querySelector(".monthly");
+  const weekly = document.querySelector(".weekly");
+  if (checkbox && monthly && weekly) {
+    const url = new URL(window.location.href);
+    if (checkbox.checked) {
+      monthly.style.display = "none";
+      weekly.style.display = "block";
+      url.searchParams.append('week', 'true');
+    } else {
+      weekly.style.display = "none";
+      monthly.style.display = "block";
+      url.searchParams.delete('week');
+    }
+    window.history.pushState("", "", `${url.pathname}${url.search}`);
+  }
+}
 
 document.addEventListener("turbolinks:load", () => {
-  // Call your functions here, e.g:
-
   // Date Picker for the Forms
   initFlatpickr();
-
-  // Event listener for Bookmark
-  const button = document.querySelector('.button');
-  button.addEventListener('click', event => {
-    event.preventDefault();
-    const input = document.querySelector("#url").value;
-    bookmark(input);
-  })
-
-  // Toggle Calender Views - Monthly & Weekly Calender
-  const checkbox = document.querySelector('#toggle');
-  const monthly = document.querySelector('.monthly');
-  const weekly = document.querySelector('.weekly');
-  weekly.style.display = 'none';
-  checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-      monthly.style.display = 'none';
-      weekly.style.display = 'block';
-    } else {
-      weekly.style.display = 'none';
-      monthly.style.display = 'block';
-    }
-  });
-
   // Dynamic Text
   const homePageText = document.getElementById("banner-typed-text");
   if (homePageText) {
     loadDynamicBannerText();
   }
 
-  // Sortable for Tasks
-  const el = document.querySelector(".tasks-list");
-  if (el) {
-    const tasksortable = Sortable.create(el, {
-      animation: 150,
-      ghostClass: "ghost",
-    });
-  }
-
-
-  // Sortable for Widgets
-  const sec = document.getElementById("sections-list");
-  const sortable = Sortable.create(sec, {
-    ghostClass: "ghost",
-    swapThreshold: 0.87,
-    animation: 150,
-  });
-
   // Timer Default Buttons - 1 Min, 5 Mins, 15 Mins
   const buttons = document.querySelectorAll("[data-time]");
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
       startTimer(event);
-    })
+    });
+  });
+
+  // Toggle Calender Views - Monthly & Weekly Calender
+  const checkbox = document.querySelector("#toggle");
+  // toggleCalender(checkbox) // for the first run through
+  checkbox.addEventListener("change", () => {
+    toggleCalender(checkbox);
+  });
+
+  // Timer Entry
+  const timerentry = document.getElementsByClassName("timer");
+  if (timerentry && document.customForm) {
+    document.customForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const mins = this.minutes.value;
+      console.log(mins);
+      timer(mins * 60);
+      this.reset();
+    });
+  }
+});
+
+// Sortable for Tasks
+document.addEventListener("turbolinks:load", () => {
+  const el = document.querySelectorAll(".tasks-list");
+  el.forEach((list) => {
+    const sortable = Sortable.create(list, {
+      animation: 150,
+      ghostClass: "ghost",
+    });
   });
 });
 
-// Timer Entry
-const timerentry = document.getElementsByClassName("timer");
-if (timerentry && document.customForm) {
-  document.customForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const mins = this.minutes.value;
-    console.log(mins);
-    timer(mins * 60);
-    this.reset();
+// Sortable for Widgets
+document.addEventListener("turbolinks:load", () => {
+  var el = document.getElementById("sections-list");
+  var sortable = Sortable.create(el, {
+    ghostClass: "ghost",
+    swapThreshold: 0.87,
+    animation: 150,
   });
-}
-
-
-
-// Click Event listener
-
-
-
-
-
-
-//
+});
 
 import "controllers";

@@ -1,9 +1,9 @@
-$bg-color: #151728;
-$border-color: #272a3a;
+$bg-color: $main-color-bg;
+$border-color: $main-color-bg;
 $title-font: "DM Sans", sans-serif;
 $body-font: "Source Sans Pro", sans-serif;
-$side-title: #a1a1a1;
-$button: #8f98a9;
+$side-title: $main-color-txt;
+$button: $main-color-txt;
 
 * {
   outline: none;
@@ -18,14 +18,12 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  font-family: $body-font;
-  background-color: #f4f4f4;
-  color: #d3d1d8;
+.navbar-nav {
+  color: $main-color-txt;
+  text-align: center;
 }
-
 .left-side {
-  width: 260px;
+  max-width: 250px;
   height: 100vh;
   border-right: 1px solid $border-color;
   display: flex;
@@ -68,7 +66,7 @@ body {
 }
 
 .right-side {
-  width: 280px;
+  max-width: 250px;
   flex-shrink: 0;
   margin-left: auto;
   overflow: auto;
@@ -95,14 +93,14 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: #181d2f;
+  background-color: $main-color-bg;
   height: 100%;
 }
 
 .logo {
   font-family: $title-font;
   font-size: 25px;
-  color: #fff;
+  color: $main-color-txt;
   font-weight: 600;
   text-align: center;
   height: 68px;
@@ -112,9 +110,9 @@ body {
   top: 0;
   background: linear-gradient(
     to bottom,
-    rgba(21, 23, 40, 1) 0%,
-    rgba(21, 23, 40, 1) 76%,
-    rgba(21, 23, 40, 0) 100%
+    $main-color-bg 0%,
+    $main-color-bg 76%,
+    $main-color-bg 100%
   );
 }
 
@@ -141,7 +139,7 @@ body {
   }
   a {
     text-decoration: none;
-    color: #cccccc;
+    color: $main-color-txt;
     display: flex;
     align-items: center;
     &:hover {
@@ -153,7 +151,7 @@ body {
   }
   #tabs {
     text-decoration: none;
-    color: #cccccc;
+    color: $main-color-txt;
     display: flex;
     align-items: center;
     &:hover {
@@ -182,11 +180,12 @@ body {
     position: relative;
     cursor: pointer;
     height: 60px;
-    background-color: rgba($border-color, 0.5);
+    background-color: $main-color-bg;
+    opacity: 0.05;
     border: 0;
     padding: 0;
     line-height: 0;
-    color: #fff;
+    color: $main-color-txt;
     border-bottom: 1px solid $border-color;
     svg {
       transition: 0.2s;
@@ -244,22 +243,26 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.01);
+  background: $main-color-bg;
+  opacity:0.01;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.11);
+  background: $main-color-bg;
+  opacity:0.11;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: $main-color-bg;
+  opacity:0.1;
 }
 
 #nav {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: $main-color-bg;
+  opacity:0.2;
   backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
   -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
     brightness(140%);
@@ -272,8 +275,8 @@ body {
   #nav-b#nav-reduce {
     transition: all 0.5s ease-in-out;
     padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background: $main-color-bg;
+    opacity:0.2;
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
       brightness(140%);

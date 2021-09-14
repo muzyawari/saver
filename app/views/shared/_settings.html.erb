@@ -1,0 +1,7 @@
+<div id = "settings">
+  <%= simple_form_for (current_user) do |f| %>
+    <%= f.input :bg_color, input_html: { class: 'colorpicker' } %>
+    <%= f.input :txt_color, input_html: { class: 'colorpicker' } %>
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -1,16 +1,27 @@
 <%= render 'shared/sidebar', folder: @create, boookmark: @bookmark%>
 <%= render 'shared/user', folder: @folder %>
+
 <div class="container m-2">
+
+
+<div class="container calender-container">
+
   <%# Simple Calender gem uses start_date and end_date, as their default date params,
   to use custom field name say date use 'attribute: :date', 'date' is the field name in your model%>
   <div class="d-flex align-items-end justify-content-end">
-    <p class="mr-3">Toggle Views</p>
     <label class="switch">
-      <input type="checkbox" name="calender" value ="checked" id="toggle">
-      <span class="slider"></span>
+      <% if params[:week] == "true" %>
+        <input type="checkbox" name="calender" checked id="toggle">
+      <% else %>
+        <input type="checkbox" name="calender" id="toggle">
+      <% end %>
+      <span class="slider round"></span>
     </label>
   </div>
-  <div class="monthly">
+
+
+  <div class="monthly" style="<%= params[:week] == "true" ? 'display: none' : '' %>">
+
     <%# Monthly View ---------------------------------------------------%>
     <%= month_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
       <%# To display just the day use "date.day", if you would like the whole date use "date" %>
@@ -23,7 +34,10 @@
       <% end %>
     <% end %>
   </div>
-  <div class="weekly">
+
+
+  <div class="weekly" style="<%= params[:week] == "true" ? '' : 'display: none' %>">
+
     <%# Weekly View ---------------------------------------------------%>
     <%= week_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
       <%= date.day %>

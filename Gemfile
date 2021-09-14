@@ -37,8 +37,9 @@ group :development, :test do gem "pry-byebug"
   gem "pry-rails"
   gem "dotenv-rails"
 
- # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw] end
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -68,4 +69,6 @@ gem "simple_calendar", "~> 2.4"
 gem "ransack", github: "activerecord-hackery/ransack"
 gem "chartkick"
 gem "rails_admin", "~> 2.0"
-
+gem 'bootstrap_colorpicker_rails'
+gem "noticed", "~> 1.4"
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

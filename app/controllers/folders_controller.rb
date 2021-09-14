@@ -18,6 +18,10 @@ class FoldersController < ApplicationController
     # @chatroom = Chatroom.find(1)
 
     # @folder for the sidebars
+    #
+    @notifications = current_user.notifications
+
+  
 
     # Selects all the folder for the current_user
     @folders = Folder.where(user: current_user)
@@ -32,19 +36,26 @@ class FoldersController < ApplicationController
 
     # @all_tasks = Task.all
     # @data = Task.group(:completed).count
+
     if Chatroom.all.count > 0
       @chatroom = Chatroom.find(1)
+      @message = Message.new
     end
 
   end
 
   def show
-    # @chatroom = Chatroom.find(1)
+    if Chatroom.all.count > 0
+      @chatroom = Chatroom.find(1)
+      @message = Message.new
+    end
+    @notifications = current_user.notifications
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
     @folders = Folder.all
     @create = Folder.new
     @edit = Folder.find(params[:id])
+
     @sections = Section.where(folder: @folder)
     @section = @sections.first
     @tasks = {}
