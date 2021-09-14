@@ -1,6 +1,6 @@
 <div class="simple-calendar">
   <div class="d-flex align-items-center justify-content-between">
-    <div class="calendar-heading my-3">
+    <div class="calendar-heading mb-3">
       <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view + "&week=true", class: 'btn btn-action'%>
       <% if calendar.number_of_weeks == 1 %>
         <span class="calendar-title btn btn-fill"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
