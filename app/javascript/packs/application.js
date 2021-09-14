@@ -22,8 +22,6 @@ ActiveStorage.start();
 import "bootstrap";
 
 // Internal imports, e.g:
-
-// import { startTimer } from '../components/timer.js';
 import { timer, startTimer } from "../components/timer.js";
 
 import { initFlatpickr } from "../plugins/flatpickr";
@@ -31,11 +29,36 @@ import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
 import Chart from "chart.js";
 
-document.addEventListener("turbolinks:load", () => {
-  // Call your functions here, e.g:
 
+
+// weekly.style.display = "none";
+const toggleCalender = (checkbox) => {
+  const monthly = document.querySelector(".monthly");
+  const weekly = document.querySelector(".weekly");
+  if (checkbox && monthly && weekly) {
+    const url = new URL(window.location.href);
+    if (checkbox.checked) {
+      monthly.style.display = "none";
+      weekly.style.display = "block";
+      url.searchParams.append('week', 'true');
+    } else {
+      weekly.style.display = "none";
+      monthly.style.display = "block";
+      url.searchParams.delete('week');
+    }
+    window.history.pushState("", "", `${url.pathname}${url.search}`);
+  }
+}
+
+document.addEventListener("turbolinks:load", () => {
   // Date Picker for the Forms
   initFlatpickr();
+  // Dynamic Text
+  const homePageText = document.getElementById("banner-typed-text");
+  if (homePageText) {
+    loadDynamicBannerText();
+  }
+
   // Timer Default Buttons - 1 Min, 5 Mins, 15 Mins
   const buttons = document.querySelectorAll("[data-time]");
   buttons.forEach((button) => {
@@ -46,17 +69,9 @@ document.addEventListener("turbolinks:load", () => {
 
   // Toggle Calender Views - Monthly & Weekly Calender
   const checkbox = document.querySelector("#toggle");
-  const monthly = document.querySelector(".monthly");
-  const weekly = document.querySelector(".weekly");
-  weekly.style.display = "none";
+  // toggleCalender(checkbox) // for the first run through
   checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      monthly.style.display = "none";
-      weekly.style.display = "block";
-    } else {
-      weekly.style.display = "none";
-      monthly.style.display = "block";
-    }
+    toggleCalender(checkbox);
   });
 
   // Timer Entry
@@ -93,11 +108,6 @@ document.addEventListener("turbolinks:load", () => {
   });
 });
 
-// Dynamic Text
-document.addEventListener("turbolinks:load", () => {
-  const homePageText = document.getElementById("banner-typed-text");
-  if (homePageText) {
-    loadDynamicBannerText();
-  }
-});
+
+
 import "controllers";

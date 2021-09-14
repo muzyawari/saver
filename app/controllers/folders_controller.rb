@@ -4,21 +4,10 @@ class FoldersController < ApplicationController
   def index
     #
     @notifications = current_user.notifications
+
     @create = Folder.new
     @sections = Section.where(folder: @folder)
-    @tasks = {}
-    @bookmarks = {}
-    @timers = {}
-    @sections.each do |section|
-      @tasks[section.id] = Task.where(section: section)
-      @bookmarks[section.id] = Bookmark.where(section: section)
-      @timers[section.id] = Timer.where(section: section)
-    end
     @all_tasks = Task.all
-    # @chatroom = Chatroom.find(1)
-    #
-    # @folder for the sidebars
-    @folder = Folder.new
 
     # Selects all the folder for the current_user
     @folders = Folder.where(user: current_user)
@@ -33,10 +22,12 @@ class FoldersController < ApplicationController
 
     # @all_tasks = Task.all
     # @data = Task.group(:completed).count
+
     if Chatroom.all.count > 0
       @chatroom = Chatroom.find(1)
       @message = Message.new
     end
+
   end
 
   def show
