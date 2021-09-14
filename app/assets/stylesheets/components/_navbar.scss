@@ -3,7 +3,7 @@ $border-color: $main-color-bg;
 $title-font: "DM Sans", sans-serif;
 $body-font: "Source Sans Pro", sans-serif;
 $side-title: $main-color-txt;
-$button: #8f98a9;
+$button: $main-color-txt;
 
 * {
   outline: none;
@@ -18,14 +18,12 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-// body {
-//   font-family: $body-font;
-//   background-color: $main-color-bg;
-//   color: #d3d1d8;
-// }
-
+.navbar-nav {
+  color: $main-color-txt;
+  text-align: center;
+}
 .left-side {
-  width: 260px;
+  max-width: 250px;
   height: 100vh;
   border-right: 1px solid $border-color;
   display: flex;
@@ -68,7 +66,7 @@ html {
 }
 
 .right-side {
-  width: 280px;
+  max-width: 250px;
   flex-shrink: 0;
   margin-left: auto;
   overflow: auto;
@@ -182,7 +180,8 @@ html {
     position: relative;
     cursor: pointer;
     height: 60px;
-    background-color: rgba($border-color, 0.5);
+    background-color: $main-color-bg;
+    opacity: 0.05;
     border: 0;
     padding: 0;
     line-height: 0;
@@ -244,22 +243,26 @@ html {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba($main-color-bg, 0.01);
+  background: $main-color-bg;
+  opacity:0.01;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba($main-color-bg, 0.11);
+  background: $main-color-bg;
+  opacity:0.11;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba($main-color-bg, 0.1);
+  background: $main-color-bg;
+  opacity:0.1;
 }
 
 #nav {
-  background-color: rgba($main-color-bg, 0.2);
+  background: $main-color-bg;
+  opacity:0.2;
   backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
   -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
     brightness(140%);
@@ -272,8 +275,8 @@ html {
   #nav-b#nav-reduce {
     transition: all 0.5s ease-in-out;
     padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: rgba($main-color-txt, 0.2);
+    background: $main-color-bg;
+    opacity:0.2;
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%)
       brightness(140%);

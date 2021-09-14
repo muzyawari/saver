@@ -34,7 +34,7 @@ class CommentNotification < Noticed::Base
   # Define helper methods to make rendering easier.
   #
   def message
-    "#{params[:task].title} was due on #{params[:task].date.strftime("%d %B")}"
+    "#{params[:task].title} was due on #{params[:task].date.strftime('%d %B')}"
   end
 
   def url

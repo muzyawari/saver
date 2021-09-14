@@ -74,5 +74,6 @@
 }
 
 span a {
-  color: rgba($main-color-txt, 0.8);
+  color: $main-color-txt;
+  opacity: 0.8;
 }

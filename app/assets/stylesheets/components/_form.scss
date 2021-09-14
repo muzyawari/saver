@@ -1,3 +1,21 @@
 .dropdown-menu .form {
   padding: 30px;
 }
+
+.simple_form {
+  color: black !important;
+}
+
+
+.simple_form label {
+  color: black;
+}
+
+.simple_form input.btn {
+  color: black;
+  border-color: black;
+}
+
+.simple_form > h3 {
+  color:black;
+}

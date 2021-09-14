@@ -152,7 +152,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba($main-color-bg, 0.8);
+  background: $main-color-bg;
+  opacity:0.8;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -199,5 +200,26 @@
     display: block;
   }
 }
+.logo {
+  opacity: 0.9;
+  border-radius: 1px;
+}
 
+.logo img{
+  border-radius: 8px;
+}
+
+.chatroom {
+ width: 300px;
+ height: 400px;
+ overflow: hidden;
+ overflow-y: scroll;
+}
+
+.notifications {
+ width: 300px;
+ height: 400px;
+ overflow: hidden;
+ overflow-y: scroll;
+}
 // Right Sidebar Finished

@@ -27,8 +27,8 @@
             </div>
           </li>
           <br>
-          <span class="mr-10"><%= "Welcome\n" %></span>
-          <span class="ml-3"><%= "#{current_user.first_name}" %></span>
+          <h6 class="text-center"><%= "Welcome\n" %></h6>
+          <h6 class="text-center"><%= "#{current_user.first_name}" %></h6>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -88,10 +88,7 @@
         </div>
       </a>
     </div>
-
-<!--     <p>Settings</p>
-    <% current_user.bg_color = 'black' %> -->
-
+    <%= link_to "Settings", edit_user_registration_path, id: "settings" %>
     <% if (!@chatroom.nil?) %>
       <%= link_to "General Chat", chatroom_path(@chatroom), class: "nav-link" %>
     <% end %>

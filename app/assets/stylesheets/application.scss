@@ -8,47 +8,13 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
+@import "simple_calendar";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "components/login";
 @import "components/todo";
-@import "components/form";
 @import "components/calender";
-@import "simple_calendar";
 @import "components/toggle";
-
-#sections-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.section-item{
-  margin: 5px;
-}
-
-
-.logo {
-  opacity: 0.9;
-  border-radius: 1px;
-}
-
-.logo img{
-  border-radius: 8px;
-}
-
-.chatroom {
- width: 300px;
- height: 400px;
- overflow: hidden;
- overflow-y: scroll;
-}
-
-.notifications {
- width: 300px;
- height: 400px;
- overflow: hidden;
- overflow-y: scroll;
-}
+@import "components/form";

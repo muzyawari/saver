@@ -8,5 +8,7 @@ $orange: #E67E22 ;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
-$main-color-bg: <%= true ? '#151828' : 'black' %>;
+$main-color-bg: <%= false ? '#151828' : "grey" %>;
 $main-color-txt: <%= false ? '#F4F4F4' : 'white' %>;
+<%# current_user.bg_color %>
+<%# current_user.txt_color %>
