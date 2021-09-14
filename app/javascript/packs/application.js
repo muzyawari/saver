@@ -28,6 +28,7 @@ import { timer, startTimer } from "../components/timer.js";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
+import Chart from "chart.js";
 
 // weekly.style.display = "none";
 const toggleCalender = (checkbox) => {
@@ -87,9 +88,9 @@ document.addEventListener("turbolinks:load", () => {
 
 // Sortable for Tasks
 document.addEventListener("turbolinks:load", () => {
-  var el = document.querySelectorAll(".tasks-list");
+  const el = document.querySelectorAll(".tasks-list");
   el.forEach((list) => {
-    var sortable = Sortable.create(list, {
+    const sortable = Sortable.create(list, {
       animation: 150,
       ghostClass: "ghost",
     });
