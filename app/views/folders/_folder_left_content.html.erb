@@ -15,7 +15,7 @@
                   </div>
                 <% end %>
                 <div data-controller="tasks">
-                  <%= image_tag("bar.png") %>
+                  <hr size="10">
                   <div class="tasks-list container" data-controller="edit-task" data-tasks-target="list" data-action="drop->tasks#sort">
                     <% @tasks[section.id].order(position: :asc).each do |task| %>
                       <%= render "task_infos", task: task, section: section %>
@@ -41,7 +41,7 @@
           <% if section.section_type == "bookmark" %>
             <div class = "card" class="my-5">
               <h1>Bookmarks</h1>
-              <%= image_tag("bar.png") %>
+              <hr size="10">
               <div class = "container">
                 <% @bookmarks[section.id].each do |bookmark| %>
                   <h3><%= bookmark.name %></h3>
@@ -64,7 +64,7 @@
           <% if section.section_type == "timer" %>
             <div class = "card" class ="my-5">
               <h1>Timer</h1>
-              <%= image_tag("bar.png") %>
+              <hr size="10">
               <% @timers[section.id].each do |timer| %>
                 <span class="text-right">
                   <%= link_to image_tag("remove.png", height: "15", width: "15"),

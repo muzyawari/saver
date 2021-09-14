@@ -73,7 +73,7 @@
 .card {
   margin: 0 auto;
   margin-top: 40px;
-  background-color: rgba(54, 55, 64, 255);
+  background-color: $main-color-dark;
   color: white;
   width: 450px;
   min-height: 300px;
@@ -90,6 +90,11 @@
   margin-bottom: 10px;
   margin-top: 40px;
   font-size: 3rem;
+}
+
+hr {
+ height: 3px;
+ background: $main-color-light;
 }
 .bin {
   position: absolute;

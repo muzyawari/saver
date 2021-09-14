@@ -25,3 +25,12 @@
 #daily-task {
   height: 70vh;
 }
+
+.btn-action {
+  border: 2px solid $main-color-dark;
+}
+
+.btn-fill, thead {
+  background-color: $main-color-dark;
+  color: $main-color-light;
+}
