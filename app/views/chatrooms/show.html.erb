@@ -1,4 +1,4 @@
-<div class = "card p-5">
+<div class = "chatroom card p-5">
   <h1>#<%= @chatroom.name %></h1>
   <br>
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
@@ -12,7 +12,7 @@
       </div>
     <% end %>
   </div>
-  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+  <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
   <% end %>
 </div>

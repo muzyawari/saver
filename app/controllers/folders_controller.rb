@@ -2,6 +2,9 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
+    #
+    @notifications = current_user.notifications
+
     @create = Folder.new
     @sections = Section.where(folder: @folder)
     @all_tasks = Task.all
@@ -19,11 +22,20 @@ class FoldersController < ApplicationController
 
     # @all_tasks = Task.all
     # @data = Task.group(:completed).count
-    @chatroom = Chatroom.find(1) if Chatroom.all.count.positive?
+
+    if Chatroom.all.count > 0
+      @chatroom = Chatroom.find(1)
+      @message = Message.new
+    end
+
   end
 
   def show
-    # @chatroom = Chatroom.find(1)
+    if Chatroom.all.count > 0
+      @chatroom = Chatroom.find(1)
+      @message = Message.new
+    end
+    @notifications = current_user.notifications
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
     @folders = Folder.all
