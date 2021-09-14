@@ -1,9 +1,8 @@
-
 <div id = "section" class = "card">
-<%= simple_form_for [@folder, @section] do |f| %>
-  <%= f.input :position %>
-  <%= f.input :visible %>
-  <%= f.input :section_type, collection: Section.section_types.keys %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for [@folder, @sectio] do |f| %>
+    <%= f.input :position %>
+    <%= f.input :visible %>
+    <%= f.input :section_type, collection: Section.section_types.keys %>
+    <%= f.submit %>
+  <% end %>
 </div>

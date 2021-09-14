@@ -2,12 +2,26 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
+    @folders = Folder.all
+    @create = Folder.new
+    @sections = Section.where(folder: @folder)
+    @tasks = {}
+    @bookmarks = Bookmark.all
+    @bookmark = Bookmark.new
+    @timers = {}
+    @sections.each do |section|
+      @tasks[section.id] = Task.where(section: section)
+      @bookmarks[section.id] = Bookmark.where(section: section)
+      @timers[section.id] = Timer.where(section: section)
+    end
+    @all_tasks = Task.all
+    # @chatroom = Chatroom.find(1)
+
+    # @folder for the sidebars
     #
     @notifications = current_user.notifications
 
-    @create = Folder.new
-    @sections = Section.where(folder: @folder)
-    @all_tasks = Task.all
+  
 
     # Selects all the folder for the current_user
     @folders = Folder.where(user: current_user)
@@ -39,7 +53,9 @@ class FoldersController < ApplicationController
     @q = Task.ransack(params[:q])
     @results = @q.result(distinct: true)
     @folders = Folder.all
-    @create = Folder.find(params[:id])
+    @create = Folder.new
+    @edit = Folder.find(params[:id])
+
     @sections = Section.where(folder: @folder)
     @section = @sections.first
     @tasks = {}

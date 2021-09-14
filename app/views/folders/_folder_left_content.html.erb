@@ -38,29 +38,7 @@
               </div>
             </div>
           <% end %>
-          <% if section.section_type == "bookmark" %>
-            <div class = "card" class="my-5">
-              <h1>Bookmarks</h1>
-              <hr size="10">
-              <div class = "container">
-                <% @bookmarks[section.id].each do |bookmark| %>
-                  <h3><%= bookmark.name %></h3>
-                  <p><%= bookmark.url %></p>
-                  <%= link_to "Delete",
-                              bookmark_path(bookmark.id),
-                              method: :delete,
-                              data: { confirm: "Are you sure?" } %></p>
-              <% end %>
-              <p><%= link_to "Add a bookmark", new_section_bookmark_path(section) %><br>
-                <span class="bin text-right mr-3 mb-3">
-                  <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
-                              section_path(section),
-                              method: :delete,
-                              data: { confirm: "Are you sure?" } %>
-                </span>
-              </div>
-            </div>
-          <% end %>
+
           <% if section.section_type == "timer" %>
             <div class = "card" class ="my-5">
               <h1>Timer</h1>

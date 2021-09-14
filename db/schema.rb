@@ -10,19 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_09_14_051347) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookmark_lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bookmark_lists_on_user_id"
+  end
+
   create_table "bookmarks", force: :cascade do |t|
-    t.bigint "section_id", null: false
     t.integer "position"
     t.string "name"
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["section_id"], name: "index_bookmarks_on_section_id"
+    t.bigint "bookmark_list_id", null: false
+    t.index ["bookmark_list_id"], name: "index_bookmarks_on_bookmark_list_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -115,7 +125,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_051347) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookmarks", "sections"
+  add_foreign_key "bookmark_lists", "users"
+  add_foreign_key "bookmarks", "bookmark_lists"
   add_foreign_key "folders", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"

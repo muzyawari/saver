@@ -1,32 +1,20 @@
 class BookmarksController < ApplicationController
-  def new
-    @bookmark = Bookmark.new
-    @section = Section.find(params[:section_id])
-  end
 
   def create
-    @section = Section.find(params[:section_id])
-    @folder = Folder.find(@section.folder_id)
     @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.section = @section
+    @bookmark_list = BookmarkList.find(params[:bookmark_list_id])
+    @bookmark.bookmark_list = @bookmark_list
     if @bookmark.save
-      redirect_to @folder
+      redirect_back fallback_location: folders_path, notice: 'Bookmark was successfully created'
     else
-      render :new
+      redirect_back fallback_location: folders_path, alert: "Oops something went wrong"
     end
-  end
-
-  def destroy
-    @bookmark = Bookmark.find(params[:id])
-    @section = Section.find(@bookmark.section_id)
-    @folder = Folder.find(@section.folder_id)
-    @bookmark.destroy
-    redirect_to @folder
   end
 
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:name, :url, :section_id, :position)
+    params.require(:bookmark).permit(:name, :url)
   end
+
 end

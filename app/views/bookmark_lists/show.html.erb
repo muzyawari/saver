@@ -1,0 +1,19 @@
+<%= render "shared/sidebar", folder: @create %>
+<div class = "bookmarks" >
+  <section class="home-section">
+    <nav class = "ml-5 mb-3">
+      <%= simple_form_for [@bookmark_list, @bookmark] do |f| %>
+        <div class="d-flex align-items-center mb-3">
+          <%= f.input :name %>
+          <%= f.input :url, placeholder:"Type URL here..." %>
+          <%= f.submit input_html: { class: 'bookmark_btn' } %>
+        </div>
+      <% end %>
+    </nav>
+    <div class="container1">
+      <% @bookmark_list.bookmarks.each do |bm| %>
+        <%= render 'bookmarks/bookmark', bookmark: bm %>
+      <% end %>
+    </div>
+  </section>
+</div>
