@@ -29,7 +29,7 @@ import { timer, startTimer } from "../components/timer.js";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
-import Chart from 'chart.js';
+import Chart from "chart.js";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
@@ -43,19 +43,6 @@ document.addEventListener("turbolinks:load", () => {
       startTimer(event);
     });
   });
-});
-
-// Timer Entry
-const timerentry = document.getElementsByClassName("timer");
-if (timerentry && document.customForm) {
-  document.customForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const mins = this.minutes.value;
-    console.log(mins);
-    timer(mins * 60);
-    this.reset();
-  });
-}
 
   // Toggle Calender Views - Monthly & Weekly Calender
   const checkbox = document.querySelector("#toggle");
@@ -72,32 +59,45 @@ if (timerentry && document.customForm) {
     }
   });
 
-import "controllers";
+  // Timer Entry
+  const timerentry = document.getElementsByClassName("timer");
+  if (timerentry && document.customForm) {
+    document.customForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const mins = this.minutes.value;
+      console.log(mins);
+      timer(mins * 60);
+      this.reset();
+    });
+  }
+});
+
 // Sortable for Tasks
-  document.addEventListener("turbolinks:load", () => {
-    var el = document.querySelectorAll(".tasks-list");
-    el.forEach((list) => {
-      var sortable = Sortable.create(list, {
-        animation: 150,
-        ghostClass: "ghost",
-      });
-    });
-  });
-
-  // Sortable for Widgets
-  document.addEventListener("turbolinks:load", () => {
-    var el = document.getElementById("sections-list");
-    var sortable = Sortable.create(el, {
-      ghostClass: "ghost",
-      swapThreshold: 0.87,
+document.addEventListener("turbolinks:load", () => {
+  var el = document.querySelectorAll(".tasks-list");
+  el.forEach((list) => {
+    var sortable = Sortable.create(list, {
       animation: 150,
+      ghostClass: "ghost",
     });
   });
+});
 
-    // Dynamic Text
-  document.addEventListener("turbolinks:load", () => {
-    const homePageText = document.getElementById("banner-typed-text");
-    if (homePageText) {
-      loadDynamicBannerText();
-    }
+// Sortable for Widgets
+document.addEventListener("turbolinks:load", () => {
+  var el = document.getElementById("sections-list");
+  var sortable = Sortable.create(el, {
+    ghostClass: "ghost",
+    swapThreshold: 0.87,
+    animation: 150,
   });
+});
+
+// Dynamic Text
+document.addEventListener("turbolinks:load", () => {
+  const homePageText = document.getElementById("banner-typed-text");
+  if (homePageText) {
+    loadDynamicBannerText();
+  }
+});
+import "controllers";
