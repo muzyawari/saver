@@ -42,8 +42,24 @@ document.addEventListener("turbolinks:load", () => {
   const monthly = document.querySelector('.monthly');
   const weekly = document.querySelector('.weekly');
   weekly.style.display = 'none';
+  // if (!(localStorage.getItem('toggled')) && checkbox.checked) {
+  //   monthly.style.display = 'none';
+  //   weekly.style.display = 'block';
+  //   checkbox.checked = true;
+  // }
+  window.localStorage.setItem("toggled", (!localStorage.getItem('toggled')));
+
+  if (checkbox.checked) {
+    localStorage.clear();
+    window.localStorage.setItem("toggled", (!localStorage.getItem('toggled')));
+  } else {
+    localStorage.clear();
+    window.localStorage.setItem("toggled", (!localStorage.getItem('toggled')));
+  }
+
+
   checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
+    if (checkbox.checked && localStorage.getItem('toggled')) {
       monthly.style.display = 'none';
       weekly.style.display = 'block';
     } else {
@@ -51,6 +67,7 @@ document.addEventListener("turbolinks:load", () => {
       monthly.style.display = 'block';
     }
   });
+
 
   // Dynamic Text
   const homePageText = document.getElementById("banner-typed-text");
