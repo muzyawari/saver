@@ -57,20 +57,20 @@ if (timerentry && document.customForm) {
   });
 }
 
-  // // Toggle Calender Views - Monthly & Weekly Calender
-  // const checkbox = document.querySelector("#toggle");
-  // const monthly = document.querySelector(".monthly");
-  // const weekly = document.querySelector(".weekly");
-  // weekly.style.display = "none";
-  // checkbox.addEventListener("change", () => {
-  //   if (checkbox.checked) {
-  //     monthly.style.display = "none";
-  //     weekly.style.display = "block";
-  //   } else {
-  //     weekly.style.display = "none";
-  //     monthly.style.display = "block";
-  //   }
-  // });
+  // Toggle Calender Views - Monthly & Weekly Calender
+  const checkbox = document.querySelector("#toggle");
+  const monthly = document.querySelector(".monthly");
+  const weekly = document.querySelector(".weekly");
+  weekly.style.display = "none";
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      monthly.style.display = "none";
+      weekly.style.display = "block";
+    } else {
+      weekly.style.display = "none";
+      monthly.style.display = "block";
+    }
+  });
 
 import "controllers";
 // Sortable for Tasks
