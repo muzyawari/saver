@@ -3,7 +3,7 @@
     <i class="fas fa-grip-lines mr-2"></i>
     <% Notification.destroy_all %>
     <% if task.date %>
-      <% if task.date < DateTime.now() %>
+      <% if task.date <= DateTime.now() %>
           <% CommentNotification.with(task: task).deliver(current_user) %>
       <% end %>
     <% end %>

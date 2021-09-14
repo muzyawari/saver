@@ -30,7 +30,6 @@ import "chartkick/chart.js";
 import Chart from "chart.js";
 
 
-
 // weekly.style.display = "none";
 const toggleCalender = (checkbox) => {
   const monthly = document.querySelector(".monthly");
@@ -89,9 +88,9 @@ document.addEventListener("turbolinks:load", () => {
 
 // Sortable for Tasks
 document.addEventListener("turbolinks:load", () => {
-  var el = document.querySelectorAll(".tasks-list");
+  const el = document.querySelectorAll(".tasks-list");
   el.forEach((list) => {
-    var sortable = Sortable.create(list, {
+    const sortable = Sortable.create(list, {
       animation: 150,
       ghostClass: "ghost",
     });
@@ -107,7 +106,5 @@ document.addEventListener("turbolinks:load", () => {
     animation: 150,
   });
 });
-
-
 
 import "controllers";

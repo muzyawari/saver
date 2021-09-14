@@ -7,6 +7,7 @@ export default class extends ApplicationController {
   static targets = ["list"];
   sort(event) {
     let element = this.listTarget;
+
     let task_elements = element.querySelectorAll(".task-item");
     let tasks = Array.from(task_elements).map((task, index) => {
       return {
