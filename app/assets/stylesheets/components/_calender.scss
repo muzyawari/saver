@@ -4,6 +4,10 @@
   }
 }
 
+.day {
+  color: $main-color-bg;
+}
+
 .meeting {
   color: $main-color-txt;
   padding: 4px 15px;
@@ -28,6 +32,7 @@
 
 .btn-action {
   border: 2px solid $main-color-bg;
+  color: $main-color-bg;
 }
 
 .btn-fill, thead {
