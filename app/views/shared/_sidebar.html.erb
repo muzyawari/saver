@@ -1,4 +1,4 @@
-<div class="cont" x-data="{ rightSide: false, leftSide: false }">
+<div x-data="{ rightSide: false, leftSide: false }">
   <div class="left-side" :class="{'active' : leftSide}">
     <div class="left-side-button" @click="leftSide = !leftSide">
       <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
@@ -28,8 +28,8 @@
           </li>
           <br>
 
-          <span class="mr-10"><%= "Welcome\n" %></span>
-          <span class="ml-3"><%= "#{current_user.first_name.capitalize}" %></span>
+          <span><%= "Welcome\n" %></span>
+          <span><%= "#{current_user.first_name.capitalize}" %></span>
 
         <% else %>
           <li class="nav-item">
