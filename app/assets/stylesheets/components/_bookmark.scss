@@ -34,3 +34,28 @@
 #mytitle {
   margin-bottom: 15px;
 }
+
+.url-search {
+  display: flex;
+  align-items: center;
+
+  .bookmark_url,
+  .bookmark_name {
+    margin: 0px;
+  }
+}
+
+.topbar {
+  width: 100%;
+  background: white;
+  padding: 15px;
+}
+
+.bookmark-button {
+  width: 30px;
+}
+
+.url-search .grow {
+  flex-grow: 1;
+  background-color: red;
+}

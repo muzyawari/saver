@@ -77,3 +77,16 @@ span a {
   color: $main-color-txt;
   opacity: 0.8;
 }
+
+.signupform {
+  width: 500px;
+  height: 100pxpx;
+  background: inherit;
+  position: absolute;
+  overflow: hidden;
+
+  left: 50%;
+  margin-left: -250px;
+
+  border-radius: 8px;
+}
