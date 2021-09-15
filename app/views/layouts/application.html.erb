@@ -12,12 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload", defer: true %>
-    <style>
-      :root {
-        --main-color-bg: <%= current_user.bg_color.nil? ? "#151828" : current_user.bg_color %>;
-        --main-color-txt: <%= current_user.txt_color.nil? ? "#F4F4F4" : current_user.txt_color %>;
-      }
-    </style>
   </head>
   <body>
     <% unless current_page?(new_user_session_path) %>
@@ -29,6 +23,14 @@
     <% if current_page?(new_user_session_path) %>
       <%= render "shared/flashes" %>
       <%= yield %>
+    <% end %>
+    <% if current_user %>
+      <style>
+        :root {
+          --main-color-bg: <%= current_user.bg_color.nil? ? "#151828" : current_user.bg_color %>;
+          --main-color-txt: <%= current_user.txt_color.nil? ? "#F4F4F4" : current_user.txt_color %>;
+        }
+      </style>
     <% end %>
   </body>
 </html>
