@@ -1,9 +1,10 @@
 <div class ="wrapper w-100" >
-  <div class = "card p-5 ">
+  <div class = "search-container p-5 ">
+  <div class = "search-card">
     <h1>Search</h1>
     <br>
-    <div class = "container">
-      <%= search_form_for [@section, @q] do |f| %>
+    <div class = "search">
+      <%= search_form_for [@section, @q], wrapper: :horizontal_form do |f| %>
         <%= f.label :title_cont %>
         <%= f.search_field :title_cont %>
         <%= f.label :description_cont %>
@@ -21,6 +22,7 @@
           <%= link_to " | Back", folder_path(@folder) %>
         </li>
       <% end %>
+    </div>
     </div>
   </div>
 </div>

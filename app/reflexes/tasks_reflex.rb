@@ -3,6 +3,7 @@
 class TasksReflex < ApplicationReflex
   def sort
     tasks = JSON.parse(element.dataset.tasks)
+    Notification.destroy_all
     tasks.each do |task|
       task_record = Task.find(task["task"])
       task_record.update(position: task["position"])

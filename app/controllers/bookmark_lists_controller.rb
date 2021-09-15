@@ -3,6 +3,7 @@ class BookmarkListsController < ApplicationController
     @bookmarks = BookmarkList.all
     raise
   end
+
   def show
     # @bookmark = Bookmark.find(params[:id])
     @create = Folder.new
@@ -10,6 +11,10 @@ class BookmarkListsController < ApplicationController
     # @sections = Section.where(folder: @folder)
     @bookmark = Bookmark.new
     @bookmark_list = BookmarkList.find(params[:id])
+    if Chatroom.all.count > 0
+      @chatroom = Chatroom.find(1)
+      @message = Message.new
+    end
   end
 
   def new
