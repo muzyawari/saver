@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
     # For additional fields in app/views/devise/registrations/new.html.erb
     @user = current_user
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :phone, :gender, :dob])
+    if current_user && Chatroom.all.count == 0
+      Chatroom.create(name: "general")
+    end
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :phone, :gender, :dob, :bg_color, :txt_color])
   end
