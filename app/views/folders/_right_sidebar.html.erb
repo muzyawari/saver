@@ -14,7 +14,6 @@
       </svg>
     </button>
   </div>
-  <% # ---------------------------------------------- %>
   <div class="side-wrapper underline">
     <div class="side-title">Widgets</div>
     <div class="user">
@@ -28,7 +27,6 @@
       </div>
     </div>
   </div>
-  <% # ---------------------------------------------------------------- %>
   <div class="side-wrapper underline">
     <div class="user">
       <%= image_tag("timer.png", :class => "user-img") %>
@@ -53,10 +51,12 @@
       </div>
     </div>
   </div>
-  <div class = "side-title notifications" data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll" class = "side-wrapper underline">
-      <br>
-      <span class="ml-4">Notifications</span>
+   <div class="notification pl-4">
+  <div class="side-title">Notifications</div>
+  </div>
+  <div class = "notifications">
       <%= render @notifications %>
   </div>
   <div class="overlay" @click="rightSide = false; leftSide = false" :class="{ 'active': rightSide || leftSide }"></div>
+
 </div>

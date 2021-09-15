@@ -22,8 +22,15 @@ html {
   color: $main-color-txt;
   text-align: center;
 }
+
+body {
+  font-family: $body-font;
+  background-color: #f4f4f4;
+  color: #d3d1d8;
+}
+
 .left-side {
-  max-width: 250px;
+  width: 260px;
   height: 100vh;
   border-right: 1px solid $border-color;
   display: flex;
@@ -66,7 +73,7 @@ html {
 }
 
 .right-side {
-  max-width: 250px;
+  width: 280px;
   flex-shrink: 0;
   margin-left: auto;
   overflow: auto;

@@ -21,7 +21,44 @@
 @import "components/form";
 @import "components/search";
 
-:root {
-  --main-color-bg: "#151828";
-  --main-color-txt: "#F4F4F4";
+
+
+
+.search {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:space-between;
+}
+
+input {
+  flex-basis: 20%;
+  padding: 2px 4px;
+  background: #333;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  color: #fff;
+}
+
+.search-container {
+    flex-grow: 0;
+  background-color: $main-color-bg;
+  color: $main-color-txt;
+  border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+#sections-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.section-item{
+  margin: 5px;
 }
