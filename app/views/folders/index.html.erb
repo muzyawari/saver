@@ -2,8 +2,6 @@
 <%= render 'shared/user', folder: @folder %>
 
 <div class="container m-2">
-
-
 <div class="container calender-container">
 
   <%# Simple Calender gem uses start_date and end_date, as their default date params,
@@ -21,7 +19,6 @@
 
 
   <div class="monthly" style="<%= params[:week] == "true" ? 'display: none' : '' %>">
-
     <%# Monthly View ---------------------------------------------------%>
     <%= month_calendar(events: @tasks, attribute: :date) do |date, tasks| %>
       <%# To display just the day use "date.day", if you would like the whole date use "date" %>
