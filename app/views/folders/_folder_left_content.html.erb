@@ -16,7 +16,7 @@
                 <% end %>
                 <div data-controller="tasks">
                   <hr size="10">
-                  <div class="tasks-list container" data-controller="edit-task" data-tasks-target="list" data-action="drop->tasks#sort">
+                  <div class="tasks-list container" data-tasks-target="list" data-action="drop->tasks#sort">
                     <% @tasks[section.id].sort_by { |task| task.position || 0 }.each do |task| %>
                       <%= render "task_infos", task: task, section: section %>
                     <% end %>
@@ -25,7 +25,7 @@
                 <div id = "task" class = "mx-3 my-4">
                   <%= simple_form_for([section, @task], remote: true) do |f| %>
                     <%= f.input :title, placeholder: "Add a task...", label: false %>
-                    <%= f.submit %>
+                    <%= f.button :submit, "Add Task", class: "card-btn btn btn-outline-dark" %>
                   <% end %>
                 </div>
                 <%= link_to "Search", section_tasks_path(section) %>
@@ -40,33 +40,25 @@
           <% end %>
 
           <% if section.section_type == "timer" %>
-            <div class = "card" class ="my-5">
+            <div class = "card">
               <h1>Timer</h1>
               <hr size="10">
               <% @timers[section.id].each do |timer| %>
                 <span class="text-right">
-                  <%= link_to image_tag("remove.png", height: "15", width: "15"),
-                              timer_path(timer),
-                              method: :delete,
-                              data: { confirm: "Are you sure?" } %>
                 </span>
                 <span class="text-center mb-2"><%= timer.name %></span>
                 <div class="timer">
-                  <div class="timer__controls mb-3">
-                    <button data-time="60" class="timer__button mx-5">1 Min</button>
-                    <button data-time="300" class="timer__button mr-5">5 Mins</button>
-                    <button data-time="900" class="timer__button mr-5">15 Mins</button>
-                  </div>
+
                   <br>
                   <form name="customForm" id="customForm" class= "timer__controls d-flex mx-5">
                     <button data-time="0" class="timer__button"><i class="fas fa-undo"></i></button>
                     <input type="text" name="minutes" placeholder="Enter Minutes"class="mx-3">
-                    <button type="submit" class="timer__button" name="start" value="start"><i class="fas fa-play"></i></button>
+                    <button type="submit" id= "start"class="timer__button" name="start" value="start"><i class="fas fa-play"></i></button>
                   </form>
                   <div class="display mx-5 mb-5">
 
-                    <h1 class="display__time-left mt-2">0:00</h1>
-                    <p class="display__end-time mb-2">Be Back Right Now</p>
+                    <h1 class="display__time-left mt-2"></h1>
+                    <p class="display__end-time mb-2"></p>
                   </div>
                 </div>
               <% end %>
@@ -74,7 +66,7 @@
                 <div id = "timer" class = "my-3 mx-5 text-center">
                   <%= simple_form_for([section, @timer], remote: true) do |f| %>
                     <%= f.input :name, placeholder: "Add a timer...", label: false %>
-                    <%= f.submit %>
+                    <%= f.button :submit, "Add Timer", class: "card-btn btn btn-outline-dark" %>
                   <% end %>
                 </div>
               <% end %>

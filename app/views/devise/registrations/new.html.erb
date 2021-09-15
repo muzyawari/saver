@@ -37,8 +37,19 @@
               autofocus: true,
               as: :date, html5: true,
               input_html: { autocomplete: "Date of Birth" } %>
+
       <%= f.button :submit, class: "btn btn-primary mr-3"%>
     <% end %>
     <%= render "devise/shared/links" %>
   </div>
 </form>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up" %>
+    </div>
+  <% end %>
+  <% if current_user && Chatroom.all.count == 0 %>
+    <% Chatroom.create(name: "general") %>
+  <% end %>
+  <%= render "devise/shared/links" %>
+
