@@ -1,8 +1,11 @@
+<div id="myDIVleft">
 <%= render 'shared/sidebar', folder: @create, boookmark: @bookmark%>
+</div>
 <%= render 'shared/user', folder: @folder %>
 
-<div class="container m-2">
-<div class="container calender-container">
+<div class="folder-left">
+<button class="collapse-button btn btn-primary" id="clickmeindexleft"><i class="fas fa-grip-lines mr-2"></i></button>
+<div class="calender-container mr-5 ml-5">
 
   <%# Simple Calender gem uses start_date and end_date, as their default date params,
   to use custom field name say date use 'attribute: :date', 'date' is the field name in your model%>
@@ -16,7 +19,6 @@
       <span class="slider round"></span>
     </label>
   </div>
-
 
   <div class="monthly" style="<%= params[:week] == "true" ? 'display: none' : '' %>">
     <%# Monthly View ---------------------------------------------------%>
@@ -32,7 +34,6 @@
     <% end %>
   </div>
 
-
   <div class="weekly" style="<%= params[:week] == "true" ? '' : 'display: none' %>">
 
     <%# Weekly View ---------------------------------------------------%>
@@ -47,4 +48,3 @@
   </div>
 </div>
 </div>
-<% pie_chart @data %>
