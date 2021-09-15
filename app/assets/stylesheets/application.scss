@@ -21,13 +21,10 @@
 @import "components/form";
 @import "components/search";
 
-
-
-
 .search {
   display: flex;
   flex-flow: row wrap;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 input {
@@ -35,12 +32,11 @@ input {
   padding: 2px 4px;
   background: #333;
   font-family: "Raleway", sans-serif;
-  text-align: center;
   color: #fff;
 }
 
 .search-container {
-    flex-grow: 0;
+  flex-grow: 0;
   background-color: $main-color-bg;
   color: $main-color-txt;
   border-radius: 18px;
@@ -50,7 +46,6 @@ input {
   position: relative;
   margin-left: 20px;
   margin-right: 20px;
-
 }
 
 #sections-list {
@@ -59,6 +54,6 @@ input {
   justify-content: space-evenly;
 }
 
-.section-item{
+.section-item {
   margin: 5px;
 }

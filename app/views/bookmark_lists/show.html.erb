@@ -1,15 +1,15 @@
 <%= render "shared/sidebar", folder: @create %>
 <div class = "bookmarks" >
   <section class="home-section">
-    <nav class = "ml-5 mb-3">
+    <div class = "topbar">
       <%= simple_form_for [@bookmark_list, @bookmark] do |f| %>
-        <div class="d-flex align-items-center mb-3">
-          <%= f.input :name %>
-          <%= f.input :url, placeholder:"Type URL here..." %>
-          <%= f.submit input_html: { class: 'bookmark_btn' } %>
+        <div class="url-search">
+          <%= f.input :name, label: false, placeholder: 'Name for bookmark' %>
+          <%= f.input  :url, item_label_class: 'grow', label: false, placeholder:'Type URL here...'%>
+          <%= f.submit class: 'btn btn-primary' %>
         </div>
       <% end %>
-    </nav>
+    </div>
     <div class="container1">
       <% @bookmark_list.bookmarks.each do |bm| %>
         <%= render 'bookmarks/bookmark', bookmark: bm %>
