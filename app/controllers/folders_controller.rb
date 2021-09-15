@@ -15,10 +15,6 @@ class FoldersController < ApplicationController
       @timers[section.id] = Timer.where(section: section)
     end
     @all_tasks = Task.all
-    # @chatroom = Chatroom.find(1)
-
-    # @folder for the sidebars
-    #
     @notifications = current_user.notifications
 
     # Selects all the folder for the current_user
@@ -31,9 +27,6 @@ class FoldersController < ApplicationController
 
     # Selects all the tasks for the current month
     @tasks = current_user.tasks.where(date: current_month)
-
-    # @all_tasks = Task.all
-    # @data = Task.group(:completed).count
 
     if Chatroom.all.count > 0
       @chatroom = Chatroom.find(1)

@@ -8,5 +8,5 @@ $orange: #E67E22 ;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
-$main-color-bg: <%= @user.bg_color.nil? ? "#151828" : @user.bg_color %>;
-$main-color-txt: <%= @user.txt_color.nil? ? "#F4F4F4" : @user.txt_color %>;
+$main-color-bg: var(--main-color-bg);
+$main-color-txt: var(--main-color-txt);
