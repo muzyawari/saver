@@ -20,12 +20,12 @@
     <br>
   </li>
   <br>
-  <%= simple_form_for task, html: { class: "d-none mb-5", data: { edit_task_target: "form", action: "submit->edit_task#update" } } do |f| %>
+  <%= simple_form_for(task, html: { class: "d-none mb-5", data: { edit_task_target: "form", action: "submit->edit_task#update" }}) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :date, as: :date, html5: true %>
+    <%= f.input :date, as: :date %>
     <%= f.input :is_event %>
     <%= f.input :completed, collection: Task.completeds.keys %>
-    <%= f.submit %>
+    <%=  f.button :submit, "Update Task", class: "card-btn btn btn-outline-dark" %>
   </div>
 <% end %>

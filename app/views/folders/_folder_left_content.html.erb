@@ -25,7 +25,7 @@
                 <div id = "task" class = "mx-3 my-4">
                   <%= simple_form_for([section, @task], remote: true) do |f| %>
                     <%= f.input :title, placeholder: "Add a task...", label: false %>
-                    <%= f.submit %>
+                    <%= f.button :submit, "Add Task", class: "card-btn btn btn-outline-dark" %>
                   <% end %>
                 </div>
                 <%= link_to "Search", section_tasks_path(section) %>
@@ -74,7 +74,7 @@
                 <div id = "timer" class = "my-3 mx-5 text-center">
                   <%= simple_form_for([section, @timer], remote: true) do |f| %>
                     <%= f.input :name, placeholder: "Add a timer...", label: false %>
-                    <%= f.submit %>
+                    <%= f.button :submit, "Add Timer", class: "card-btn btn btn-outline-dark" %>
                   <% end %>
                 </div>
               <% end %>

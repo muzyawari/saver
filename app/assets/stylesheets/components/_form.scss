@@ -6,16 +6,31 @@
   color: black !important;
 }
 
+input {
+  flex-basis: 20%;
+  padding: 2px 4px;
+  background: white;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  color: black;
+}
 
 .simple_form label {
   color: black;
 }
 
-.simple_form input.btn {
-  color: black;
-  border-color: black;
+.simple_form h2 {
+  color:black;
 }
 
-.simple_form > h3 {
-  color:black;
+.edit_task label {
+  color: $main-color-txt;
+}
+
+#task_date {
+  width: 100%;
+  flex-grow: 1;
+}
+.tasks-list label {
+  color: $main-color-txt;
 }

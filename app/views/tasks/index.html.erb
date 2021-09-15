@@ -4,7 +4,7 @@
     <h1>Search</h1>
     <br>
     <div class = "search">
-      <%= search_form_for [@section, @q], wrapper: :horizontal_form do |f| %>
+      <%= search_form_for [@section, @q] do |f| %>
         <%= f.label :title_cont %>
         <%= f.search_field :title_cont %>
         <%= f.label :description_cont %>
@@ -12,7 +12,7 @@
         <%= f.submit %>
       <% end %>
     </div>
-    <div class="card-container">
+    <div class="search-card-container">
       <br>
       <h2>Search Results:</h2>
       <% @tasks.each do |task| %>
