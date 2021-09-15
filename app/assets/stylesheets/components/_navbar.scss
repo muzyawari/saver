@@ -289,3 +289,17 @@ body {
       brightness(140%);
   }
 }
+
+.side-title {
+  color: $main-color-txt;
+}
+#folder-links a:hover {
+  color: $main-color-txt;
+  opacity: 0.8;
+}
+#folder-links a {
+  color: $main-color-txt;
+}
+.notifications a {
+  color: $main-color-txt;
+}
