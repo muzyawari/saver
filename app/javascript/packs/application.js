@@ -50,6 +50,15 @@ const toggleCalender = (checkbox) => {
 }
 
 document.addEventListener("turbolinks:load", () => {
+  // Toggle Calender Views - Monthly & Weekly Calender
+  const checkbox = document.querySelector("#toggle");
+  // toggleCalender(checkbox) // for the first run through
+  checkbox.addEventListener("change", () => {
+    toggleCalender(checkbox);
+  });
+});
+
+document.addEventListener("turbolinks:load", () => {
   // Date Picker for the Forms
   initFlatpickr();
   // Dynamic Text
@@ -58,32 +67,13 @@ document.addEventListener("turbolinks:load", () => {
     loadDynamicBannerText();
   }
 
-  // Timer Default Buttons - 1 Min, 5 Mins, 15 Mins
-  const buttons = document.querySelectorAll("[data-time]");
-  buttons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      startTimer(event);
-    });
+  // const timerentry = document.getElementById("start");
+  document.customForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const mins = this.minutes.value;
+    console.log(mins);
+    timer(mins * 60);
   });
-
-  // Toggle Calender Views - Monthly & Weekly Calender
-  const checkbox = document.querySelector("#toggle");
-  // toggleCalender(checkbox) // for the first run through
-  checkbox.addEventListener("change", () => {
-    toggleCalender(checkbox);
-  });
-
-  // Timer Entry
-  const timerentry = document.getElementsByClassName("timer");
-  if (timerentry && document.customForm) {
-    document.customForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const mins = this.minutes.value;
-      console.log(mins);
-      timer(mins * 60);
-      this.reset();
-    });
-  }
 });
 
 // Sortable for Tasks

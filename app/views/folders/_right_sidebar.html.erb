@@ -21,7 +21,7 @@
       <div class="username">Todo List
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add Todo List", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST", id: "folder-link" %>
+            <%= link_to "Add Todo List", folder_sections_path(@folder, section: { section_type: "todo", name: "My Tasks" }), method: "POST", id: "folder-link", remote: true %>
           <% end %>
         </div>
       </div>
@@ -33,7 +33,7 @@
       <div class="username"> Timer
         <div class="folder-links">
           <% if @folder.id %>
-            <%= link_to "Add Timer", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST", id: "folder-link" %>
+            <%= link_to "Add Timer", folder_sections_path(@folder, section: { section_type: "timer", name: "Timer" }), method: "POST", id: "folder-link", remote: true %>
           <% end %>
         </div>
       </div>
