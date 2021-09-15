@@ -1,6 +1,6 @@
 .simple-calendar {
   .today {
-    background-color: #FAF3DD;
+    background-color: $card-color-bg;
   }
 }
 
@@ -21,8 +21,9 @@
   background: $main-color-bg;
   color: $main-color-txt;
 }
-.next-month, .prev-month {
-  background-color:  #ddd;
+.next-month,
+.prev-month {
+  background-color: #ddd;
   color: white;
 }
 
@@ -35,16 +36,30 @@
   color: $main-color-bg;
 }
 
-.btn-fill, thead {
+.btn-fill,
+thead {
   background-color: $main-color-bg;
   color: $main-color-txt;
 }
-.btn-fill:hover, a:hover {
+.btn-fill:hover,
+a:hover {
   opacity: 0.7;
   color: $main-color-txt;
 }
 
-.meeting a{
+.meeting a {
   color: $main-color-txt;
   text-decoration: none;
+}
+
+// .monthly{
+//   background-color: $main-color-txt;
+//   padding: 20px;
+//   border-radius: 20px;
+// }
+
+.calender-container {
+  background-color: $main-color-txt;
+  padding: 20px;
+  border-radius: 20px;
 }

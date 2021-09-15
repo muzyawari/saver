@@ -21,7 +21,6 @@ ActiveStorage.start();
 // External imports
 import "bootstrap";
 
-
 // Internal imports, e.g:
 import { timer, startTimer } from "../components/timer.js";
 
@@ -39,23 +38,25 @@ const toggleCalender = (checkbox) => {
     if (checkbox.checked) {
       monthly.style.display = "none";
       weekly.style.display = "block";
-      url.searchParams.append('week', 'true');
+      url.searchParams.append("week", "true");
     } else {
       weekly.style.display = "none";
       monthly.style.display = "block";
-      url.searchParams.delete('week');
+      url.searchParams.delete("week");
     }
     window.history.pushState("", "", `${url.pathname}${url.search}`);
   }
-}
+};
 
 document.addEventListener("turbolinks:load", () => {
   // Toggle Calender Views - Monthly & Weekly Calender
   const checkbox = document.querySelector("#toggle");
   // toggleCalender(checkbox) // for the first run through
-  checkbox.addEventListener("change", () => {
-    toggleCalender(checkbox);
-  });
+  if (checkbox) {
+    checkbox.addEventListener("change", () => {
+      toggleCalender(checkbox);
+    });
+  }
 });
 
 document.addEventListener("turbolinks:load", () => {
@@ -96,5 +97,64 @@ document.addEventListener("turbolinks:load", () => {
     animation: 150,
   });
 });
+
+function myFunctionLeft() {
+  var x = document.getElementById("myDIVleft");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+document.addEventListener("turbolinks:load", () => {
+  const clickButton = document.getElementById("clickmeleft");
+  clickButton.addEventListener("click", (event) => {
+    myFunctionLeft();
+  });
+});
+
+
+function myFunctionIndexLeft() {
+  var x = document.getElementById("myDIVleft");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+document.addEventListener("turbolinks:load", () => {
+  const clickButton = document.getElementById("clickmeindexleft");
+  clickButton.addEventListener("click", (event) => {
+    myFunctionIndexLeft();
+  });
+});
+
+function myFunctionRight() {
+  var x = document.getElementById("myDIVright");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+document.addEventListener("turbolinks:load", () => {
+  const clickButton = document.getElementById("clickmeright");
+  clickButton.addEventListener("click", (event) => {
+    myFunctionRight();
+  });
+});
+
+document.addEventListener("turbolinks:load", () => {
+  const clickButton = document.getElementById("clickmecenter");
+  clickButton.addEventListener("click", (event) => {
+    myFunctionLeft();
+    myFunctionRight();
+  });
+});
+
+
 
 import "controllers";

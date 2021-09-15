@@ -4,7 +4,7 @@
       <% @sections.order(position: :asc).each do |section| %>
         <div class = "section-item" data-section-type="<%= section.section_type %>" data-section-id="<%= section.id %>">
           <% if section.section_type == "todo" %>
-            <div class = "card" >
+            <div class = "card m-4" >
               <div class="page-header">
                 <div data-controller="edit-section" data-edit-section-target="section">
                   <div class = "section" data-edit-section-target="infos" ></div>
@@ -40,7 +40,7 @@
           <% end %>
 
           <% if section.section_type == "timer" %>
-            <div class = "card">
+            <div class = "card m-4">
               <h1>Timer</h1>
               <hr size="10">
               <% @timers[section.id].each do |timer| %>
