@@ -11,18 +11,24 @@
               hint: "we need your current password to confirm your changes",
               required: true,
               input_html: { autocomplete: "current-password" } %>
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-  <%= f.input :bg_color, as: :colorpicker,
-              label: "Specify the Colour for the Side Bars" %>
-  <%= f.input :txt_color, as: :colorpicker,
-              label: "Specify the Text Colour" %>
+  <%= f.input :password,
+              hint: "leave it blank if you don't want to change it",
+              required: false,
+              input_html: { autocomplete: "new-password" } %>
+  <%= f.input :password_confirmation,
+              required: false,
+              input_html: { autocomplete: "new-password" } %>
+  <%= f.input :bg_color,
+              input_html: { type: "color" },
+              label: "Specify the Colour for the Side Bars",
+              default: '#151828',
+              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+  <%= f.input :txt_color,
+              input_html: { type: "color" },
+              label: "Specify the Side Bar Text Colour",
+              default: '#F4F4F4',
+              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+        <%# All the latest Browsers like Firefox & Chrome has their own color pickers, we are using them %>
   <div class="row mb-0">
     <div class="col-sm-9 offset-sm-5">
       <%= f.button :submit, "Update" %>

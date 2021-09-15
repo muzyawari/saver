@@ -69,6 +69,5 @@ gem "simple_calendar", "~> 2.4"
 gem "ransack", github: "activerecord-hackery/ransack"
 gem "chartkick"
 gem "rails_admin", "~> 2.0"
-gem 'bootstrap_colorpicker_rails'
 gem "noticed", "~> 1.4"
 gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
