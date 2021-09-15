@@ -21,8 +21,6 @@ class FoldersController < ApplicationController
     #
     @notifications = current_user.notifications
 
-  
-
     # Selects all the folder for the current_user
     @folders = Folder.where(user: current_user)
 
@@ -41,7 +39,6 @@ class FoldersController < ApplicationController
       @chatroom = Chatroom.find(1)
       @message = Message.new
     end
-
   end
 
   def show
