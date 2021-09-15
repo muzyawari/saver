@@ -26,7 +26,7 @@
       <%# Iterate through all the tasks for the month and show the tasks with the relavant date %>
       <% tasks.each do |task| %>
         <div class="meeting">
-          <p class="m-0"><%= task.title %></p>
+          <p class="m-0"><%=link_to "#{task.title}", edit_task_path(task) %></p>
         </div>
       <% end %>
     <% end %>
@@ -40,7 +40,7 @@
       <%= date.day %>
       <% tasks.each do |task| %>
         <div class="meeting">
-          <p  class="m-0"><%= task.title %></p>
+          <p class="m-0"><%=link_to "#{task.title}", edit_task_path(task) %></p>
         </div>
       <% end %>
     <% end %>

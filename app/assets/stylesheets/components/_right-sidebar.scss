@@ -94,9 +94,10 @@
 #folder-link {
   text-decoration: none;
   font-size: 15px;
-  color: #a3a5b6;
+  color: $main-color-txt;
+  opacity: 0.8;
   &:hover {
-    color: #1b86f8;
+    opacity: 1;
   }
 }
 
