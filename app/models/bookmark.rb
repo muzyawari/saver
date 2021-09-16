@@ -1,3 +1,3 @@
 class Bookmark < ApplicationRecord
-  belongs_to :bookmark_list, dependent: :destroy
+  belongs_to :bookmark_list
 end

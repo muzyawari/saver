@@ -7,14 +7,14 @@
   background-color: red;
 }
 .container1 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 40px;
 }
 
 .box {
   width: 300px;
-  height: 400px;
+  height: 450px;
   background: #fff;
   padding: 15px 14px;
   border-radius: 12px;
@@ -37,8 +37,6 @@
 
 .url-search {
   display: flex;
-  align-items: center;
-
   .bookmark_url,
   .bookmark_name {
     margin: 0px;
@@ -49,13 +47,15 @@
   width: 100%;
   background: white;
   padding: 15px;
+  margin-bottom: 20px;
 }
 
 .bookmark-button {
   width: 30px;
+  height: 37px;
+
 }
 
-.url-search .grow {
-  flex-grow: 1;
-  background-color: red;
-}
+// .url-search .grow {
+//   background-color: red;
+// }

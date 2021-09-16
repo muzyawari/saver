@@ -1,9 +1,9 @@
 <div class ="wrapper w-100" >
-  <div class = "search-container p-5 ">
-  <div class = "search-card">
+  <div class = "container p-5 ">
+  <div class = "card">
     <h1>Search</h1>
     <br>
-    <div class = "search">
+    <div class = "container">
       <%= search_form_for [@section, @q] do |f| %>
         <%= f.label :title_cont %>
         <%= f.search_field :title_cont %>
@@ -12,7 +12,7 @@
         <%= f.submit %>
       <% end %>
     </div>
-    <div class="search-card-container">
+    <div class="container">
       <br>
       <h2>Search Results:</h2>
       <% @tasks.each do |task| %>

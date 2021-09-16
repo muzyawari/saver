@@ -114,14 +114,7 @@ function myFunctionLeft() {
   }
 }
 
-// function myFunctionIndexLeft() {
-//   var x = document.getElementById("myDIVleft");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
+
 
 function myFunctionRight() {
   var x = document.getElementById("myDIVright");
@@ -137,7 +130,7 @@ document.addEventListener("turbolinks:load", () => {
   const clickButton = document.getElementById("clickmeindexleft");
   if (clickButton) {
     clickButton.addEventListener("click", (event) => {
-      myFunctionIndexLeft();
+      myFunctionLeft();
     });
   }
 });
@@ -164,9 +157,5 @@ document.addEventListener("turbolinks:load", () => {
   });
 });
 
-// window.addEventListener("DOMContentLoaded", (event) => {
-//   var x = document.getElementById("myDIVleft");
-//   x.style.display = "block";
-// });
 
 import "controllers";

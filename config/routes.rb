@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     resources :timers, only: [:create, :new]
   end
   resources :bookmark_lists, only: [:show, :create, :new, :destroy, :edit, :update] do
-    resources :bookmarks, only: [:create, :new ]
+    resources :bookmarks, only: [:create, :new]
   end
+  resources :bookmarks, only: [:destroy]
   resources :tasks, only: [:destroy, :edit, :update]
   resources :timers, only: [:destroy, :edit, :update]
 

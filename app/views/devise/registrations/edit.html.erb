@@ -1,6 +1,6 @@
 <div class="container w-50">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put}, wrapper: :horizontal_form) do |f| %>
+<h2 style="color: black; margin-top:20px; margin-bottom: 20px;">Edit <%= resource_name.to_s.humanize %></h2>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, wrapper: :horizontal_form) do |f| %>
   <%= f.error_notification %>
   <%= f.input :email, required: true, autofocus: true %>
 
@@ -24,33 +24,33 @@
   <br>
   <div class="revert" data-controller="default-color" data-default-color-color-value="#151828">
     <%= f.input :bg_color,
-                input_html: { type: "color", data: { default_color_target: 'input' } },
+                input_html: { type: "color", data: { default_color_target: "input" } },
                 label: "Side Bars Color",
-                value: '#151828',
+                value: "#151828",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: { action: "click->default-color#setValue" } %>
   </div>
   <div class="revert" data-controller="default-color" data-default-color-color-value="#372f2f">
     <%= f.input :card_color,
-                input_html: { type: "color", data: { default_color_target: 'input' } },
-                value: '#372f2f',
+                input_html: { type: "color", data: { default_color_target: "input" } },
+                value: "#372f2f",
                 label: "Card Colour",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: { action: "click->default-color#setValue" } %>
   </div>
   <div class="revert" data-controller="default-color" radata-default-color-color-value="#F4F4F4">
     <%= f.input :txt_color,
-                input_html: { type: "color", data: { default_color_target: 'input' } },
+                input_html: { type: "color", data: { default_color_target: "input" } },
                 label: "Text Colour",
-                value: '#F4F4F4',
+                value: "#F4F4F4",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: { action: "click->default-color#setValue" } %>
   </div>
-        <%# All the latest Browsers like Firefox & Chrome has their own color pickers, we are using them %>
+        <% # All the latest Browsers like Firefox & Chrome has their own color pickers, we are using them %>
   <div class="row mb-0">
     <div class="col-sm-9 offset-sm-5">
-      <%= f.button :submit, "Update", class: "card-btn btn btn-outline-dark" %>
-      <%= link_to "Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "card-btn btn" %>
+      <%= f.button :submit, "Update", class: "btn-outline-dark btn " %>
+      <%= link_to "Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn-outline-dark btn " %>
     </div>
   </div>
 <% end %>
