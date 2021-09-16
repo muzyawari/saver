@@ -3,11 +3,11 @@
 </div>
 <div class="folder-wrapper d-flex">
   <div class="folder-left">
-  <div class="d-flex justify-content-between">
-  <button class="collapse-button btn btn-primary" id="clickmeleft"><i class="fas fa-grip-lines mr-2"></i></button>
-  <button class="collapse-button btn btn-primary" id="clickmecenter"><i class="fas fa-grip-lines mr-2"></i></button>
-  <button class="collapse-button btn btn-primary" id="clickmeright"><i class="fas fa-grip-lines mr-2"></i></button>
-</div>
+    <div class="d-flex justify-content-between" id ="item" >
+      <button class="collapse-button btn btn-primary" id="clickmeleft" ><i class="fas fa-grip-lines mr-2"></i></button>
+      <button class="collapse-button btn btn-primary" id="clickmecenter" ><i class="fas fa-grip-lines mr-2"></i></button>
+      <button class="collapse-button btn btn-primary" id="clickmeright" ><i class="fas fa-grip-lines mr-2"></i></button>
+    </div>
     <%= render "folder_left_content", folder: @folder %>
   </div>
   <div id="myDIVright" data-reflex-permanent>
