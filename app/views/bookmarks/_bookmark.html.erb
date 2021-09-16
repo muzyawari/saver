@@ -1,9 +1,21 @@
 <div class="box" data-controller="bookmark" data-bookmark-url-value="<%= bookmark.url %>">
-  <img id="myimage" src="" data-bookmark-target="img">
+      <a href="<%= bookmark.url %>" target="_blank"><img id="myimage" style="object-fit: cover"  src="" data-bookmark-target="img"></a>
   <div class="is-clipped">
-    <h4><%= bookmark.name %></h4>
-    <div id="mytitle" data-bookmark-target="title"></div>
+  <br>
+
+    <h4><%= bookmark.name %>
+<%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+            bookmark_path(bookmark),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+
+</h4>
+
+
+    <div id="mytitle" data-bookmark-target="title"></a></div>
     <div id="mydescription" data-bookmark-target="description"></div>
     <div id="myurl" data-bookmark-target="url"></div>
+
+
   </div>
 </div>

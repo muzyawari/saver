@@ -8,17 +8,18 @@ export default class extends Controller {
     console.log('bookmark controller')
     this.populateBookmark()
   }
-// `https://v1.nocodeapi.com/muz/link_preview/wKhyQpJRfavunFjb?url=${this.urlValue}`
+
   populateBookmark() {
-    fetch()
-      .then(response => response.json())
+    fetch(
+      `https://v1.nocodeapi.com/muztech/link_preview/unotYETNKpetgFfL?url=${this.urlValue}`
+    )
+      .then((response) => response.json())
       .then((response) => {
         console.log(response);
 
-        this.titleTarget.innerHTML = response.title
-        this.descriptionTarget.innerHTML = response.description
-        this.imgTarget.src = response.image
-
+        this.titleTarget.innerHTML = response.title;
+        this.descriptionTarget.innerHTML = response.description;
+        this.imgTarget.src = response.image;
       });
   }
 }
