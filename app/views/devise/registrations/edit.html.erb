@@ -18,29 +18,29 @@
   <%= f.input :password_confirmation,
               required: false,
               input_html: { autocomplete: "new-password" } %>
-  <div data-controller="default-color" data-default-color-color-value="#151828" class="row mb-0">
+  <div class="revert" data-controller="default-color" data-default-color-color-value="#151828">
     <%= f.input :bg_color,
                 input_html: { type: "color", data: { default_color_target: 'input' } },
                 label: "Specify the Colour for the Side Bars",
                 value: '#151828',
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-    <%= link_to "revert to default", "#", class: "btn btn-primary", data: {action: 'click->default-color#setValue'} %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
   </div>
-  <div data-controller="default-color" data-default-color-color-value="#372f2f" class="row mb-0">
+  <div class="revert" data-controller="default-color" data-default-color-color-value="#372f2f">
     <%= f.input :card_color,
                 input_html: { type: "color", data: { default_color_target: 'input' } },
-                value: '#372f2fcc',
+                value: '#372f2f',
                 label: "Specify the Card Colours",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-    <%= link_to "revert to default", "#", class: "btn btn-primary", data: {action: 'click->default-color#setValue'} %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
   </div>
-  <div data-controller="default-color" data-default-color-color-value="#F4F4F4" class="row mb-0">
+  <div class="revert" data-controller="default-color" radata-default-color-color-value="#F4F4F4">
     <%= f.input :txt_color,
                 input_html: { type: "color", data: { default_color_target: 'input' } },
                 label: "Specify the Side Bar Text Colour",
                 value: '#F4F4F4',
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-    <%= link_to "revert to default", "#", class: "btn btn-primary", data: {action: 'click->default-color#setValue'} %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
   </div>
         <%# All the latest Browsers like Firefox & Chrome has their own color pickers, we are using them %>
   <div class="row mb-0">

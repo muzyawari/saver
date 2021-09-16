@@ -34,3 +34,12 @@ input, #input {
 .tasks-list label {
   color: $main-color-txt;
 }
+.revert {
+  position: relative;
+}
+
+.revert-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: -20px;
+}
