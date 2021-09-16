@@ -13,7 +13,7 @@ $button: $main-color-txt;
 // Icons Initials - User Image
 
 [data-initials]:before {
-  background: #099bdd;
+  background: $card-color-bg;
   color: white;
   opacity: 1;
   content: attr(data-initials);
