@@ -225,7 +225,7 @@
 }
 
 .folder-left {
-  background-image: Url("wallpaper.jpeg");
+  background-image: Url("wallpaper.jpg");
   background-size: cover;
 }
 // Right Sidebar Finished
@@ -240,9 +240,14 @@
 }
 
 .toggle-on {
-  display:block
+  display: block;
 }
 
 .toggle-off {
-  display:none
+  display: none;
+}
+
+#item {
+  position: sticky;
+  top: 0;
 }
