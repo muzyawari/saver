@@ -1,4 +1,4 @@
 class BookmarkList < ApplicationRecord
   belongs_to :user
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
 end

@@ -29,6 +29,8 @@ import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
 import Chart from "chart.js";
 
+
+
 // weekly.style.display = "none";
 const toggleCalender = (checkbox) => {
   const monthly = document.querySelector(".monthly");
@@ -98,38 +100,28 @@ document.addEventListener("turbolinks:load", () => {
   });
 });
 
+let toggleClick = true;
+
 function myFunctionLeft() {
-  var x = document.getElementById("myDIVleft");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  toggleClick = !toggleClick;
+  var sidebar = document.getElementById("myDIVleft");
+  if (toggleClick) {
+    sidebar.classList.remove("toggle-off");
+    sidebar.classList.add("toggle-on");
   } else {
-    x.style.display = "none";
+    sidebar.classList.remove("toggle-on");
+    sidebar.classList.add("toggle-off");
   }
 }
 
-document.addEventListener("turbolinks:load", () => {
-  const clickButton = document.getElementById("clickmeleft");
-  clickButton.addEventListener("click", (event) => {
-    myFunctionLeft();
-  });
-});
-
-
-function myFunctionIndexLeft() {
-  var x = document.getElementById("myDIVleft");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-document.addEventListener("turbolinks:load", () => {
-  const clickButton = document.getElementById("clickmeindexleft");
-  clickButton.addEventListener("click", (event) => {
-    myFunctionIndexLeft();
-  });
-});
+// function myFunctionIndexLeft() {
+//   var x = document.getElementById("myDIVleft");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
 
 function myFunctionRight() {
   var x = document.getElementById("myDIVright");
@@ -139,6 +131,23 @@ function myFunctionRight() {
     x.style.display = "none";
   }
 }
+
+document.addEventListener("turbolinks:load", () => {
+  console.log("turbolinks")
+  const clickButton = document.getElementById("clickmeindexleft");
+  if (clickButton) {
+    clickButton.addEventListener("click", (event) => {
+      myFunctionIndexLeft();
+    });
+  }
+});
+
+document.addEventListener("turbolinks:load", () => {
+  const clickButton = document.getElementById("clickmeleft");
+  clickButton.addEventListener("click", (event) => {
+    myFunctionLeft();
+  });
+});
 
 document.addEventListener("turbolinks:load", () => {
   const clickButton = document.getElementById("clickmeright");
@@ -155,6 +164,9 @@ document.addEventListener("turbolinks:load", () => {
   });
 });
 
-
+// window.addEventListener("DOMContentLoaded", (event) => {
+//   var x = document.getElementById("myDIVleft");
+//   x.style.display = "block";
+// });
 
 import "controllers";

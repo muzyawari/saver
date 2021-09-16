@@ -71,7 +71,8 @@
   font-weight: 400;
 }
 .card {
-  background-color: $card-color-bg;
+  // background-color: $card-color-bg; can we add a transprency field or RGBA?
+  background-color: #372f2fdf;
   color: $main-color-txt;
   margin: auto;
   width: 450px;
@@ -95,8 +96,8 @@
 }
 
 hr {
- height: 3px;
- background: $main-color-txt;
+  height: 3px;
+  background: $main-color-txt;
 }
 .bin {
   position: absolute;

@@ -33,9 +33,9 @@ class BookmarkListsController < ApplicationController
 
   def destroy
     @bookmark = BookmarkList.find(params[:id])
-    @folder = Folder.find(@section.folder_id)
+    # @folder = Folder.find(@section.folder_id)
     @bookmark.destroy
-    redirect_to @folder
+    redirect_to root_path
   end
 
   private
