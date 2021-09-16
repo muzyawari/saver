@@ -1,0 +1,5 @@
+meta_product_name: "Saver"
+meta_title: "Saver - Your All in One Productivity Solution"
+meta_description: "Saver is an app built to have all you productivity applications all in one including customizable tools such as to do lists, timers and bookmark managers."
+meta_image: "saver.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
