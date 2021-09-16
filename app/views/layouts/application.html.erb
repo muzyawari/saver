@@ -28,7 +28,8 @@
         :root {
           --main-color-bg: <%= current_user.bg_color.nil? ? "#151828" : current_user.bg_color %>;
           --main-color-txt: <%= current_user.txt_color.nil? ? "#F4F4F4" : current_user.txt_color %>;
-          --card-color-bg: <%= current_user.card_color.nil? ? "#434c5e" : current_user.card_color %>;
+          --card-color-bg: <%= current_user.card_color.nil? ? "#372f2fBF" : "#{current_user.card_color}BF" %>;
+          --card-color-user: <%= current_user.card_color %>
         }
       </style>
     <% end %>

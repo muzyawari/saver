@@ -18,25 +18,39 @@
   <%= f.input :password_confirmation,
               required: false,
               input_html: { autocomplete: "new-password" } %>
-  <%= f.input :bg_color,
-              input_html: { type: "color" },
-              label: "Specify the Colour for the Side Bars",
-              default: '#151828',
-              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-  <%= f.input :card_color,
-              input_html: { type: "color" },
-              label: "Specify the Card Colours",
-              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-  <%= f.input :txt_color,
-              input_html: { type: "color" },
-              label: "Specify the Side Bar Text Colour",
-              default: '#F4F4F4',
-              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+  <br><hr>
+  <h4 class="text-center">Theme Settings</h4>
+  <p class="text-center"> ✨ Dont like your theme, feel free to customize them here ✨</p>
+  <br>
+  <div class="revert" data-controller="default-color" data-default-color-color-value="#151828">
+    <%= f.input :bg_color,
+                input_html: { type: "color", data: { default_color_target: 'input' } },
+                label: "Side Bars Color",
+                value: '#151828',
+                hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
+  </div>
+  <div class="revert" data-controller="default-color" data-default-color-color-value="#372f2f">
+    <%= f.input :card_color,
+                input_html: { type: "color", data: { default_color_target: 'input' } },
+                value: '#372f2f',
+                label: "Card Colour",
+                hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
+  </div>
+  <div class="revert" data-controller="default-color" radata-default-color-color-value="#F4F4F4">
+    <%= f.input :txt_color,
+                input_html: { type: "color", data: { default_color_target: 'input' } },
+                label: "Text Colour",
+                value: '#F4F4F4',
+                hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+    <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
+  </div>
         <%# All the latest Browsers like Firefox & Chrome has their own color pickers, we are using them %>
   <div class="row mb-0">
     <div class="col-sm-9 offset-sm-5">
       <%= f.button :submit, "Update", class: "card-btn btn btn-outline-dark" %>
-      <%= link_to "Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "card-btn btn btn-outline-dark" %>
+      <%= link_to "Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "card-btn btn" %>
     </div>
   </div>
 <% end %>

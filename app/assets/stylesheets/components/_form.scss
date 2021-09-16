@@ -6,7 +6,7 @@
   color: black !important;
 }
 
-input {
+input, #input {
   flex-basis: 20%;
   padding: 2px 4px;
   background: white;
@@ -33,4 +33,13 @@ input {
 }
 .tasks-list label {
   color: $main-color-txt;
+}
+.revert {
+  position: relative;
+}
+
+.revert-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: -20px;
 }
