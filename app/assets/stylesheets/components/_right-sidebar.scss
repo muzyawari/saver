@@ -231,6 +231,18 @@
 // Right Sidebar Finished
 
 .collapse-button {
-  opacity: 0.1;
+  opacity: 0.2;
   border-radius: 5px;
+}
+
+#myDIVleft {
+  transition: display 2s;
+}
+
+.toggle-on {
+  display:block
+}
+
+.toggle-off {
+  display:none
 }

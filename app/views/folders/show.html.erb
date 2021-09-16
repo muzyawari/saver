@@ -1,4 +1,4 @@
-<div id="myDIVleft">
+<div id="myDIVleft" data-reflex-permanent>
   <%= render "shared/sidebar", folder: @create %>
 </div>
 <div class="folder-wrapper d-flex">
@@ -10,7 +10,7 @@
 </div>
     <%= render "folder_left_content", folder: @folder %>
   </div>
-  <div id="myDIVright">
+  <div id="myDIVright" data-reflex-permanent>
     <div class="folder-right h-100">
       <%= render "right_sidebar", folder: @folder %>
     </div>

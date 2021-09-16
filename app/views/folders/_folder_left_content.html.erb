@@ -8,24 +8,26 @@
               <div class="page-header">
                 <div data-controller="edit-section" data-edit-section-target="section">
                   <div class = "section" data-edit-section-target="infos" ></div>
-                  <h1 class = "heading" data-action="click->edit-section#displayForm"><%= section.name %></h1>
+                  <h1 class = "container heading" data-action="click->edit-section#displayForm"><%= section.name %></h1>
                   <%= simple_form_for section, html: { class: "d-none mb-5", data: { edit_section_target: "form", action: "submit->edit_section#update" } } do |f| %>
-                    <%= f.input :name %>
-                    <%= f.submit %>
+                    <%= f.input :name, label: false%>
+                    <%= f.submit class: "card-btn btn btn-outline-dark"%>
                   </div>
                 <% end %>
                 <div data-controller="tasks">
                   <hr size="10">
                   <div class="tasks-list container" data-tasks-target="list" data-action="drop->tasks#sort">
                     <% @tasks[section.id].sort_by { |task| task.position || 0 }.each do |task| %>
-                      <%= render "task_infos", task: task, section: section %>
+                      <div class="task-bar">
+                        <%= render "task_infos", task: task, section: section %>
+                      </div>
                     <% end %>
                   </div>
                 </div>
-                <div id = "task" class = "mx-3 my-4">
+                <div id = "task" class = "simple mx-3 my-4">
                   <%= simple_form_for([section, @task], remote: true) do |f| %>
+                    <%= f.button :submit, "+", class: "card-btn btn btn-outline-dark" %>
                     <%= f.input :title, placeholder: "Add a task...", label: false %>
-                    <%= f.button :submit, "Add Task", class: "card-btn btn" %>
                   <% end %>
                 </div>
                 <%= link_to "Search", section_tasks_path(section) %>
@@ -38,7 +40,6 @@
               </div>
             </div>
           <% end %>
-
           <% if section.section_type == "timer" %>
             <div class = "card m-4">
               <h1>Timer</h1>
