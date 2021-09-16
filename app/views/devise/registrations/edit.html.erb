@@ -18,10 +18,14 @@
   <%= f.input :password_confirmation,
               required: false,
               input_html: { autocomplete: "new-password" } %>
+  <br><hr>
+  <h4 class="text-center">Theme Settings</h4>
+  <p class="text-center"> ✨ Dont like your theme, feel free to customize them here ✨</p>
+  <br>
   <div class="revert" data-controller="default-color" data-default-color-color-value="#151828">
     <%= f.input :bg_color,
                 input_html: { type: "color", data: { default_color_target: 'input' } },
-                label: "Specify the Colour for the Side Bars",
+                label: "Side Bars Color",
                 value: '#151828',
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
     <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
@@ -30,14 +34,14 @@
     <%= f.input :card_color,
                 input_html: { type: "color", data: { default_color_target: 'input' } },
                 value: '#372f2f',
-                label: "Specify the Card Colours",
+                label: "Card Colour",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
     <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
   </div>
   <div class="revert" data-controller="default-color" radata-default-color-color-value="#F4F4F4">
     <%= f.input :txt_color,
                 input_html: { type: "color", data: { default_color_target: 'input' } },
-                label: "Specify the Side Bar Text Colour",
+                label: "Text Colour",
                 value: '#F4F4F4',
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
     <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: {action: 'click->default-color#setValue'} %>
