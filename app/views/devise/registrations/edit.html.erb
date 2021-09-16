@@ -18,21 +18,30 @@
   <%= f.input :password_confirmation,
               required: false,
               input_html: { autocomplete: "new-password" } %>
-  <%= f.input :bg_color,
-              input_html: { type: "color" },
-              label: "Specify the Colour for the Side Bars",
-              value: '#151828',
-              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-  <%= f.input :card_color,
-              input_html: { type: "color" },
-              value: '#372f2fcc',
-              label: "Specify the Card Colours",
-              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
-  <%= f.input :txt_color,
-              input_html: { type: "color" },
-              label: "Specify the Side Bar Text Colour",
-              value: '#F4F4F4',
-              hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+  <div data-controller="default-color" data-default-color-color-value="#151828" class="row mb-0">
+    <%= f.input :bg_color,
+                input_html: { type: "color", data: { default_color_target: 'input' } },
+                label: "Specify the Colour for the Side Bars",
+                value: '#151828',
+                hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+    <%= link_to "revert to default", "#", class: "btn btn-primary", data: {action: 'click->default-color#setValue'} %>
+  </div>
+  <div data-controller="default-color" data-default-color-color-value="#372f2f" class="row mb-0">
+    <%= f.input :card_color,
+                input_html: { type: "color", data: { default_color_target: 'input' } },
+                value: '#372f2fcc',
+                label: "Specify the Card Colours",
+                hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+    <%= link_to "revert to default", "#", class: "btn btn-primary", data: {action: 'click->default-color#setValue'} %>
+  </div>
+  <div data-controller="default-color" data-default-color-color-value="#F4F4F4" class="row mb-0">
+    <%= f.input :txt_color,
+                input_html: { type: "color", data: { default_color_target: 'input' } },
+                label: "Specify the Side Bar Text Colour",
+                value: '#F4F4F4',
+                hint: "Please note that this doesnt change the form color scheme for security reasons" %>
+    <%= link_to "revert to default", "#", class: "btn btn-primary", data: {action: 'click->default-color#setValue'} %>
+  </div>
         <%# All the latest Browsers like Firefox & Chrome has their own color pickers, we are using them %>
   <div class="row mb-0">
     <div class="col-sm-9 offset-sm-5">
