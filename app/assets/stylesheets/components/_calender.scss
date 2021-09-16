@@ -1,6 +1,7 @@
 .simple-calendar {
   .today {
     background-color: $card-color-bg;
+    color: $main-color-txt;
   }
 }
 
@@ -23,8 +24,10 @@
 }
 .next-month,
 .prev-month {
-  background-color: #ddd;
-  color: white;
+  background-color: $main-color-bg;
+  color: var(--card-color-user);
+  font-weight: bolder;
+  opacity: 0.25;
 }
 
 #daily-task {
