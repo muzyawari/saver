@@ -4,8 +4,9 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
+    @folder = Folder.find(request.referrer.split("/")[-1])
     if @message.save
-      redirect_to folders_path
+      redirect_to @folder
     else
       render "chatrooms/show"
     end
