@@ -23,7 +23,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { timer, startTimer } from "../components/timer.js";
-
+import { contextMenu} from "../components/context_menu";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";

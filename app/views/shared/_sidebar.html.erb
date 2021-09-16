@@ -19,7 +19,8 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div data-initials= <%= current_user.first_name.capitalize[0] %><%= current_user.last_name.capitalize[0] %>></div>
+            <%# <%= image_tag current_user.first_name.capitalize[0], class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu " aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", "#", class: "dropdown-item" %>
               <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item", id: "settings" %>
@@ -64,20 +65,29 @@
                   <div class = "form">
                     <%= simple_form_for (@create) do |f| %>
                       <%= f.input :name %>
-                      <%= f.button :submit, "Create Folder" %>
+                      <%= f.button :submit, "Create Folder", class: 'card-btn' %>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
             <% # ---------------------------------------------------------------- %>
-            <div class="dropdown ml-4">
+            <div class="dropdown ml-4" id = "dropdown">
               <% if user_signed_in? %>
                 <% @folders.each do |folder| %>
                   <% if (folder.user_id == current_user.id) %>
                     <li style = "list-style-type: none" >
                       <ul class="nav nav-list collapse " id="submenu1" >
-                        <%= link_to "#{folder.name}", folder, class: "flex-fill p-2 #{"hover-color" if (folder.id == params[:id].to_i)}", id: "tab", type: "button", title: "Title" %>
+                        <%= link_to "#{folder.name}", folder, class: "flex-fill  #{"hover-color" if (folder.id == params[:id].to_i)}", id: "tab", type: "button", title: "Title" %>
+                        <span class="mt-1">
+                          <%= link_to ('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                          </svg>').html_safe,
+                            folder,
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+                        </span>
                       </ul>
                     </li>
                   <% end %>
@@ -103,20 +113,29 @@
                   <div class = "form">
                     <%= simple_form_for (BookmarkList.new) do |f| %>
                       <%= f.input :name %>
-                      <%= f.button :submit, "Create Bookmark Folder" %>
+                      <%= f.button :submit, "Create Bookmark Folder", class: 'card-btn' %>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
             <% # ---------------------------------------------------------------- %>
-            <div class="dropdown ml-4">
+            <div class="dropdown ml-4" id = "dropdown">
               <% if user_signed_in? %>
                 <% current_user.bookmark_lists.each do |bookmark| %>
                   <% if (bookmark.user_id == current_user.id) %>
                     <li style = "list-style-type: none" >
                       <ul class="nav nav-list collapse " id="submenu2" >
-                        <%= link_to "#{bookmark.name}", bookmark, class: "flex-fill p-2 #{"hover-color" if (folder.id == params[:id].to_i)}", id: "tab", type: "button", title: "Title" %>
+                        <%= link_to "#{bookmark.name}", bookmark, class: "flex-fill #{"hover-color" if (folder.id == params[:id].to_i)}", id: "tab", type: "button", title: "Title" %>
+                        <span class="mt-1">
+                          <%= link_to ('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                          </svg>').html_safe,
+                            bookmark,
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+                        </span>
                       </ul>
                     </li>
                   <% end %>
@@ -146,7 +165,7 @@
           </div>
         </div>
         <% # ---------------------------------------------------------------- %>
-        <div class="dropdown">
+        <div class="dropdown" >
           <% if user_signed_in? %>
             <li style = "list-style-type: none" >
               <ul class="nav nav-list collapse " id="submenu3" >
