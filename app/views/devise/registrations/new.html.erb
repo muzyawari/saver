@@ -1,4 +1,4 @@
-  <div class="form-group">
+  <div class="form-group container">
     <h2>Sign up</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -40,7 +40,7 @@
                   as: :date, html5: true,
                   input_html: { autocomplete: "Date of Birth" } %>
 
-      <%= f.button :submit, class: "btn btn-primary mr-3" %>
+      <%= f.button :submit, class: "btn btn-outline-dark mr-3" %>
     <%= render "devise/shared/links" %>
   </div>
 
