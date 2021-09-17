@@ -26,14 +26,12 @@
     <%= f.input :bg_color,
                 input_html: { type: "color", data: { default_color_target: "input" } },
                 label: "Side Bars Color",
-                value: "#151828",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
     <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: { action: "click->default-color#setValue" } %>
   </div>
   <div class="revert" data-controller="default-color" data-default-color-color-value="#372f2f">
     <%= f.input :card_color,
                 input_html: { type: "color", data: { default_color_target: "input" } },
-                value: "#372f2f",
                 label: "Card Colour",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
     <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: { action: "click->default-color#setValue" } %>
@@ -42,7 +40,6 @@
     <%= f.input :txt_color,
                 input_html: { type: "color", data: { default_color_target: "input" } },
                 label: "Text Colour",
-                value: "#FFFFFF",
                 hint: "Please note that this doesnt change the form color scheme for security reasons" %>
     <%= link_to ('<i class="fas fa-history"></i>').html_safe, "#", class: "revert-icon", data: { action: "click->default-color#setValue" } %>
   </div>
