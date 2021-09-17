@@ -10,9 +10,7 @@ class User < ApplicationRecord
 
   has_many :bookmark_lists, dependent: :destroy
   has_many :bookmarks, through: :bookmark_lists
-
   has_many :notifications, as: :recipient, dependent: :destroy
-
   has_one_attached :photo
   # validates :first_name, :last_name, :email, :phone, :gender, presence: true
   validates :email, format: { with: /\A.*@.*\.com\z/ }
