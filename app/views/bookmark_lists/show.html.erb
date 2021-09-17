@@ -1,11 +1,11 @@
 <%= render "shared/sidebar", folder: @create %>
 <div class = "bookmarks" >
-  <section class="home-section  mb-4">
+  <section class="home-section mb-5">
     <div class = "topbar">
       <%= simple_form_for [@bookmark_list, @bookmark] do |f| %>
         <div class="url-search">
-          <%= f.input :name, label: false, placeholder: "Name for bookmark" %>
-          <%= f.input :url, label: false, placeholder: "Type URL here..." %>
+          <%= f.input :name, label: false, placeholder: "Name for bookmark", class: "name" %>
+          <%= f.input :url, label: false, placeholder: "Type URL here...", class: "url" %>
           <%= f.submit class: "bookmark-button" %>
         </div>
       <% end %>
@@ -14,7 +14,6 @@
       <% @bookmark_list.bookmarks.each do |bm| %>
         <%= render "bookmarks/bookmark", bookmark: bm %>
       <% end %>
-
     </div>
   </section>
 </div>
