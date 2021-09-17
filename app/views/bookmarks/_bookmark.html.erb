@@ -1,21 +1,20 @@
-<div class="box" data-controller="bookmark" data-bookmark-url-value="<%= bookmark.url %>">
-      <a href="<%= bookmark.url %>" target="_blank"><img id="myimage" style="object-fit: cover"  src="" data-bookmark-target="img"></a>
+<div class="bookmarkcard" data-controller="bookmark" data-bookmark-url-value="<%= bookmark.url %>">
+  <a href="<%= bookmark.url %>" target="_blank"><img id="myimage" class= "img-cover" src="" data-bookmark-target="img">
+    <div class="icon">
+       <%= link_to ('<i class="fas fa-trash"></i>').html_safe, bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </a>
+
+
+
   <div class="is-clipped">
-  <br>
+    <div class="desc">
+      <div id="mytitle" data-bookmark-target="title"></a></div>
 
-    <h4><%= bookmark.name %>
-<%= link_to ('<i class="fas fa-trash"></i>').html_safe,
-            bookmark_path(bookmark),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-
-</h4>
-
-
-    <div id="mytitle" data-bookmark-target="title"></a></div>
     <div id="mydescription" data-bookmark-target="description"></div>
-    <div id="myurl" data-bookmark-target="url"></div>
 
-
-  </div>
-</div>
+    <div id="myurl" data-bookmark-target="url"> <a href ="<%= bookmark.url %>" target="_blank">Link  <svg width="19" height="14" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 9H22M12 1.5L20.9333 8.2C21.4667 8.6 21.4667 9.4 20.9333 9.8L12 16.5" stroke="white" stroke-width="3"/> </svg> </a> </div>
+     </div>
+   </div>
+ </div>
+ </div>

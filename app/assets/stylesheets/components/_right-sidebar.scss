@@ -240,9 +240,14 @@
 }
 
 .toggle-on {
-  display:block
+  display: block;
 }
 
 .toggle-off {
-  display:none
+  display: none;
+}
+
+#item {
+  position: sticky;
+  top: 0;
 }
