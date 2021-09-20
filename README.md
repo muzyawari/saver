@@ -7,7 +7,7 @@ Saver is an all in one productivity tool with draggable widgets and folders for 
 
 *'All Your Productivity Tools Under One Roof'*
 
-![UI - Home](docs/home.png)
+![UI - Home](app/assets/images/og.png)
 
 This application was built with
 ```
