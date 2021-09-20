@@ -28,6 +28,10 @@ You will also need Bundler installed:
 ```
 bundle install
 ```
+You will also need Yarn installed:
+```
+yarn install
+```
 This will install the gems needed to run the program correctly.
 
 ## Navigating the application
