@@ -41,13 +41,14 @@ You can create a new account with your email address and a password or alternati
 
 You will be presented with our calendar on the home page and you will be able to create folders on the left hand side where you will be able to access your widgets. 
 
-![feed](docs/feed.png)
+![feed](app/assets/images/homepage.png)
 
 Navigate to folders and add widgets including Todo List, Timer and a Bookmark Manager. 
 
-![feed](docs/profile.png)
+![feed](app/assets/images/Folder.png)
 
-![feed](docs/charities.png)
+Add in as many bookmarks in your bookmarks manager. 
+![feed](app/assets/images/bookmark.png)
 
 
 
