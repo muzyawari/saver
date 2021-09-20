@@ -37,8 +37,7 @@ You can create a new account with your email address and a password or alternati
 `user: demo@saver.com`
 `pass: secret`
 
-
-You will be presented with our calendar on the home page and you will be able to create folders on the left hand side where you will be able to access your widgets. 
+You will be presented with our calendar which you can optimise in the settings for the perfect color that you are after on the home page and you will be able to create folders on the left hand side where you will be able to access your widgets. You can toggle your view to go fullscreen and be free of distractions. 
 
 ![feed](app/assets/images/homepage.png)
 
@@ -49,7 +48,6 @@ Navigate to folders and add widgets including Todo List, Timer and a Bookmark Ma
 Add in as many bookmarks in your bookmarks manager. 
 
 ![feed](app/assets/images/bookmark.png)
-
 
 
 ## Technologies used
