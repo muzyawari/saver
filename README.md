@@ -5,7 +5,6 @@
 
 Saver is an all in one productivity tool with draggable widgets and folders for you lifestyle. 
 
-*'All Your Productivity Tools Under One Roof'*
 
 ![UI - Home](app/assets/images/og.png)
 
@@ -48,6 +47,7 @@ Navigate to folders and add widgets including Todo List, Timer and a Bookmark Ma
 ![feed](app/assets/images/Folder.png)
 
 Add in as many bookmarks in your bookmarks manager. 
+
 ![feed](app/assets/images/bookmark.png)
 
 
