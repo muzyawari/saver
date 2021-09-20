@@ -29,8 +29,6 @@ import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
 import Chart from "chart.js";
 
-
-
 // weekly.style.display = "none";
 const toggleCalender = (checkbox) => {
   const monthly = document.querySelector(".monthly");
@@ -104,29 +102,27 @@ let toggleClick = true;
 
 function myFunctionLeft() {
   toggleClick = !toggleClick;
-  var sidebar = document.getElementById("myDIVleft");
-  if (toggleClick) {
-    sidebar.classList.remove("toggle-off");
-    sidebar.classList.add("toggle-on");
+  var x = document.getElementById("myDIVleft");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    x.style.width = "250px";
   } else {
-    sidebar.classList.remove("toggle-on");
-    sidebar.classList.add("toggle-off");
+    x.style.display = "none";
   }
 }
-
-
 
 function myFunctionRight() {
   var x = document.getElementById("myDIVright");
   if (x.style.display === "none") {
     x.style.display = "block";
+    x.style.width = "250px";
   } else {
     x.style.display = "none";
   }
 }
 
 document.addEventListener("turbolinks:load", () => {
-  console.log("turbolinks")
+  console.log("turbolinks");
   const clickButton = document.getElementById("clickmeindexleft");
   if (clickButton) {
     clickButton.addEventListener("click", (event) => {
@@ -137,25 +133,44 @@ document.addEventListener("turbolinks:load", () => {
 
 document.addEventListener("turbolinks:load", () => {
   const clickButton = document.getElementById("clickmeleft");
-  clickButton.addEventListener("click", (event) => {
-    myFunctionLeft();
-  });
+  if (clickButton) {
+    clickButton.addEventListener("click", (event) => {
+      myFunctionLeft();
+
+    });
+  }
 });
 
 document.addEventListener("turbolinks:load", () => {
   const clickButton = document.getElementById("clickmeright");
-  clickButton.addEventListener("click", (event) => {
-    myFunctionRight();
-  });
+  if (clickButton) {
+    clickButton.addEventListener("click", (event) => {
+      myFunctionRight();
+    });
+  }
 });
 
 document.addEventListener("turbolinks:load", () => {
   const clickButton = document.getElementById("clickmecenter");
-  clickButton.addEventListener("click", (event) => {
-    myFunctionLeft();
-    myFunctionRight();
-  });
+  if (clickButton) {
+    clickButton.addEventListener("click", (event) => {
+      myFunctionLeft();
+      myFunctionRight();
+    });
+  }
 });
 
+function closeNav() {
+
+}
+
+document.addEventListener("turbolinks:load", () => {
+  const clickButton = document.querySelector(".left-side-button");
+  if (clickButton) {
+    clickButton.addEventListener("click", (event) => {
+      closeNav();
+    });
+  }
+});
 
 import "controllers";
