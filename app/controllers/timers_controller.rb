@@ -21,7 +21,8 @@ class TimersController < ApplicationController
     @section = Section.find(@timer.section_id)
     @folder = Folder.find(@section.folder_id)
     @timer.destroy
-    redirect_to @folder
+    redirect_back fallback_location: root_path
+    # redirect_to @folder
   end
 
   private
