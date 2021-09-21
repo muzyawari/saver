@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def demo_user
-    @demo = User.find(1)
+    @demo = User.find(5)
   end
 end
