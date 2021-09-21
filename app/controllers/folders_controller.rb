@@ -70,7 +70,7 @@ class FoldersController < ApplicationController
     @user = current_user
     @create.user = @user
     if @create.save
-      redirect_back fallback_location: root_path
+      redirect_to @create
     else
       render :new
     end

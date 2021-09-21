@@ -11,7 +11,7 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
     @section.folder = @folder
     if @section.save
-      redirect_to @folder
+      redirect_back fallback_location: root_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ class SectionsController < ApplicationController
     @folder = Folder.find(@section.folder_id)
     @section.update(section_params)
     if @section.save
-      redirect_to @folder
+      redirect_back fallback_location: root_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class SectionsController < ApplicationController
   def destroy
     @folder = Folder.find(@section.folder_id)
     @section.destroy
-    redirect_to @folder
+    redirect_back fallback_location: root_path
   end
 
   private
