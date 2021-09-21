@@ -1,12 +1,17 @@
 .bookmarks {
   width: 100%;
   overflow: overlay;
+  background-image: asset-url("wall.jpg");
+  background-size: cover;
+  height: 100vh;
 }
 
 .url {
   flex-grow: 0.5;
   margin-left: 10px;
 }
+
+
 
 .container1 {
   display: grid;
@@ -60,7 +65,6 @@
 
 .topbar {
   width: 100%;
-  background: white;
   padding: 25px;
   margin-bottom: 30px;
 }

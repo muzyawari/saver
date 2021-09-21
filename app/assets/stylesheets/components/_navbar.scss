@@ -29,6 +29,26 @@ body {
   color: #d3d1d8;
 }
 
+#myDIVleft {
+      @media screen and (max-width: 1210px) {
+    height: 100%;
+    display: none;
+    &.active {
+      transform: translatex(0);
+    }
+  }
+}
+
+#myDIVright {
+      @media screen and (max-width: 1210px) {
+    height: 100%;
+    display: none;
+    &.active {
+      transform: translatex(0);
+    }
+  }
+}
+
 .left-side {
   width: 260px;
   height: 100vh;
@@ -70,12 +90,6 @@ body {
   letter-spacing: 4px;
   position: sticky;
   top: 0;
-  background: linear-gradient(
-    to bottom,
-    $main-color-bg 0%,
-    $main-color-bg 76%,
-    $main-color-bg 100%
-  );
 }
 
 .side-title {

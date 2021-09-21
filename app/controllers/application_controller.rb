@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :demo_user
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -17,5 +18,9 @@ class ApplicationController < ActionController::Base
   # set Signout
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
+  end
+
+  def demo_user
+    @demo = User.find(5)
   end
 end

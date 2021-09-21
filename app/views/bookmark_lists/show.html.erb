@@ -1,7 +1,15 @@
-<%= render "shared/sidebar", folder: @create %>
+<div id="myDIVleft">
+<%= render "shared/sidebar", folder: @create, boookmark: @bookmark %>
+</div>
+
+
+
+
 <div class = "bookmarks" >
+
   <section class="home-section mb-5">
     <div class = "topbar">
+    <button class="collapse-button btn btn-primary" id="clickmeindexleft"><i class="fas fa-grip-lines mr-2"></i></button>
       <%= simple_form_for [@bookmark_list, @bookmark] do |f| %>
         <div class="url-search">
           <%= f.input :name, label: false, placeholder: "Name for bookmark", class: "name" %>

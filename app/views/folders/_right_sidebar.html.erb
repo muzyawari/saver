@@ -39,18 +39,7 @@
       </div>
     </div>
   </div>
-  <div class="side-wrapper underline">
-    <div class="user">
-      <%= image_tag("bookmark.png", :class => "user-img") %>
-      <div class="username"> Bookmark
-        <div class="folder-links">
-          <% if @folder.id %>
-            <%= link_to "Add Bookmark Manager", folder_sections_path(@folder, section: { section_type: "bookmark", name: "My Bookmarks" }), method: "POST", id: "folder-link" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+
    <div class="notification pl-4">
   <div class="side-title">Notifications</div>
   </div>
