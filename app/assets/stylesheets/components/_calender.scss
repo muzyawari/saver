@@ -3,7 +3,7 @@
     background-color: $card-color-bg;
     color: $main-color-txt;
   }
-  @media screen and (max-width: 1210px) {
+  @media screen and (max-width: 900px) {
     width: 200px;
     &.active {
       transform: translatex(0);
@@ -62,11 +62,13 @@ a:hover {
   text-decoration: none;
 }
 
-// .monthly{
-//   background-color: $main-color-txt;
-//   padding: 20px;
-//   border-radius: 20px;
-// }
+
+.monthly{
+  background-color: $main-color-txt;
+  padding: 20px;
+  border-radius: 20px;
+  overflow-x:auto;
+}
 
 .calender-container {
   background-color: $main-color-txt;
