@@ -80,8 +80,7 @@
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  @media screen and (max-width: 1210px) {
-    height: 100%;
+  @media screen and (max-width: 900px) {
     width: 250px;
     &.active {
       transform: translatex(0);

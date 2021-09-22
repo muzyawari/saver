@@ -4,7 +4,6 @@
     color: $main-color-txt;
   }
   @media screen and (max-width: 1210px) {
-    height: 100%;
     width: 200px;
     &.active {
       transform: translatex(0);
