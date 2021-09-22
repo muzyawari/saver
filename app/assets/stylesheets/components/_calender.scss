@@ -4,7 +4,6 @@
     color: $main-color-txt;
   }
   @media screen and (max-width: 900px) {
-    width: 200px;
     &.active {
       transform: translatex(0);
     }
@@ -62,12 +61,20 @@ a:hover {
   text-decoration: none;
 }
 
-
-.monthly{
+.weekly {
   background-color: $main-color-txt;
   padding: 20px;
   border-radius: 20px;
-  overflow-x:auto;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.monthly {
+  background-color: $main-color-txt;
+  padding: 20px;
+  border-radius: 20px;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .calender-container {
