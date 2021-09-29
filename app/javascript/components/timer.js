@@ -1,6 +1,5 @@
 let countdown;
 
-
 const timer = (seconds) => {
   // clear any existing timers
   clearInterval(countdown);
@@ -28,15 +27,6 @@ const displayTimeLeft = (seconds) => {
   document.title = display;
   const timerDisplay = document.querySelector(".display__time-left");
   timerDisplay.textContent = display;
-}
-
-const displayEndTime = (timestamp) => {
-  const end = new Date(timestamp);
-  const hour = end.getHours();
-  const adjustedHour = hour > 12 ? hour - 12 : hour;
-  const minutes = end.getMinutes();
-  // const endTime = document.querySelector(".display__end-time");
-  // endTime.textContent = `Be Back At ${adjustedHour}:${minutes < 10 ? '0' : ''}${minutes}`;
 }
 
 const startTimer = (event) => {
