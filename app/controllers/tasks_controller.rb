@@ -18,7 +18,8 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.section = @section
     if @task.save
-      redirect_to folder_path(@folder, anchor: "task-#{@task.id}")
+      # redirect_to folder_path(@folder, anchor: "task-#{@task.id}")
+      redirect_back fallback_location: root_path
     else
       render :new
     end
@@ -29,7 +30,8 @@ class TasksController < ApplicationController
     @section = Section.find(@task.section_id)
     @folder = Folder.find(@section.folder_id)
     @task.destroy
-    redirect_to @folder
+    # redirect_to @folder
+    redirect_back fallback_location: root_path
   end
 
   def edit
@@ -41,7 +43,8 @@ class TasksController < ApplicationController
     @task.update(task_params)
     @section = Section.find(@task.section_id)
     @folder = Folder.find(@section.folder_id)
-    redirect_to @folder
+    redirect_back fallback_location: root_path
+    # redirect_to @folder
   end
 
   private

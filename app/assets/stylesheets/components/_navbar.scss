@@ -29,6 +29,26 @@ body {
   color: #d3d1d8;
 }
 
+#myDIVleft {
+      @media screen and (max-width: 1210px) {
+    // height: 100%;
+    display: none;
+    &.active {
+      transform: translatex(0);
+    }
+  }
+}
+
+#myDIVright {
+      @media screen and (max-width: 1210px) {
+    // height: 100%;
+    display: none;
+    &.active {
+      transform: translatex(0);
+    }
+  }
+}
+
 .left-side {
   width: 260px;
   height: 100vh;
@@ -39,61 +59,17 @@ body {
   background-color: $bg-color;
   overflow: auto;
   flex-shrink: 0;
-  @media screen and (max-width: 930px) {
-    &.active {
-      z-index: 4;
-      & > *:not(.logo) {
-        opacity: 1;
-        transition: 0.3s 0.2s;
-      }
-      .left-side-button svg:first-child {
-        opacity: 0;
-      }
-      .left-side-button svg:last-child {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-      }
-    }
-    &:not(.active) {
-      width: 56px;
-      overflow: hidden;
-      & > *:not(.logo):not(.left-side-button) {
-        opacity: 0;
-      }
-      .logo {
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
-        transform-origin: bottom;
-        display: flex;
-        align-items: center;
-        margin-top: -10px;
-      }
-    }
-  }
 }
 
 .right-side {
   width: 280px;
+  height: 100vh;
   flex-shrink: 0;
   margin-left: auto;
   overflow: auto;
   background-color: $bg-color;
   display: flex;
   flex-direction: column;
-  @media screen and (max-width: 1210px) {
-    position: fixed;
-    right: 0;
-    top: 0;
-    transition: 0.3s;
-    height: 100%;
-    transform: translateX(280px);
-    z-index: 4;
-
-    &.active {
-      transform: translatex(0);
-    }
-  }
-  height: 100%;
 }
 
 .main {
@@ -113,14 +89,7 @@ body {
   height: 68px;
   line-height: 68px;
   letter-spacing: 4px;
-  position: sticky;
   top: 0;
-  background: linear-gradient(
-    to bottom,
-    $main-color-bg 0%,
-    $main-color-bg 76%,
-    $main-color-bg 100%
-  );
 }
 
 .side-title {
@@ -180,7 +149,7 @@ body {
 .left-side-button {
   display: none;
   @media screen and (max-width: 930px) {
-    display: flex;
+    // display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
@@ -250,13 +219,11 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: $main-color-bg;
   opacity: 0.01;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $main-color-bg;
   opacity: 0.11;
   border-radius: 10px;
 }

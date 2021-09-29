@@ -3,6 +3,12 @@
     background-color: $card-color-bg;
     color: $main-color-txt;
   }
+  @media screen and (max-width: 900px) {
+    &.active {
+      transform: translatex(0);
+    }
+  }
+  height: 100%;
 }
 
 .day {
@@ -55,11 +61,21 @@ a:hover {
   text-decoration: none;
 }
 
-// .monthly{
-//   background-color: $main-color-txt;
-//   padding: 20px;
-//   border-radius: 20px;
-// }
+.weekly {
+  background-color: $main-color-txt;
+  padding: 20px;
+  border-radius: 20px;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.monthly {
+  background-color: $main-color-txt;
+  padding: 20px;
+  border-radius: 20px;
+  overflow-x: auto;
+  width: 100%;
+}
 
 .calender-container {
   background-color: $main-color-txt;

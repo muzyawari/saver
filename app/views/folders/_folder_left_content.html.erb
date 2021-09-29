@@ -50,16 +50,13 @@
                 <span class="text-center mb-2"><strong><%= timer.name %></strong></span>
                 <div class="timer">
                   <br>
-<div class="simple_form">
-
-                  <form name="customForm" id="customForm" class= "timer__controls d-flex mx-5">
-                    <button data-time="0" class="timer__button"><i class="fas fa-undo"></i></button>
-
-                    <input type="text" name="minutes" placeholder="Enter Minutes"class="form-control mx-3" id="input">
-                    <button type="submit" id= "start"class="timer__button" name="start" value="start"><i class="fas fa-play"></i></button>
-                  </form>
+                  <div class="simple_form">
+                    <form name="customForm" id="customForm" class= "timer__controls d-flex mx-5">
+                      <button data-time="0" class="timer__button"><i class="fas fa-undo"></i></button>
+                      <input type="text" name="minutes" placeholder="Enter Minutes"class="form-control mx-3" id="input">
+                      <button type="submit" id= "start"class="timer__button" name="start" value="start"><i class="fas fa-play"></i></button>
+                    </form>
                   </div>
-
                   <div class="display mx-5 mb-5">
                     <h1 class="display__time-left mt-2"></h1>
                     <p class="display__end-time mb-2"></p>

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FWNZ286M4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-3FWNZ286M4');
+    </script>
     <title>Saver - All Your Productivity Tools Under One Roof</title>
     <meta name="description" content="<%= meta_description %>">
     <!-- Facebook Open Graph data -->
@@ -18,7 +27,6 @@
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
     <%= favicon_link_tag asset_path("saver.png") %>
-
     <script src="https://kit.fontawesome.com/4a2ded34c6.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
