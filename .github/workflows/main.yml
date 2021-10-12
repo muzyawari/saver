@@ -32,8 +32,7 @@ jobs:
     steps:
       - name: Checkout repository # copies repo in runner
         uses: actions/checkout@v2 # short for https://github.com/actions/checkout
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1 # short for https://github.com/ruby/setup-ruby
+      - name: Set up Ruby # short for https://github.com/ruby/setup-ruby
         uses: ruby/setup-ruby@v1
         with:
           # runs 'bundle install' and caches installed gems automatically
