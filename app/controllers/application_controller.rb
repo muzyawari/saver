@@ -12,11 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-<<<<<<< HEAD
-    { host: ENV["https://www.monosaver.com/"] || "localhost:3000" }
-=======
     { host: ENV["https://www.monosaver.com/"] }
->>>>>>> 1035669371fb50c66843fe286ffcbe2662c84274
   end
 
   # set Signout

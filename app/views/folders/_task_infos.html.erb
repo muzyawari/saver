@@ -7,11 +7,7 @@
         <% CommentNotification.with(task: task).deliver(current_user) %>
       <% end %>
     <% end %>
-    <% if task.completed == "completed" %>
-      <a class = "add" href="<%=  %>"><%= image_tag("checked.png", height: "15", width: "15") %></a>
-    <% else %>
-      <a class = "add" href="<%=  %>"><%= image_tag("empty.png", height: "15", width: "15") %></a>
-    <% end %>
+
     <a id = "task<%= task.id %>" data-action="click->edit-task#displayForm"><%= task.title %></a>
     <%= link_to image_tag("remove.png", height: "15", width: "15"),
                 task_path(task.id),
