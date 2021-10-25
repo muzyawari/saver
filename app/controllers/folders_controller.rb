@@ -44,7 +44,7 @@ class FoldersController < ApplicationController
     @results = @q.result(distinct: true)
     @folders = Folder.all
     @create = Folder.new
-    @edit = Folder.find(params[:id])
+    @edit = Folder.friendly.find(params[:id])
 
     @sections = Section.where(folder: @folder)
     @section = @sections.first
@@ -77,11 +77,11 @@ class FoldersController < ApplicationController
   end
 
   def edit
-    @folder = Folder.find(params[:id])
+    @folder = Folder.friendly.find(params[:id])
   end
 
   def update
-    @folder = Folder.find(params[:id])
+    @folder = Folder.friendly.find(params[:id])
     @folder.update(folder_params)
     redirect_to root_path
   end
@@ -94,7 +94,7 @@ class FoldersController < ApplicationController
   private
 
   def set_folder
-    @folder = Folder.find(params[:id])
+    @folder = Folder.friendly.find(params[:id])
   end
 
   def folder_params

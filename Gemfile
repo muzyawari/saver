@@ -71,3 +71,6 @@ gem "chartkick"
 gem "rails_admin", "~> 2.0"
 gem "noticed", "~> 1.4"
 gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
+gem "friendly_id", "~> 5.4.0"
+gem 'vueonrails'
+gem 'webpacker'
