@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :folders, dependent: :destroy
   has_many :sections, through: :folders
   has_many :tasks, through: :sections
-
   has_many :bookmark_lists, dependent: :destroy
   has_many :bookmarks, through: :bookmark_lists
   has_many :notifications, as: :recipient, dependent: :destroy

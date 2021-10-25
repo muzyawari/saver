@@ -321,6 +321,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8)
+    vueonrails (0.3.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -382,6 +383,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   turbolinks_render
   tzinfo-data
+  vueonrails
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
@@ -390,4 +392,4 @@ RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
-   2.2.26
+   2.2.27
