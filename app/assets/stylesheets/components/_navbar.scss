@@ -30,7 +30,7 @@ body {
 }
 
 #myDIVleft {
-      @media screen and (max-width: 1210px) {
+  @media screen and (max-width: 1210px) {
     // height: 100%;
     display: none;
     &.active {
@@ -40,7 +40,7 @@ body {
 }
 
 #myDIVright {
-      @media screen and (max-width: 1210px) {
+  @media screen and (max-width: 1210px) {
     // height: 100%;
     display: none;
     &.active {
@@ -173,6 +173,9 @@ body {
       transform: translate(100%, -50%);
       top: 50%;
       opacity: 0;
+    }
+    .test {
+      fasdkflk
     }
   }
 }
