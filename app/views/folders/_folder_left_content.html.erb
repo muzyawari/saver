@@ -80,7 +80,7 @@
             </div>
           <% end %>
           <% if section.section_type == "web" %>
-          <div class="web-container p-4 ">
+          <div class="web-container m-4 p-4 ">
             <div class = "web-card p-10" >
               <h2>Browser</h2>
               <hr size="10">
@@ -101,8 +101,10 @@
                     <%= f.button :submit, "Start Browser", class: "card-btn btn" %>
                   <% end %>
                    <br>
+
                   <p><em>Only iframe enabled urls supported...</em><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">More Info</a></p>
                  <br>
+                 <p><strong>Resize by dragging bottom right corner of Iframe<strong></p>
                 </div>
               <% end %>
 
