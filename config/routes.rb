@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :sections, only: [:destroy, :update] do
     resources :tasks, only: [:index, :create, :new]
     resources :timers, only: [:create, :new]
+    resources :webs, only: [:create, :new]
   end
   resources :bookmark_lists, only: [:show, :create, :new, :destroy, :edit, :update] do
     resources :bookmarks, only: [:create, :new]

@@ -7,7 +7,7 @@ class SectionsController < ApplicationController
   end
 
   def create
-    @folder = Folder.find(params[:folder_id])
+    @folder = Folder.friendly.find(params[:folder_id])
     @section = Section.new(section_params)
     @section.folder = @folder
     if @section.save

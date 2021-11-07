@@ -9,10 +9,12 @@ class FoldersController < ApplicationController
     @bookmarks = Bookmark.all
     @bookmark = Bookmark.new
     @timers = {}
+    @webs = {}
     @sections.each do |section|
       @tasks[section.id] = Task.where(section: section)
       @bookmarks[section.id] = Bookmark.where(section: section)
       @timers[section.id] = Timer.where(section: section)
+      @webs[section.id] = Web.where(section: section)
     end
     @all_tasks = Task.all
     @notifications = current_user.notifications
@@ -51,12 +53,15 @@ class FoldersController < ApplicationController
     @tasks = {}
     @task = Task.new
     @timer = Timer.new
+    @web = Web.new
     @bookmarks = {}
     @timers = {}
+    @webs = {}
     @sections.each do |section|
       @tasks[section.id] = Task.where(section: section)
       @bookmarks[section.id] = Bookmark.where(section: section)
       @timers[section.id] = Timer.where(section: section)
+      @webs[section.id] = Web.where(section: section)
     end
   end
 

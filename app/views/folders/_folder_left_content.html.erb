@@ -79,6 +79,36 @@
               </span>
             </div>
           <% end %>
+          <% if section.section_type == "web" %>
+            <div class = "web-card p-10 pt-4" >
+              <h2>Browser</h2>
+              <hr size="10">
+              <% @webs[section.id].each do |web| %>
+                <span class="text-right">
+                </span>
+                <div>
+  <iframe id="ytplayer" type="text/html" width="<%= web.width %>" height="<%= web.height %>" src="<%= web.url %>" frameborder="0"></iframe>
+</div>
+              <% end %>
+              <% if section.webs.length == 0 %>
+                <div id = "web" class = "my-3 mx-5 text-center">
+                  <%= simple_form_for([section, @web], remote: true) do |f| %>
+                    <%= f.input :url, input_html: { value: "https://www.google.com/search?igu=1" }, placeholder: "Enter URL - e.g. https://www.google.com/search?igu=1" %>
+                    <%= f.input :height, input_html: { value: 500 }, placeholder: "Enter Height - e.g. 400" %>
+                     <%= f.input :width, input_html: { value: 750 }, placeholder: "Enter Width - e.g. 400" %>
+                    <%= f.button :submit, "Start Browser", class: "card-btn btn" %>
+                  <% end %>
+                  <p><em>Only iframe enabled urls supported...</em><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">More Info</a></p>
+                </div>
+              <% end %>
+              <span class="bin mr-3 mb-3">
+                <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
+                            section_path(section),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+              </span>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_23_021646) do
+ActiveRecord::Schema.define(version: 2021_11_07_034929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,17 @@ ActiveRecord::Schema.define(version: 2021_09_23_021646) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "webs", force: :cascade do |t|
+    t.string "url"
+    t.integer "size"
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "section_id", null: false
+    t.index ["section_id"], name: "index_webs_on_section_id"
+  end
+
   add_foreign_key "bookmark_lists", "users"
   add_foreign_key "bookmarks", "bookmark_lists"
   add_foreign_key "folders", "users"
@@ -145,4 +156,5 @@ ActiveRecord::Schema.define(version: 2021_09_23_021646) do
   add_foreign_key "sections", "folders"
   add_foreign_key "tasks", "sections"
   add_foreign_key "timers", "sections"
+  add_foreign_key "webs", "sections"
 end

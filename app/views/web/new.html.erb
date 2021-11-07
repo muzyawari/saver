@@ -1,8 +1,7 @@
-<div id = "web" class = "card">
+<div id = "bookmark" class = "card">
   <%= simple_form_for [@section, @web] do |f| %>
+    <%= f.input :name %>
     <%= f.input :url %>
-    <%= f.input :height %>
-    <%= f.input :width %>
     <%= f.submit %>
   <% end %>
 </div>
