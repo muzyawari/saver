@@ -87,7 +87,11 @@
                 <span class="text-right">
                 </span>
                 <div>
-  <iframe id="ytplayer" type="text/html" width="<%= web.width %>" height="<%= web.height %>" src="<%= web.url %>" frameborder="0"></iframe>
+
+  <iframe  id="ytplayer" type="text/html" width="<%= web.width %>" height="<%= web.height %>" src="<%= web.url %>" frameborder="0"><input type="button" value="Back" onclick="history.back()"></iframe>
+  <br>
+  <p><em>Only iframe enabled urls supported...</em><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">More Info</a></p>
+<br>
 </div>
               <% end %>
               <% if section.webs.length == 0 %>
