@@ -36,7 +36,7 @@ gem "simple_form"
 group :development, :test do gem "pry-byebug"
   gem "pry-rails"
   gem "dotenv-rails"
-  
+
  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw] end
 
@@ -72,3 +72,5 @@ gem "noticed", "~> 1.4"
 gem "redactor-rails", github: "glyph-fr/redactor-rails"
 gem "friendly_id", "~> 5.4.0"
 gem "vueonrails"
+gem "sentry-ruby"
+gem "sentry-rails"
