@@ -80,7 +80,8 @@
             </div>
           <% end %>
           <% if section.section_type == "web" %>
-            <div class = "web-card p-10 pt-4" >
+          <div class="web-container p-4 ">
+            <div class = "web-card p-10" >
               <h2>Browser</h2>
               <hr size="10">
               <% @webs[section.id].each do |web| %>
@@ -95,9 +96,8 @@
               <% if section.webs.length == 0 %>
                 <div id = "web" class = "my-3 mx-5 text-center">
                   <%= simple_form_for([section, @web], remote: true) do |f| %>
-                    <%= f.input :url, input_html: { value: "https://www.google.com/search?igu=1" }, placeholder: "Enter URL - e.g. https://www.google.com/search?igu=1" %>
-                    <%= f.input :height, input_html: { value: 500 }, placeholder: "Enter Height - e.g. 400" %>
-                     <%= f.input :width, input_html: { value: 750 }, placeholder: "Enter Width - e.g. 400" %>
+                    <%= f.input :url, input_html: { value: "https://www.google.com/search?igu=1" }, placeholder: "Enter URL - e.g. https://www.google.com/search?igu=1", label: false %>
+
                     <%= f.button :submit, "Start Browser", class: "card-btn btn" %>
                   <% end %>
                    <br>
@@ -105,13 +105,16 @@
                  <br>
                 </div>
               <% end %>
-              <span class="bin mr-3 mb-3">
+
+            </div>
+
+            <span class="bin mr-3 mb-3">
                 <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
                             section_path(section),
                             method: :delete,
                             data: { confirm: "Are you sure?" } %>
               </span>
-            </div>
+              </div>
           <% end %>
         </div>
       <% end %>
