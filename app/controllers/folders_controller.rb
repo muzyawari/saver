@@ -71,10 +71,10 @@ class FoldersController < ApplicationController
   end
 
   def create
-    @create = Folder.new(folder_params)
+    @folder = Folder.new(folder_params)
     @user = current_user
-    @create.user = @user
-    if @create.save
+    @folder.user = @user
+    if @folder.save
       redirect_back fallback_location: root_path
     else
       render :new
