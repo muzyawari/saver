@@ -14,7 +14,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     # @folder = Folder.find(@section.folder_id)
     @bookmark.destroy
-    redirect_to @bookmark.bookmark_list
+    redirect_back fallback_location: folders_path, notice: "Bookmark deleted"
   end
 
   private

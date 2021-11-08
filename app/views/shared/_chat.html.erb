@@ -1,0 +1,48 @@
+<div class="tab-pane fade show active " id="menu" role="tabpanel" aria-labelledby="menu-tab">
+        <div class="d-flex align-items-center accordion-heading" id= "tabs" data-toggle="collapse" data-target="#submenu3" role="button" aria-expanded="true" aria-controls="collapseExample">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+          </svg>
+          Chat
+          <% # ---------------------------------------------- %>
+          <div class="btn-group">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+              <div class = "form">
+                <%= simple_form_for (@create) do |f| %>
+                  <%= f.input :name %>
+                  <%= f.button :submit, "Create Folder" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% # ---------------------------------------------------------------- %>
+        <div class="dropdown">
+          <% if user_signed_in? && Chatroom.first %>
+            <li style = "list-style-type: none" >
+              <ul class="nav nav-list collapse " id="submenu3" >
+                <div class = "chatroom">
+                  Chatroom: #<%= @chatroom.name %>
+                  <br>
+                  <br>
+                  <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+                    <% @chatroom.messages.each do |message| %>
+                      <div class="message-container" id="message-<%= message.id %>">
+                        <i class="author">
+                          <span><%= message.user.first_name %></span>
+                          <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                        </i>
+                        <p><%= message.content %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                  <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+                    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+                  <% end %>
+                </div>
+              </ul>
+            </li>
+          <% end %>
+        </div>
+      </div>

@@ -97,7 +97,7 @@
   resize: both;
   overflow: auto;
     min-height: 300px;
-    width: 400px;
+    width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   // min-height: 300px;
@@ -116,6 +116,9 @@
 }
 
 .web-container {
+    resize: both;
+  overflow: auto;
+  width:450px;
   background-color: $card-color-bg;
   color: $main-color-txt;
   margin: auto;
