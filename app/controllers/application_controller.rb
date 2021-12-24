@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    { host: ENV["https://www.monosaver.com/"] }
+    { host: ENV["https://saver-task-manager.herokuapp.com/users/sign_in"] }
   end
 
   # set Signout

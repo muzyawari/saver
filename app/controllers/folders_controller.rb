@@ -3,7 +3,6 @@ class FoldersController < ApplicationController
 
   def index
     @folders = Folder.where(user: current_user)
-    @notifications = current_user.notifications
     # Set the current month for the calender if there is a param -> take that value
     # if there is no params take today's date
     @date = params[:start_date].present? ? Date.parse(params["start_date"]) : Date.today
