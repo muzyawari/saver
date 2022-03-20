@@ -2,7 +2,11 @@
   <%= render "shared/sidebar", folder: @create %>
 </div>
 <div class="folder-wrapper d-flex">
-  <div class="folder-left">
+<% if !@folder.photo.key.nil? %>
+   <div class="folder-left" style="background-image: url('<%= cl_image_path @folder.photo.key, crop: :fill %>')" style = "background-size: cover">
+<% else %>
+    <div class="folder-left" style="background-image: url('<%= asset_path "wall.jpg", crop: :fill %>')" style = "background-size: cover">
+<% end %>
   <div class="d-flex justify-content-between" id = "item">
   <button class="collapse-button btn btn-primary" id="clickmeleft"><i class="fas fa-grip-lines mr-2"></i></button>
   <button class="collapse-button btn btn-primary" id="clickmecenter"><i class="fas fa-grip-lines mr-2"></i></button>

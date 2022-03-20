@@ -4,4 +4,5 @@ class Folder < ApplicationRecord
   has_many :tasks, through: :sections, dependent: :destroy
   extend FriendlyId
   friendly_id :name, use: :slugged
+  has_one_attached :photo
 end
