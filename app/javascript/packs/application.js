@@ -174,3 +174,5 @@ document.addEventListener("turbolinks:load", () => {
 });
 
 import "controllers";
+
+import "controllers"
