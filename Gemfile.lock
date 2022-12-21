@@ -185,6 +185,14 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     multipart-post (2.1.1)
+    net-imap (0.2.3)
+      digest
+      net-protocol
+      strscan
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
     net-protocol (0.1.2)
       io-wait
       timeout
@@ -307,6 +315,7 @@ GEM
       rack
       rails (>= 5.2)
       redis
+    strscan (3.0.1)
     thor (1.1.0)
     thread-local (1.1.0)
     tilt (2.0.10)
@@ -365,6 +374,8 @@ DEPENDENCIES
   friendly_id (~> 5.4.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  net-imap
+  net-pop
   net-smtp
   newrelic_rpm
   noticed (~> 1.4)
