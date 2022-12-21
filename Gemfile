@@ -76,3 +76,4 @@ gem "sentry-ruby"
 gem "sentry-rails"
 gem "newrelic_rpm"
 gem 'cloudinary', '~> 1.16.0'
+gem 'net-smtp', require: false
