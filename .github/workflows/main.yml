@@ -37,7 +37,7 @@ jobs:
         with:
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
-          ruby-version: 2.7.3
+          ruby-version: 3.1.2
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
