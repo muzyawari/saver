@@ -158,9 +158,9 @@ ActiveRecord::Schema.define(version: 2022_03_20_060114) do
     t.string "user_img"
     t.boolean "admin"
     t.string "nickname"
-    t.string "bg_color"
-    t.string "txt_color"
-    t.string "card_color"
+    t.string "bg_color", default: "#151828"
+    t.string "txt_color", default: "#FFFFFF"
+    t.string "card_color", default: "#372f2f"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
