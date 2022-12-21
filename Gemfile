@@ -63,6 +63,7 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem "dragula-rails"
 gem "turbolinks_render"
+gem 'nokogiri', '~> 1.13', '>= 1.13.10'
 gem "stimulus_reflex", "~> 3.4"
 gem "simple_calendar", "~> 2.4"
 gem "ransack", github: "activerecord-hackery/ransack"
