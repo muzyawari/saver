@@ -906,6 +906,11 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
+"@popperjs/core@^2.11.6":
+  version "2.11.6"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
+  integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
+
 "@rails/actioncable@>= 6.0", "@rails/actioncable@^6.0.0":
   version "6.1.4"
   resolved "https://registry.npmjs.org/@rails/actioncable/-/actioncable-6.1.4.tgz"
@@ -4200,10 +4205,10 @@ jquery-browserify@~1.8.1:
   resolved "https://registry.npmjs.org/jquery-browserify/-/jquery-browserify-1.8.1.tgz"
   integrity sha1-DeqddBpPQRWuGYDEUxsiUCmRoBU=
 
-jquery@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
-  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
+jquery@^3.6.3:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.3.tgz#23ed2ffed8a19e048814f13391a19afcdba160e6"
+  integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==
 
 js-tokens@^4.0.0:
   version "4.0.0"
@@ -5252,11 +5257,6 @@ pnp-webpack-plugin@^1.7.0:
   integrity sha512-2Rb3vm+EXble/sMXNSu6eoBx8e79gKqhNq9F5ZWW6ERNCTE/Q0wQNne5541tE5vKjfM8hpNCYL+LGc1YTfI0dg==
   dependencies:
     ts-pnp "^1.1.6"
-
-popper.js@^1.16.1:
-  version "1.16.1"
-  resolved "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
-  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 portfinder@^1.0.26:
   version "1.0.32"

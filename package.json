@@ -2,6 +2,7 @@
   "name": "saver",
   "private": true,
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -11,8 +12,7 @@
     "chartkick": "^4.0.5",
     "dragula": "^3.7.3",
     "flatpickr": "^4.6.9",
-    "jquery": "^3.6.0",
-    "popper.js": "^1.16.1",
+    "jquery": "^3.6.3",
     "sortable": "^2.0.0",
     "sortablejs": "^1.14.0",
     "stimulus": "^2.0.0",
