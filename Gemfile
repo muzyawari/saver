@@ -73,7 +73,6 @@ gem "redactor-rails", github: "glyph-fr/redactor-rails"
 gem "friendly_id", "~> 5.4.0"
 gem "sentry-ruby"
 gem "sentry-rails"
-gem 'bootstrap', '~> 4.6.2'
 gem "newrelic_rpm"
 gem 'cloudinary', '~> 1.16.0'
 gem 'net-smtp', require: false
