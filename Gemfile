@@ -1,14 +1,14 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.3"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.1.4", ">= 6.1.4.1"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use Puma as the app server
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.0.1"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -63,6 +63,7 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem "dragula-rails"
 gem "turbolinks_render"
+gem 'nokogiri', '~> 1.13', '>= 1.13.10'
 gem "stimulus_reflex", "~> 3.4"
 gem "simple_calendar", "~> 2.4"
 gem "ransack", github: "activerecord-hackery/ransack"
@@ -71,6 +72,10 @@ gem "ransack", github: "activerecord-hackery/ransack"
 gem "noticed", "~> 1.4"
 gem "redactor-rails", github: "glyph-fr/redactor-rails"
 gem "friendly_id", "~> 5.4.0"
-# gem "vueonrails"
-# gem "sentry-ruby"
-# gem "sentry-rails"
+gem "sentry-ruby"
+gem "sentry-rails"
+gem "newrelic_rpm"
+gem 'cloudinary', '~> 1.16.0'
+gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false

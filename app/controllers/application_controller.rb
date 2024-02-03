@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    { host: ENV["https://saver-task-manager.herokuapp.com/users/sign_in"] }
+    { host: ENV["https://saver-c7st.onrender.com/users/sign_in"] }
   end
 
   # set Signout
@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def demo_user
-    @demo = User.find(5)
+    @demo = User.find(1)
   end
 end

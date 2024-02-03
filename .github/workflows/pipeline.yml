@@ -27,7 +27,7 @@ jobs:
           --health-retries 5
       redis:
         image: redis
-        ports: ["6379:6379"]
+        ports: ['6379:6379']
         options: --entrypoint redis-server
     steps:
       - name: Checkout repository # copies repo in runner
@@ -37,11 +37,11 @@ jobs:
         with:
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
-          ruby-version: 3.1.2
+          ruby-version: 2.7.3
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: '14'
       - name: Get Yarn cache directory path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -72,5 +72,5 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "saver-productivity-manager" #Must be unique in Heroku
-          heroku_email: "nicholas_ang@outlook.com"
+          heroku_app_name: 'saver-productivity-manager' #Must be unique in Heroku
+          heroku_email: 'nicholas_ang@outlook.com'

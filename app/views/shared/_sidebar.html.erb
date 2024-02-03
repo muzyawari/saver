@@ -60,6 +60,7 @@
                   <%= @create = Folder.new %>
                     <%= simple_form_for (@create) do |f| %>
                       <%= f.input :name %>
+                      <%= f.input :photo, as: :file %>
                       <%= f.button :submit, "Create Folder", class: "btn btn-primary" %>
                     <% end %>
                   </div>
