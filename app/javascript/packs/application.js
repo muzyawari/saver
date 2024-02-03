@@ -27,7 +27,6 @@ import { timer, startTimer } from "../components/timer.js";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { loadDynamicBannerText } from "../components/banner";
 import "chartkick/chart.js";
-import Chart from "chart.js";
 
 // weekly.style.display = "none";
 const toggleCalender = (checkbox) => {
